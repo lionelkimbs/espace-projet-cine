@@ -24,16 +24,50 @@ class User extends BaseUser {
     /**
      * @var string
      *
-     * @ORM\Column(name="telephone", type="string", length=40, nullable=true)
+     * @ORM\Column(name="name", type="string", length=255)
      */
-    protected $telephone;
+    protected $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="portable", type="string", length=40, nullable=true)
+     * @ORM\Column(name="firstname", type="string", length=255)
      */
-    protected $portable;
+    protected $firstname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="phone", type="string", length=40, nullable=true)
+     */
+    protected $phone;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cellular", type="string", length=40, nullable=true)
+     */
+    protected $cellular;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="activity", type="string", length=255)
+     */
+    protected $activity;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="country", type="string", length=255)
+     */
+    protected $country;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="informations", type="string", length=255)
+     */
+    protected $informations;
 
     /**
      * @var string
@@ -70,53 +104,172 @@ class User extends BaseUser {
      */
     protected $autorisation = true;
 
-
     /**
-     * Set telephone
+     * Set name
      *
-     * @param string $telephone
+     * @param string $name
      *
      * @return User
      */
-    public function setTelephone($telephone)
+    public function setName($name)
     {
-        $this->telephone = $telephone;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get telephone
+     * Get name
      *
      * @return string
      */
-    public function getTelephone()
+    public function getName()
     {
-        return $this->telephone;
+        return $this->name;
     }
 
     /**
-     * Set portable
+     * Set firstname
      *
-     * @param string $portable
+     * @param string $firstname
      *
      * @return User
      */
-    public function setPortable($portable)
+    public function setFirstname($firstname)
     {
-        $this->portable = $portable;
+        $this->firstname = $firstname;
 
         return $this;
     }
 
     /**
-     * Get portable
+     * Get firstname
      *
      * @return string
      */
-    public function getPortable()
+    public function getFirstname()
     {
-        return $this->portable;
+        return $this->firstname;
+    }
+
+    /**
+     * Set phone
+     *
+     * @param string $phone
+     *
+     * @return User
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Get phone
+     *
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * Set cellular
+     *
+     * @param string $cellular
+     *
+     * @return User
+     */
+    public function setCellular($cellular)
+    {
+        $this->cellular = $cellular;
+
+        return $this;
+    }
+
+    /**
+     * Get cellular
+     *
+     * @return string
+     */
+    public function getCellular()
+    {
+        return $this->cellular;
+    }
+
+    /**
+     * Set activity
+     *
+     * @param string $activity
+     *
+     * @return User
+     */
+    public function setActivity($activity)
+    {
+        $this->activity = $activity;
+
+        return $this;
+    }
+
+    /**
+     * Get activity
+     *
+     * @return string
+     */
+    public function getActivity()
+    {
+        return $this->activity;
+    }
+
+    /**
+     * Set country
+     *
+     * @param string $country
+     *
+     * @return User
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    /**
+     * Get country
+     *
+     * @return string
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * Set informations
+     *
+     * @param string $informations
+     *
+     * @return User
+     */
+    public function setInformations($informations)
+    {
+        $this->informations = $informations;
+
+        return $this;
+    }
+
+    /**
+     * Get informations
+     *
+     * @return string
+     */
+    public function getInformations()
+    {
+        return $this->informations;
     }
 
     /**

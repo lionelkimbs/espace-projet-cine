@@ -77,3 +77,6 @@ fos_user:
     from_email:
         address: lionelkimbs@gmail.com
         sender_name: Pierre Barrot
+    registration:
+        form:
+            type: AppBundle\Form\RegistrationType
