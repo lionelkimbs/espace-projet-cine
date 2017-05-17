@@ -1,0 +1,11 @@
+oif_core:
+    resource: "@OIFCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
+oif_platform:
+    resource: "@OIFPlatformBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

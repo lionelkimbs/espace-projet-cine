@@ -1,0 +1,20 @@
+## Tableau de bord
+oif_core_homepage:
+    path:     /
+    defaults: { _controller: OIFCoreBundle:Core:index }
+
+## Page profil
+oif_core_profil:
+    path:     /profil
+    defaults: { _controller: OIFCoreBundle:Core:profil }
+
+## Page archives
+oif_core_archives:
+    path:     /archives
+    defaults: { _controller: OIFCoreBundle:Core:archives }
+
+## Page contact
+oif_core_contact:
+    path:     /contact
+    defaults: { _controller: OIFCoreBundle:Core:contact }
+

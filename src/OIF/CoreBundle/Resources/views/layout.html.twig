@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}- Images francophones{% endblock %}</title>
+
+    {% block stylesheets %}
+        {# On charge le CSS de bootstrap depuis le site directement #}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        {# On charge le JS de bootstrap depuis le site directement #}
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    {% endblock %}
+</head>
+
+<body>
+    <div class="container">
+
+        {# Header #}
+        <div class="page-header">
+
+            <div class="media">
+                <div class="media-left">
+                    <a href="{{ path('oif_core_homepage') }}" title="Tableau de bord">
+                        <img  class="media-object" src="http://www.spla.pro/gestion_oif/02_medias/01_interface/logo_bas.gif"/>
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{% block titre_page %}Espace Projets{% endblock %}</h4>
+                </div>
+            </div>
+
+        </div>
+
+        {# Main Menu #}
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#" class="navbar-brand">
+                        <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+                    <ul class="nav navbar-nav">
+                        <li role="dashboard" {% if app.request.get('_route') == 'oif_core_homepage' %}class="active"{% endif %}>
+                            <a href="{{ path('oif_core_homepage') }}" title="Tableau de bord">Tableau de bord</a>
+                        </li>
+                        <li role="audiovisuel" {% if app.request.get('_route') == 'oif_platform_audiovisuelle' %}class="active"{% endif %}>
+                            <a href="{{ path('oif_platform_audiovisuelle') }}">Commission audiovisuelle</a>
+                        </li>
+                        <li role="cinema" {% if app.request.get('_route') == 'oif_platform_cinema' %}class="active"{% endif %}>
+                            <a href="{{ path('oif_platform_cinema') }}">Commission cinéma</a>
+                        </li>
+                        <li role="archives" {% if app.request.get('_route') == 'oif_core_archives' %}class="active"{% endif %}>
+                            <a href="{{ path('oif_core_archives') }}">Archives</a>
+                        </li>
+                        <li role="profil" {% if app.request.get('_route') == 'oif_core_profil' %}class="active"{% endif %}>
+                            <a href="{{ path('oif_core_profil') }}">Mon profil</a>
+                        </li>
+                        <li role="profil" {% if app.request.get('_route') == 'oif_core_contact' %}class="active"{% endif %}>
+                            <a href="{{ path('oif_core_contact') }}">Contacter l'OIF</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+    </div>
+</body>

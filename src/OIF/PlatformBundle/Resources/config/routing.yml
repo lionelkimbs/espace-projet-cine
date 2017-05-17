@@ -1,0 +1,10 @@
+## Page cinéma
+oif_platform_cinema:
+    path:     /commission-cinema
+    defaults: { _controller: OIFPlatformBundle:CommissionCinema:index }
+
+## Page cinéma
+oif_platform_audiovisuelle:
+    path:     /commission-audiovisuelle
+    defaults: { _controller: OIFPlatformBundle:CommissionAudiovisuelle:index }
+

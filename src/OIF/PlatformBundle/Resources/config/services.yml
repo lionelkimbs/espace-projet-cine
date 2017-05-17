@@ -1,0 +1,4 @@
+services:
+#    oif_platform.example:
+#        class: OIF\PlatformBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
