@@ -1,3 +1,9 @@
 {% extends 'OIFCoreBundle::layout.html.twig' %}
 
 {% block title %}Commission audiovisuelle {{ parent() }}{% endblock %}
+
+{% block body %}
+    {% if is_granted('ROLE_USER') %}
+        <button class="btn btn-danger">Ajouter un projet</button>
+    {% endif %}
+{% endblock %}

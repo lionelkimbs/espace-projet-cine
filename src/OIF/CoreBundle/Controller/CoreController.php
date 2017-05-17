@@ -3,10 +3,16 @@
 namespace OIF\CoreBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class CoreController extends Controller {
     //---- -- TABELAU DE BORD
-    public function indexAction(){
+    /**
+     * @Security("has_role('ROLE_USER')")
+     */
+    public function indexAction(Request $request){
+
         return $this->render('OIFCoreBundle:Core:index.html.twig');
     }
 
