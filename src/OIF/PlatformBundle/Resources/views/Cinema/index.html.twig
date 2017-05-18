@@ -1,17 +1,3 @@
 {% extends 'OIFCoreBundle::layout.html.twig' %}
 
-{% block title %}Commission cinéma | {{ parent() }}{% endblock %}
-
-{% block body %}
-    {% if is_granted('ROLE_USER') %}
-
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 text-center">
-                <h4>Désormais, la soumission de dossiers au Fonds Image de la Francophonie se fait par dépôt de fichiers électroniques sur ce site sécurisé.</h4>
-            </div>
-        </div>
-
-        <a href="{{ path('oif_platform_cinema_add') }}" class="btn btn-danger">Ajouter un projet</a>
-
-    {% endif %}
-{% endblock %}
+{% block title %}Commission cinéma {{ parent() }}{% endblock %}

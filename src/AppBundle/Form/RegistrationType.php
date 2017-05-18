@@ -30,41 +30,4 @@ class RegistrationType extends AbstractType{
     public function getBlockPrefix(){
         return 'app_user_registration';
     }
-
-/*    public function getName(){
-        return 'app_user_registration';
-    }
-    public function getFirstname(){
-        return 'app_user_registration';
-    }
-    public function getPhone(){
-        return 'app_user_registration';
-    }
-    public function getCellular(){
-        return 'app_user_registration';
-    }
-    public function getActivity(){
-        return 'app_user_registration';
-    }
-    public function getCountry(){
-        return 'app_user_registration';
-    }
-    public function getInformations(){
-        return 'app_user_registration';
-    }
-    public function getWebsite(){
-        return 'app_user_registration';
-    }
-    public function getFacebook(){
-        return 'app_user_registration';
-    }
-    public function getTwitter(){
-        return 'app_user_registration';
-    }
-    public function getLinkedin(){
-        return 'app_user_registration';
-    }
-    public function getAutorisation(){
-        return 'app_user_registration';
-    }*/
 }

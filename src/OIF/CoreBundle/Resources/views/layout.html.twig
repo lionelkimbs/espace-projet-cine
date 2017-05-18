@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{% block title %}Images francophones{% endblock %}</title>
+    <title>{% block title %}- Images francophones{% endblock %}</title>
 
     {% block stylesheets %}
         {# On charge le CSS de bootstrap depuis le site directement #}
@@ -81,8 +81,8 @@
                             <li role="archives" {% if app.request.get('_route') == 'oif_core_archives' %}class="active"{% endif %}>
                                 <a href="{{ path('oif_core_archives') }}">Archives</a>
                             </li>
-                            <li role="profil" {% if app.request.get('_route') == 'fos_user_profile_show' %}class="active"{% endif %}>
-                                <a href="{{ path('fos_user_profile_show') }}">Mon profil</a>
+                            <li role="profil" {% if app.request.get('_route') == 'oif_core_profil' %}class="active"{% endif %}>
+                                <a href="{{ path('oif_core_profil') }}">Mon profil</a>
                             </li>
                             <li role="profil" {% if app.request.get('_route') == 'oif_core_contact' %}class="active"{% endif %}>
                                 <a href="{{ path('oif_core_contact') }}">Contacter l'OIF</a>
