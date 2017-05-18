@@ -1,0 +1,9 @@
+{% extends 'OIFCoreBundle::layout.html.twig' %}
+
+{% block title %}{{ projet.titre }} - Commission cinéma | {{ parent() }}{% endblock %}
+
+{% block body %}
+    <div class="well">
+        {{ projet.titre }}
+    </div>
+{% endblock %}

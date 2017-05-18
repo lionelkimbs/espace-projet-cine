@@ -3,8 +3,24 @@ oif_platform_cinema:
     path:     /commission-cinema
     defaults: { _controller: OIFPlatformBundle:CommissionCinema:index }
 
+oif_platform_cinema_view:
+    path:     /commission-cinema/projet-{id}
+    defaults:
+        _controller: OIFPlatformBundle:CommissionCinema:view
+    requirements:
+        id: \d+
+
+oif_platform_cinema_add:
+    path:     /commission-cinema/add
+    defaults: { _controller: OIFPlatformBundle:CommissionCinema:add }
+
+
 ## Page cinéma
 oif_platform_audiovisuelle:
     path:     /commission-audiovisuelle
     defaults: { _controller: OIFPlatformBundle:CommissionAudiovisuelle:index }
+
+oif_platform_audiovisuelle_add:
+    path:     /commission-audiovisuelle/add
+    defaults: { _controller: OIFPlatformBundle:CommissionAudiovisuelle:add }
 

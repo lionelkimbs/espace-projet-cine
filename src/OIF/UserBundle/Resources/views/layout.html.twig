@@ -4,9 +4,6 @@
 {% extends "OIFCoreBundle::layout.html.twig" %}
 
 {# Le title #}
-{% if app.request.get('_route') == 'fos_user_security_login' %}
-    {% block title %}Se connecter {{ parent() }}{% endblock %}
-{% endif %}
 
 {# Dans notre layout, il faut définir le block body #}
 {% block body %}

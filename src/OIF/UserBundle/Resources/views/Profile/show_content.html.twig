@@ -1,6 +1,89 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 <div class="fos_user_user_show">
-    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
-    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h2 class="panel-title">{{ user.firstname }} {{ user.name }}</h2>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center">
+                    <img alt="User Pic" src="https://www.mautic.org/media/images/default_avatar.png" class="img-circle img-responsive">
+                </div>
+
+                <div class=" col-md-9 col-lg-9 ">
+                    <table class="table table-user-information">
+                        <tbody>
+
+                            <tr>
+                                <td>Identifiant :</td>
+                                <td>{{ user.username }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Email :</td>
+                                <td>{{ user.email }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Activité :</td>
+                                <td>{{ user.activity }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Inscirt le :</td>
+                                <td>06/23/2013</td>
+                            </tr>
+
+                            <tr>
+                                <td>Téléphone(s) :</td>
+                                <td>
+                                    {% if user.phone is not empty %} <b>Fixe : </b>{{ user.phone }} {% endif %}
+                                    <br>
+                                    {% if user.cellular is not empty %}<b>Mobile : </b>{{ user.cellular }} {% endif %}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Pays :</td>
+                                <td>{{ user.country }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Facebook :</td>
+                                <td>{{ user.facebook }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Twitter :</td>
+                                <td>{{ user.twitter }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Linkedin :</td>
+                                <td>{{ user.linkedin }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Site web :</td>
+                                <td>{{ user.website }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Pourquoi vous êtes-vous inscrit(e) :</td>
+                                <td>{{ user.informations }}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <div class="pull-right">
+                        <a href="{{ path('fos_user_profile_edit')}}" class="btn btn-info">Modifier votre profil</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 </div>
