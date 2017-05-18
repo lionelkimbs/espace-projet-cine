@@ -1,0 +1,63 @@
+{% extends 'OIFCoreBundle::layout.html.twig' %}
+
+{% block title %}Nouveau projet - Commission cinéma | {{ parent() }}{% endblock %}
+
+{% block body %}
+
+<div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-login">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+                        {# Les erreurs générales du formulaire. #}
+                        {{ form_errors(form) }}
+
+                        {#Type du projet #}
+                        <div class="form-group">
+                            <h4>1. Type d'intervention</h4>
+                            {{ form_errors(form.typeIntervention) }}
+                            {{ form_widget(form.typeIntervention) }}
+                        </div>
+
+
+                        {#Titre du projet #}
+                        <div class="form-group">
+                            {{ form_errors(form.titre) }}
+                            {{ form_widget(form.titre, {'attr': {'class': 'form-control', 'placeholder': 'Titre'} }) }}
+                        </div>
+
+                        {#Genre#}
+                        <div class="form-group">
+                            {{ form_errors(form.genre) }}
+                            {{ form_widget(form.genre, {'attr': {'class': 'form-control', 'placeholder': 'Genre'} }) }}
+                        </div>
+
+                        {#Année #}
+                        <div class="form-group">
+                            {{ form_errors(form.annee) }}
+                            {{ form_widget(form.annee, {'attr': {'class': 'form-control', 'placeholder': 'Année'} }) }}
+                        </div>
+
+                        {#Durée #}
+                        <div class="form-group">
+                            {{ form_errors(form.duree) }}
+                            {{ form_widget(form.duree, {'attr': {'class': 'form-control', 'placeholder': 'Durée'} }) }}
+                        </div>
+
+                        {#Valider#}
+                        <div class="form-group">
+                            {{ form_widget(form.valider, {'attr': {'class': 'btn btn-success pull-right'} }) }}
+                        </div>
+
+                    {{ form_rest(form) }}
+
+                    {{ form_end(form) }}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
