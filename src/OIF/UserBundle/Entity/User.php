@@ -51,21 +51,7 @@ class User extends BaseUser {
     /**
      * @var string
      *
-     * @ORM\Column(name="activity", type="string", length=255)
-     */
-    protected $activity;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="country", type="string", length=255)
-     */
-    protected $country;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="informations", type="string", length=255)
+     * @ORM\Column(name="informations", type="string", length=255, nullable=true)
      */
     protected $informations;
 
@@ -103,6 +89,31 @@ class User extends BaseUser {
      * @ORM\Column(name="autorisation", type="boolean", nullable=true)
      */
     protected $autorisation = true;
+
+    /**
+     * @var datetime
+     *
+     * @ORM\Column(name="dateInscription", type="datetime")
+     */
+    protected $dateInscription = true;
+
+
+    /**
+     * @ORM\OneToOne(targetEntity="OIF\CoreBundle\Entity\Activite")
+     */
+    private $activite;
+    /**
+     * @ORM\OneToOne(targetEntity="OIF\CoreBundle\Entity\Pays")
+     */
+    private $pays;
+
+
+    /**
+     * Constructor
+     */
+    public function __construct(){
+        $this->dateInscription = new \DateTime();
+    }
 
     /**
      * Set name
@@ -390,5 +401,77 @@ class User extends BaseUser {
     public function getAutorisation()
     {
         return $this->autorisation;
+    }
+
+    /**
+     * Set dateInscription
+     *
+     * @param \DateTime $dateInscription
+     *
+     * @return User
+     */
+    public function setDateInscription($dateInscription)
+    {
+        $this->dateInscription = $dateInscription;
+
+        return $this;
+    }
+
+    /**
+     * Get dateInscription
+     *
+     * @return \DateTime
+     */
+    public function getDateInscription()
+    {
+        return $this->dateInscription;
+    }
+
+    /**
+     * Set activite
+     *
+     * @param \OIF\CoreBundle\Entity\Activite $activite
+     *
+     * @return User
+     */
+    public function setActivite(\OIF\CoreBundle\Entity\Activite $activite = null)
+    {
+        $this->activite = $activite;
+
+        return $this;
+    }
+
+    /**
+     * Get activite
+     *
+     * @return \OIF\CoreBundle\Entity\Activite
+     */
+    public function getActivite()
+    {
+        return $this->activite;
+    }
+
+    /**
+     * Set pays
+     *
+     * @param \OIF\CoreBundle\Entity\Pays $pays
+     *
+     * @return User
+     */
+    public function setPays(\OIF\CoreBundle\Entity\Pays $pays = null)
+    {
+        $this->pays = $pays;
+
+        return $this;
+    }
+
+    /**
+     * Get pays
+     *
+     * @return \OIF\CoreBundle\Entity\Pays
+     */
+    public function getPays()
+    {
+        return $this->pays;
     }
 }

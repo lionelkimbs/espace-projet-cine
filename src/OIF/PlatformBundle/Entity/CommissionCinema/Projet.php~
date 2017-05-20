@@ -45,15 +45,38 @@ class Projet
     /**
      * @var string
      *
+     * @ORM\Column(name="support", type="string", length=255)
+     */
+    private $support;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="standard", type="string", length=255)
+     */
+    private $standard;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="titre", type="string", length=255)
      */
     private $titre;
 
     /**
+     * @var smallint
      *
-     * @ORM\Column(name="date", type="datetime")
+     * @ORM\Column(name="paysRealisateur", type="smallint")
      */
-    private $date;
+    private $paysRealisateur;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="realisateur", type="string", length=255)
+     */
+    private $realisateur;
+
 
     /**
      * @var array
@@ -61,6 +84,108 @@ class Projet
      * @ORM\Column(name="annee", type="array")
      */
     private $annee;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomStructure", type="string", length=255)
+     */
+    private $nomStructure;
+
+    /**
+     * @var smallint
+     *
+     * @ORM\Column(name="typeStructure", type="smallint")
+     */
+    private $typeStructure;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adresseStructure", type="string", length=255)
+     */
+    private $adresseStructure;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="villeStructure", type="string", length=255)
+     */
+    private $villeStructure;
+
+    /**
+     * @var smallint
+     *
+     * @ORM\Column(name="paysStructure", type="smallint")
+     */
+    private $paysStructure;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="responsable", type="string", length=255)
+     */
+    private $responsable;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomResponsable", type="string", length=255)
+     */
+    private $nomResponsable;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenomResponsable", type="string", length=255)
+     */
+    private $prenomResponsable;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telResponsable", type="string", length=255)
+     */
+    private $telResponsable;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="emailResponsable", type="string", length=255)
+     */
+    private $emailResponsable;
+
+    /**
+     *
+     * @ORM\Column(name="dateDeb", type="datetime")
+     */
+    private $dateDeb;
+
+    /**
+     *
+     * @ORM\Column(name="dateFin", type="datetime")
+     */
+    private $dateFin;
+
+    /**
+     * @var smallint
+     *
+     * @ORM\Column(name="coutTotal", type="smallint")
+     */
+    private $coutTotal;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="montantDemande", type="smallint")
+     */
+    private $montantDemande;
+
+    /**
+     *
+     * @ORM\Column(name="date", type="datetime")
+     */
+    private $date;
 
 
     /**
@@ -219,5 +344,221 @@ class Projet
 
     public function __construct(){
         $this->date = new \DateTime();
+    }
+
+    /**
+     * Set support
+     *
+     * @param string $support
+     *
+     * @return Projet
+     */
+    public function setSupport($support)
+    {
+        $this->support = $support;
+
+        return $this;
+    }
+
+    /**
+     * Get support
+     *
+     * @return string
+     */
+    public function getSupport()
+    {
+        return $this->support;
+    }
+
+    /**
+     * Set standard
+     *
+     * @param string $standard
+     *
+     * @return Projet
+     */
+    public function setStandard($standard)
+    {
+        $this->standard = $standard;
+
+        return $this;
+    }
+
+    /**
+     * Get standard
+     *
+     * @return string
+     */
+    public function getStandard()
+    {
+        return $this->standard;
+    }
+
+    /**
+     * Set paysRealisateur
+     *
+     * @param integer $paysRealisateur
+     *
+     * @return Projet
+     */
+    public function setPaysRealisateur($paysRealisateur)
+    {
+        $this->paysRealisateur = $paysRealisateur;
+
+        return $this;
+    }
+
+    /**
+     * Get paysRealisateur
+     *
+     * @return integer
+     */
+    public function getPaysRealisateur()
+    {
+        return $this->paysRealisateur;
+    }
+
+    /**
+     * Set realisateur
+     *
+     * @param string $realisateur
+     *
+     * @return Projet
+     */
+    public function setRealisateur($realisateur)
+    {
+        $this->realisateur = $realisateur;
+
+        return $this;
+    }
+
+    /**
+     * Get realisateur
+     *
+     * @return string
+     */
+    public function getRealisateur()
+    {
+        return $this->realisateur;
+    }
+
+    /**
+     * Set nomStructure
+     *
+     * @param string $nomStructure
+     *
+     * @return Projet
+     */
+    public function setNomStructure($nomStructure)
+    {
+        $this->nomStructure = $nomStructure;
+
+        return $this;
+    }
+
+    /**
+     * Get nomStructure
+     *
+     * @return string
+     */
+    public function getNomStructure()
+    {
+        return $this->nomStructure;
+    }
+
+    /**
+     * Set typeStructure
+     *
+     * @param integer $typeStructure
+     *
+     * @return Projet
+     */
+    public function setTypeStructure($typeStructure)
+    {
+        $this->typeStructure = $typeStructure;
+
+        return $this;
+    }
+
+    /**
+     * Get typeStructure
+     *
+     * @return integer
+     */
+    public function getTypeStructure()
+    {
+        return $this->typeStructure;
+    }
+
+    /**
+     * Set adresseStructure
+     *
+     * @param string $adresseStructure
+     *
+     * @return Projet
+     */
+    public function setAdresseStructure($adresseStructure)
+    {
+        $this->adresseStructure = $adresseStructure;
+
+        return $this;
+    }
+
+    /**
+     * Get adresseStructure
+     *
+     * @return string
+     */
+    public function getAdresseStructure()
+    {
+        return $this->adresseStructure;
+    }
+
+    /**
+     * Set villeStructure
+     *
+     * @param string $villeStructure
+     *
+     * @return Projet
+     */
+    public function setVilleStructure($villeStructure)
+    {
+        $this->villeStructure = $villeStructure;
+
+        return $this;
+    }
+
+    /**
+     * Get villeStructure
+     *
+     * @return string
+     */
+    public function getVilleStructure()
+    {
+        return $this->villeStructure;
+    }
+
+    /**
+     * Set paysStructure
+     *
+     * @param integer $paysStructure
+     *
+     * @return Projet
+     */
+    public function setPaysStructure($paysStructure)
+    {
+        $this->paysStructure = $paysStructure;
+
+        return $this;
+    }
+
+    /**
+     * Get paysStructure
+     *
+     * @return integer
+     */
+    public function getPaysStructure()
+    {
+        return $this->paysStructure;
     }
 }

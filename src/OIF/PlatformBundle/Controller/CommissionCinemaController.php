@@ -3,12 +3,8 @@
 namespace OIF\PlatformBundle\Controller;
 
 use OIF\PlatformBundle\Entity\CommissionCinema\Projet;
+use OIF\PlatformBundle\Form\CommissionCinema\ProjetType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\FormType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 
 class CommissionCinemaController extends Controller{
@@ -36,37 +32,20 @@ class CommissionCinemaController extends Controller{
 	    //--- On crée l'objet Projet
 	    $projet = new Projet();
 
-        // On crée le FormBuilder grâce au service form factory
-        // On ajoute les champs de l'entité que l'on veut à notre formulaire
-        $form = $this->get('form.factory')->createBuilder(FormType::class, $projet)
-            ->add('typeIntervention',   ChoiceType::class, array('choices' => array('Aide à la production' => 0, 'Aide à la finition' => 1), 'expanded' => true, 'multiple' => false  ))
-            ->add('genre',              IntegerType::class)
-            ->add('duree',              IntegerType::class)
-            ->add('titre',              TextType::class)
-            ->add('annee',              IntegerType::class)
-            ->add('valider',            SubmitType::class)
-            ->getForm();
-
+	    $form = $this->createForm(ProjetType::class, $projet);
         //Si la requete est en POST
-        if( $request->isMethod('POST') ){
-            // On fait le lien Requête <-> Formulaire
-            // À partir de maintenant, la variable $advert contient les valeurs entrées dans le formulaire par le visiteur
-            $form->handleRequest($request);
+        if( $request->isMethod('POST') && $form->handleRequest($request)->isValid() ){
+            // On enregistre notre objet dans la base de données, par exemple
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($projet);
+            $em->flush();
 
-            // On vérifie que les valeurs entrées sont correctes
-            if( $form->isValid() ){
-                // On enregistre notre objet dans la base de données, par exemple
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($projet);
-                $em->flush();
+            $request->getSession()->getFlashBag()->add('notice', 'Projet crée avec succès !');
 
-                $request->getSession()->getFlashBag()->add('notice', 'Projet crée avec succès !');
-                // On redirige vers la page de visualisation de l'annonce nouvellement créée
-                return $this->redirectToRoute('oif_platform_cinema_view', array(
-                    'id' => $projet->getId()
-                ));
-            }
-
+            // On redirige vers la page de visualisation du projet nouvellement créé
+            return $this->redirectToRoute('oif_platform_cinema_view', array(
+                'id' => $projet->getId()
+            ));
         }
 
 
@@ -79,6 +58,8 @@ class CommissionCinemaController extends Controller{
             "form" => $form->createView()
         ));
 	}
+
+
 
 }
 

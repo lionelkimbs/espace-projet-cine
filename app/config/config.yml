@@ -81,4 +81,4 @@ fos_user:
         sender_name: Pierre Barrot
     registration:
         form:
-            type: AppBundle\Form\RegistrationType
+            type: OIF\UserBundle\Form\UserType

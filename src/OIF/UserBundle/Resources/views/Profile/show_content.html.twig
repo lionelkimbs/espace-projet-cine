@@ -28,12 +28,12 @@
 
                             <tr>
                                 <td>Activité :</td>
-                                <td>{{ user.activity }}</td>
+                                <td>{{ user.activite.libelle }}</td>
                             </tr>
 
                             <tr>
                                 <td>Inscirt le :</td>
-                                <td>06/23/2013</td>
+                                <td>{{ user.dateInscription|date('d/m/Y') }}</td>
                             </tr>
 
                             <tr>
@@ -47,7 +47,7 @@
 
                             <tr>
                                 <td>Pays :</td>
-                                <td>{{ user.country }}</td>
+                                <td>{{ user.pays.libelle }}</td>
                             </tr>
 
                             <tr>
