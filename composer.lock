@@ -1850,6 +1850,7 @@
         },
         {
             "name": "symfony/swiftmailer-bundle",
+<<<<<<< HEAD
             "version": "v2.6.2",
             "source": {
                 "type": "git",
@@ -1860,11 +1861,27 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/swiftmailer-bundle/zipball/deabc81120c2086571f7c4484ab785c5e1b84f75",
                 "reference": "deabc81120c2086571f7c4484ab785c5e1b84f75",
+=======
+            "version": "v2.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/swiftmailer-bundle.git",
+                "reference": "c481f1f012a7c1a84f05287fd3e93b9b73d7b953"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/swiftmailer-bundle/zipball/c481f1f012a7c1a84f05287fd3e93b9b73d7b953",
+                "reference": "c481f1f012a7c1a84f05287fd3e93b9b73d7b953",
+>>>>>>> origin/master
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
+<<<<<<< HEAD
                 "swiftmailer/swiftmailer": "~4.2|~5.0",
+=======
+                "swiftmailer/swiftmailer": ">=4.2.0|~5.0|~6.0",
+>>>>>>> origin/master
                 "symfony/config": "~2.7|~3.0",
                 "symfony/dependency-injection": "~2.7|~3.0",
                 "symfony/http-kernel": "~2.7|~3.0"
@@ -1905,7 +1922,11 @@
             ],
             "description": "Symfony SwiftmailerBundle",
             "homepage": "http://symfony.com",
+<<<<<<< HEAD
             "time": "2017-05-22T04:58:24+00:00"
+=======
+            "time": "2017-05-19T20:23:33+00:00"
+>>>>>>> origin/master
         },
         {
             "name": "symfony/symfony",

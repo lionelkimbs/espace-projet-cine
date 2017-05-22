@@ -82,6 +82,9 @@ fos_user:
     registration:
         form:
             type: OIF\UserBundle\Form\UserType
+<<<<<<< HEAD
     profile:
         form:
             type: OIF\UserBundle\Form\ProfileType
+=======
+>>>>>>> origin/master

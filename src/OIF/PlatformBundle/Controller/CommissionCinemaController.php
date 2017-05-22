@@ -49,6 +49,7 @@ class CommissionCinemaController extends Controller{
         if( $request->isMethod('POST') && $form->handleRequest($request)->isValid() ){
             // On enregistre notre objet dans la base de données, par exemple
             $em = $this->getDoctrine()->getManager();
+<<<<<<< HEAD
 
             // On récupère la commission cinéma active
             $commission = $em->getRepository('OIFPlatformBundle:Commission')->findOneBy([
@@ -59,6 +60,8 @@ class CommissionCinemaController extends Controller{
 
             $projet->setCommission($commission);
 
+=======
+>>>>>>> origin/master
             $em->persist($projet);
             $em->flush();
 
@@ -81,10 +84,14 @@ class CommissionCinemaController extends Controller{
         ));
 	}
 
+<<<<<<< HEAD
     //---- -- PAGE Edit commission cinéma : 1. Fiche
     public function editFiche(){
         return $this->render("OIFPlatformBundle:Cinema:index.html.twig");
     }
+=======
+
+>>>>>>> origin/master
 
 }
 
