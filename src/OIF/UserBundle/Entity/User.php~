@@ -51,21 +51,7 @@ class User extends BaseUser {
     /**
      * @var string
      *
-     * @ORM\Column(name="activity", type="string", length=255)
-     */
-    protected $activity;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="country", type="string", length=255)
-     */
-    protected $country;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="informations", type="string", length=255)
+     * @ORM\Column(name="informations", type="string", length=255, nullable=true)
      */
     protected $informations;
 
@@ -103,5 +89,24 @@ class User extends BaseUser {
      * @ORM\Column(name="autorisation", type="boolean", nullable=true)
      */
     protected $autorisation = true;
+
+    /**
+     * @var datetime
+     *
+     * @ORM\Column(name="dateInscription", type="datetime")
+     */
+    protected $dateInscription;
     
+    /**
+     * @ORM\OneToOne(targetEntity="OIF\CoreBundle\Entity\Activite")
+     */
+    private $activite;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="OIF\CoreBundle\Entity\Pays")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $pays;
+
+
 }

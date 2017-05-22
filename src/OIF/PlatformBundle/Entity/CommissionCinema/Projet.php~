@@ -2,6 +2,7 @@
 
 namespace OIF\PlatformBundle\Entity\CommissionCinema;
 
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -45,15 +46,31 @@ class Projet
     /**
      * @var string
      *
+     * @ORM\Column(name="support", type="string", length=255)
+     */
+    private $support;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="standard", type="string", length=255)
+     */
+    private $standard;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="titre", type="string", length=255)
      */
     private $titre;
 
     /**
+     * @var string
      *
-     * @ORM\Column(name="date", type="datetime")
+     * @ORM\Column(name="realisateur", type="string", length=255)
      */
-    private $date;
+    private $realisateur;
+
 
     /**
      * @var array
@@ -62,162 +79,121 @@ class Projet
      */
     private $annee;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomStructure", type="string", length=255)
+     */
+    private $nomStructure;
 
     /**
-     * Get id
+     * @var smallint
      *
-     * @return int
+     * @ORM\Column(name="typeStructure", type="smallint")
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    private $typeStructure;
 
     /**
-     * Set typeIntervention
+     * @var string
      *
-     * @param integer $typeIntervention
-     *
-     * @return Projet
+     * @ORM\Column(name="adresseStructure", type="string", length=255)
      */
-    public function setTypeIntervention($typeIntervention)
-    {
-        $this->typeIntervention = $typeIntervention;
-
-        return $this;
-    }
+    private $adresseStructure;
 
     /**
-     * Get typeIntervention
+     * @var string
      *
-     * @return int
+     * @ORM\Column(name="villeStructure", type="string", length=255)
      */
-    public function getTypeIntervention()
-    {
-        return $this->typeIntervention;
-    }
+    private $villeStructure;
 
     /**
-     * Set genre
+     * @var string
      *
-     * @param integer $genre
-     *
-     * @return Projet
+     * @ORM\Column(name="nomResponsable", type="string", length=255)
      */
-    public function setGenre($genre)
-    {
-        $this->genre = $genre;
-
-        return $this;
-    }
+    private $nomResponsable;
 
     /**
-     * Get genre
+     * @var string
      *
-     * @return int
+     * @ORM\Column(name="prenomResponsable", type="string", length=255)
      */
-    public function getGenre()
-    {
-        return $this->genre;
-    }
+    private $prenomResponsable;
 
     /**
-     * Set duree
+     * @var string
      *
-     * @param integer $duree
-     *
-     * @return Projet
+     * @ORM\Column(name="telResponsable", type="string", length=35)
      */
-    public function setDuree($duree)
-    {
-        $this->duree = $duree;
-
-        return $this;
-    }
+    private $telResponsable;
 
     /**
-     * Get duree
+     * @var string
      *
-     * @return int
+     * @ORM\Column(name="emailResponsable", type="string", length=255)
      */
-    public function getDuree()
-    {
-        return $this->duree;
-    }
+    private $emailResponsable;
 
     /**
-     * Set titre
      *
-     * @param string $titre
-     *
-     * @return Projet
+     * @ORM\Column(name="dateDeb", type="date")
      */
-    public function setTitre($titre)
-    {
-        $this->titre = $titre;
-
-        return $this;
-    }
+    private $dateDeb;
 
     /**
-     * Get titre
      *
-     * @return string
+     * @ORM\Column(name="dateFin", type="date")
      */
-    public function getTitre()
-    {
-        return $this->titre;
-    }
+    private $dateFin;
 
     /**
-     * Set annee
+     * @var int
      *
-     * @param array $annee
-     *
-     * @return Projet
+     * @ORM\Column(name="coutTotal", type="smallint")
      */
-    public function setAnnee($annee)
-    {
-        $this->annee = $annee;
-
-        return $this;
-    }
+    private $coutTotal;
 
     /**
-     * Get annee
+     * @var integer
      *
-     * @return array
+     * @ORM\Column(name="montantDemande", type="smallint")
      */
-    public function getAnnee()
-    {
-        return $this->annee;
-    }
+    private $montantDemande;
 
     /**
-     * Set date
      *
-     * @param \DateTime $date
-     *
-     * @return Projet
+     * @ORM\Column(name="dateCreation", type="datetime")
      */
-    public function setDate($date)
-    {
-        $this->date = $date;
+    private $dateCreation;
 
-        return $this;
-    }
+
 
     /**
-     * Get date
-     *
-     * @return \DateTime
+     * @ORM\ManyToOne(targetEntity="OIF\PlatformBundle\Entity\Commission")
+     * @ORM\JoinColumn(nullable=false)
      */
-    public function getDate()
-    {
-        return $this->date;
-    }
+    private $commission;
+    /**
+     * @ORM\ManyToOne(targetEntity="OIF\CoreBundle\Entity\Pays")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $paysRealisateur;
+    /**
+     * @ORM\ManyToOne(targetEntity="OIF\CoreBundle\Entity\Pays")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $paysStructure;
 
+
+    /**
+     * Projet constructor.
+     */
     public function __construct(){
-        $this->date = new \DateTime();
+        $this->dateCreation = new \DateTime();
     }
+
+
+
+    
 }

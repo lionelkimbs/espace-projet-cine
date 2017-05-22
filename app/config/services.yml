@@ -5,9 +5,14 @@ parameters:
 
 services:
     app.form.registration:
-        class: AppBundle\Form\RegistrationType
+        class: OIF\UserBundle\Form\UserType
         tags:
             - { name: form.type, alias: app_user_registration }
+
+    app.form.profile:
+        class: OIF\UserBundle\Form\UserType
+        tags:
+            - { name: form.type, alias: app_user_profile }
     #service_name:
     #    class: AppBundle\Directory\ClassName
     #    arguments: ['@another_service_name', 'plain_value', '%parameter_name%']

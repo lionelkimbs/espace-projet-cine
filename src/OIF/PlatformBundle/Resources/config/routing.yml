@@ -14,6 +14,18 @@ oif_platform_cinema_add:
     path:     /commission-cinema/add
     defaults: { _controller: OIFPlatformBundle:CommissionCinema:add }
 
+oif_platform_cinema_addFinancement:
+    path:     /commission-cinema/add-financement-{id}
+    defaults: { _controller: OIFPlatformBundle:CommissionCinema:addFinancement }
+
+oif_platform_cinema_edit_fiche:
+    path:     /commission-cinema/edit-fiche-{id}
+    defaults: { _controller: OIFPlatformBundle:CommissionCinema:editFiche }
+
+oif_platform_cinema_edit_piece:
+    path:     /commission-cinema/edit-piece-{id}
+    defaults: { _controller: OIFPlatformBundle:CommissionCinema:editPiece }
+
 
 ## Page cinéma
 oif_platform_audiovisuelle:

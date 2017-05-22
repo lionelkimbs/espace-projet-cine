@@ -3,7 +3,194 @@
 {% block title %}{{ projet.titre }} - Commission cinéma | {{ parent() }}{% endblock %}
 
 {% block body %}
-    <div class="well">
-        {{ projet.titre }}
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h2 class="panel-title"><b>{{ projet.titre }}</b></h2>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6 col-lg-6 ">
+                    <table class="table table-user-information">
+                        <tbody>
+                        <tr>
+                            <td>Type d'intervention :</td>
+                            <td>
+                                {% if projet.typeIntervention == 0 %} <b>Aide à la production</b>
+                                {% elseif projet.typeIntervention == 1 %} <b>Aide à la finition</b>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Genre :</td>
+                            <td>
+                                {% if projet.genre == 0 %} <b>Fiction</b>
+                                {% elseif projet.genre == 1 %} <b>Animation</b>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Durée :</td>
+                            <td>
+                                {% if projet.duree == 0 %} <b>Court-métrage (- de 30')</b>
+                                {% elseif projet.duree == 1 %} <b>Moyen-métrage (30' à 60')</b>
+                                {% elseif projet.duree == 2 %} <b>Long-métrage (+ de 60')</b>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Support de tournage prévu :</td>
+                            <td>
+                                <b>{{ projet.support }}</b>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Standard de projection ou de diffusion prévu :</td>
+                            <td>
+                                <b>{{ projet.standard }}</b>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Réalisateur :</td>
+                            <td>
+                                <b>{{ projet.realisateur }}</b>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Pays du réalisateur :</td>
+                            <td>
+                                <b>{{ projet.paysRealisateur.libelle }}</b>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Année de naissance :</td>
+                            <td>
+                                <b>{{ projet.annee }}</b>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Nom de la structure :</td>
+                            <td>
+                                <b>{{ projet.nomStructure }}</b>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Type de la structure :</td>
+                            <td>
+                                {% if projet.typeStructure == 0 %} <b>SA (Société anonyme)</b>
+                                {% elseif projet.typeStructure == 1 %} <b>SARL ou SPRL (société à responsabilité limitée)</b>
+                                {% elseif projet.typeStructure == 2 %} <b>EURL (Entreprise unipersonnelle à responsabilité limitée)</b>
+                                {% elseif projet.typeStructure == 3 %} <b>Organisme public gérant une chaîne de télévision</b>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Adresse de la structure :</td>
+                            <td>
+                                <b>{{ projet.adresseStructure }}</b>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Ville :</td>
+                            <td>
+                                <b>{{ projet.villeStructure }}</b>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Pays :</td>
+                            <td>
+                                <b>{{ projet.paysStructure.libelle }}</b>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Responsable :</td>
+                            <td>
+                                <b>{{ projet.prenomResponsable }} {{ projet.nomResponsable }}</b>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Téléphone :</td>
+                            <td>
+                                <b>{{ projet.telResponsable }}</b>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Email :</td>
+                            <td>
+                                <b>{{ projet.emailResponsable }}</b>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Date de début du projet :</td>
+                            <td>
+                                <b>{{ projet.dateDeb|date('d/m/Y') }}</b>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Date de fin du projet :</td>
+                            <td>
+                                <b>{{ projet.dateFin|date('d/m/Y') }}</b>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Coût total :</td>
+                            <td>
+                                <b>{{ projet.coutTotal }} €</b>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Montant demandé à l'OIF :</td>
+                            <td>
+                                <b>{{ projet.montantDemande }} €</b>
+                            </td>
+                        </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col-md-6 col-lg-6 ">
+
+                    <div class="pull-right">
+                        <div class="list-group">
+                            <a href="{{ path('oif_platform_cinema_view', {'id': projet.id } )}}" class="list-group-item {% if app.request.get('_route') == 'oif_platform_cinema_view' %}disabled{% endif %}">
+                                Modifier les informations
+                            </a>
+                            <a href="{{ path('oif_platform_cinema_addFinancement', {'id': projet.id } )}}" class="list-group-item {% if app.request.get('_route') == 'oif_platform_cinema_addFinancement' %}disabled{% endif %}">
+                                Modifier le plan de financement
+                            </a>
+                            <a href="{{ path('oif_platform_cinema_addFinancement', {'id': projet.id } )}}" class="list-group-item">
+                                Modifier les liens
+                            </a>
+                            <a href="{{ path('oif_platform_cinema_addFinancement', {'id': projet.id } )}}" class="list-group-item">
+                                Modifier les pièces
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
+
+
 {% endblock %}
