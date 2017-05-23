@@ -95,37 +95,22 @@ class User extends BaseUser {
      *
      * @ORM\Column(name="dateInscription", type="datetime")
      */
-<<<<<<< HEAD
     protected $dateInscription;
     
-=======
-    protected $dateInscription = true;
-
-
->>>>>>> origin/master
     /**
      * @ORM\OneToOne(targetEntity="OIF\CoreBundle\Entity\Activite")
      */
     private $activite;
-<<<<<<< HEAD
 
     /**
      * @ORM\ManyToOne(targetEntity="OIF\CoreBundle\Entity\Pays")
      * @ORM\JoinColumn(nullable=false)
-=======
-    /**
-     * @ORM\OneToOne(targetEntity="OIF\CoreBundle\Entity\Pays")
->>>>>>> origin/master
      */
     private $pays;
 
 
     /**
-<<<<<<< HEAD
      * User constructor.
-=======
-     * Constructor
->>>>>>> origin/master
      */
     public function __construct(){
         $this->dateInscription = new \DateTime();
@@ -426,11 +411,7 @@ class User extends BaseUser {
      *
      * @return User
      */
-<<<<<<< HEAD
     public function setPays(\OIF\CoreBundle\Entity\Pays $pays)
-=======
-    public function setPays(\OIF\CoreBundle\Entity\Pays $pays = null)
->>>>>>> origin/master
     {
         $this->pays = $pays;
 

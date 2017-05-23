@@ -1,0 +1,16 @@
+{% block menu %}
+    <div class="list-group">
+        <a href="{{ path('oif_platform_cinema_view', {'id': projet.id } )}}" class="list-group-item {% if app.request.get('_route') == 'oif_platform_cinema_view' %}disabled{% endif %}">
+            Modifier les informations
+        </a>
+        <a href="{{ path('oif_platform_cinema_addFinancement', {'id': projet.id } )}}" class="list-group-item {% if app.request.get('_route') == 'oif_platform_cinema_addFinancement' %}disabled{% endif %}">
+            Modifier le plan de financement
+        </a>
+        <a href="{{ path('oif_platform_cinema_addLien', {'id': projet.id } )}}" class="list-group-item {% if app.request.get('_route') == 'oif_platform_cinema_addLien' %}disabled{% endif %}">
+            Modifier les liens
+        </a>
+        <a href="{{ path('oif_platform_cinema_addPiece', {'id': projet.id } )}}" class="list-group-item {% if app.request.get('_route') == 'oif_platform_cinema_addPiece' %}disabled{% endif %}">
+            Modifier les pièces
+        </a>
+    </div>
+{% endblock %}

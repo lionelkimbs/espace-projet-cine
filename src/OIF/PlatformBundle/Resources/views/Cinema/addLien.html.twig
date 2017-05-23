@@ -1,0 +1,87 @@
+{% extends 'OIFCoreBundle::layout.html.twig' %}
+
+{% block title %}Informations complémentaires - Commission cinéma | {{ parent() }}{% endblock %}
+
+{# Content #}
+{% block body %}
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h2 class="panel-title">Informations complémentaires</h2>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-9">
+                <p class="text-justify">
+                    Lien permettant de visionner tout ou partie d'une oeuvre antérieure du même réalisateur (facultatif) ou le prémontage d'une oeuvre présentée dans le cadre d'une demande d'aide à la finition (obligatoire, sauf si vous préférez envoyer un DVD ; celui-ci devra parvenir à l'OIF au plus tard deux semaines avant le premier jour du mois de la commission).
+                    <br>
+                    Vous pouvez ajouter autant de lien que vous souhaitez, il vous suffit d'entrer un titre, le lien et de cliquer sur le bouton <b>Enregistrer</b>.
+                </p>
+
+                {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+                <table class="table table-hover">
+                    <thead>
+                    {# Header title #}
+                    <tr>
+                        <th class="text-center">Titre du lien</th>
+                        <th class="text-center">Lien</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {# Formulaire #}
+                    <tr>
+                        <td>
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-group">
+                                    {{ form_errors(form.titre) }}
+                                    {{ form_widget(form.titre, {'attr': {'placeholder': 'Titre du lien', 'value': '' } }) }}
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-group">
+                                    {{ form_errors(form.lien) }}
+                                    {{ form_widget(form.lien, {'attr': {'placeholder': 'Lien', 'value': '' } }) }}
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-group">
+                                    {{ form_widget(form.enregistrer, {'attr': {'class': 'btn btn-success pull-right'} }) }}
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    {# all links #}
+                    {% for item in liens %}
+                        <tr>
+                            <td class="text-center">{{ item.titre }}</td>
+                            <td class="text-center">{{ item.lien }}</td>
+                            <td>
+                                <div class="col-md-10 col-md-offset-1">
+                                    <div class="form-group pull-right">
+                                        <a href="{{ path('oif_platform_cinema_deleteLien', {'id': item.id }) }}" class="btn btn-danger">Supprimer</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+
+                </table>
+                {{ form_rest(form) }}
+                {{ form_end(form) }}
+            </div>
+
+            <div class="col-lg-3">
+                {% include 'OIFPlatformBundle:Cinema:menu.html.twig' %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

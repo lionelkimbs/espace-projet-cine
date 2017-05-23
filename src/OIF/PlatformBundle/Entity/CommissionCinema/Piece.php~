@@ -1,0 +1,47 @@
+<?php
+
+namespace OIF\PlatformBundle\Entity\CommissionCinema;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Piece
+ *
+ * @ORM\Table(name="oif_commission_cinema_piece")
+ * @ORM\Entity(repositoryClass="OIF\PlatformBundle\Repository\CommissionCinema\PieceRepository")
+ */
+class Piece
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\Column(name="fichier", type="array")
+     */
+    private $fichier;
+
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="OIF\PlatformBundle\Entity\CommissionCinema\Projet")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $projet;
+
+    /**
+     * Piece constructor.
+     */
+    public function __construct(){
+        $this->fichier = new ArrayCollection();
+    }
+
+}

@@ -1,0 +1,85 @@
+{% extends 'OIFCoreBundle::layout.html.twig' %}
+
+{% block title %}Ajouter les fichiers - Commission cinéma | {{ parent() }}{% endblock %}
+
+{# Content #}
+{% block body %}
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h2 class="panel-title">Etape 4 : Ajouter les pièces </h2>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="alert alert-info">Vos fichiers doivent être aux formats (.doc, .docx, .xls, .xlsx ou .pdf). Ils ne doivent pas dépasser 2Mo.</div>
+                {{ form_start(form) }}
+                {% set counter = 1 %}
+                {% for file in form.fichier %}
+                    {% set counter = counter + 1 %}
+                    <div class="row">
+                        <div class="col-lg-12">
+                            {% if counter == 2 %}
+                                <h5>2. Description du projet – not(e)s d'intention</h5>
+                            {% elseif counter == 3 %}
+                                <h5>3. Lettre d'intention de diffusion émanant d'une chaîne de télévision francophone (ou contrat de préachat ou de coproduction d'une télévision qui figurerait parmi les documents fournis au point 10) ou mandat de distribution</h5>
+                            {% elseif counter == 4 %}
+                                <h5>4. Synopsis</h5>
+                            {% elseif counter == 5 %}
+                                <h5>5. Scénario dialogué</h5>
+                            {% elseif counter == 6 %}
+                                <h5>6. Curriculum vitae du réalisateur</h5>
+                            {% elseif counter == 7 %}
+                                <h5>7. Curriculum vitae du scénariste</h5>
+                            {% elseif counter == 8 %}
+                                <h5>8. Budget de production détaillé</h5>
+                            {% elseif counter == 9 %}
+                                <h5>9. Plan de financement distinguant, d'une part, les financements acquis (à hauteur de 40 %) et, d'autre part, les financements prévus</h5>
+                            {% elseif counter == 10 %}
+                                <h5>10. Documents attestant des financements acquis (y compris accords de coproduction, contrats de préachat de droits de diffusion et mandats de distribution avec minimum garanti, le cas échéant)</h5>
+                            {% elseif counter == 11 %}
+                                <h5>11. Calendrier d'exécution détaillé mentionnant la date de début de tournage, la durée du tournage, la date de début de la postproduction, la durée de la post-production et la date prévisionnelle de livraison du produit fini</h5>
+                            {% elseif counter == 12 %}
+                                <h5>12. Plan de diffusion de l'œuvre</h5>
+                            {% elseif counter == 13 %}
+                                <h5>13. Statuts de la société de production (enregistrés par l'autorité compétente du pays) et répartition de son capital social</h5>
+                            {% elseif counter == 14 %}
+                                <h5>14. Copies des contrats de cession de droits avec l'(les) auteur(s) du scénario ou du traitement indiquant expressément le montant et le mode de rémunération</h5>
+                            {% elseif counter == 15 %}
+                                <h5>15. Copies des contrats de cession de droits avec le(s) réalisateur(s) indiquant expressément le montant et le mode de rémunération</h5>
+                            {% elseif counter == 16 %}
+                                <h5>16. Liste des comédiens et des techniciens pressentis avec leur fonction et leur nationalité</h5>
+                            {% elseif counter == 17 %}
+                                <h5>17. 17. Pour les films d'animation : charte graphique complète comprenant un lot de planches de situation et des dessins des principaux personnages</h5>
+                            {% endif %}
+                            <div class="form-group">
+                                <div class="col-lg-6">
+                                    {{ form_errors(file.url) }}
+                                    {{ form_widget(file.url) }}
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="col-lg-4 col-lg-offset-1">
+                                        {{ form_widget(file.enregistrer, {'attr':{'class':'btn btn-info'} }) }}
+                                        {{ form_rest(file) }}
+                                        </div>
+                                    <div class="col-lg-4 col-lg-offset-1">
+                                        <div class="form-group pull-right">
+                                            <a href="#" class="btn btn-danger">Supprimer</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                {% endfor %}
+                {{ form_end(form) }}
+            </div>
+
+            <div class="col-lg-3">
+                {% include 'OIFPlatformBundle:Cinema:menu.html.twig' %}
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

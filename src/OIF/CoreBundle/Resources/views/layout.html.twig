@@ -64,7 +64,6 @@
                     <a href="#" class="navbar-brand">
                         <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span>
                     </a>
-<<<<<<< HEAD
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
                     <ul class="nav navbar-nav">
@@ -88,31 +87,6 @@
                         </li>
                     </ul>
                 </div>
-=======
-                </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
-                    <ul class="nav navbar-nav">
-                        <li role="dashboard" {% if app.request.get('_route') == 'oif_core_homepage' %}class="active"{% endif %}>
-                            <a href="{{ path('oif_core_homepage') }}" title="Tableau de bord">Tableau de bord</a>
-                        </li>
-                        <li role="audiovisuel" {% if app.request.get('_route') == 'oif_platform_audiovisuelle' %}class="active"{% endif %}>
-                            <a href="{{ path('oif_platform_audiovisuelle') }}">Commission audiovisuelle</a>
-                        </li>
-                        <li role="cinema" {% if app.request.get('_route') == 'oif_platform_cinema' %}class="active"{% endif %}>
-                            <a href="{{ path('oif_platform_cinema') }}">Commission cinéma</a>
-                        </li>
-                        <li role="archives" {% if app.request.get('_route') == 'oif_core_archives' %}class="active"{% endif %}>
-                            <a href="{{ path('oif_core_archives') }}">Archives</a>
-                        </li>
-                        <li role="profil" {% if app.request.get('_route') == 'fos_user_profile_show' %}class="active"{% endif %}>
-                            <a href="{{ path('fos_user_profile_show') }}">Mon profil</a>
-                        </li>
-                        <li role="profil" {% if app.request.get('_route') == 'oif_core_contact' %}class="active"{% endif %}>
-                            <a href="{{ path('oif_core_contact') }}">Contacter l'OIF</a>
-                        </li>
-                    </ul>
-                </div>
->>>>>>> origin/master
             </div>
         </nav>
 

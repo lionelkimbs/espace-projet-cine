@@ -3,21 +3,14 @@
 namespace OIF\PlatformBundle\Form\CommissionCinema;
 
 use OIF\CoreBundle\Repository\PaysRepository;
-<<<<<<< HEAD
 use OIF\PlatformBundle\Repository\CommissionRepository;
-=======
->>>>>>> origin/master
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
-<<<<<<< HEAD
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
-=======
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
->>>>>>> origin/master
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -33,10 +26,6 @@ class ProjetType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $pattern = 0;
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
         $builder
             ->add('typeIntervention',   ChoiceType::class, array('choices' => array('Aide à la production' => 0, 'Aide à la finition' => 1), 'expanded' => true, 'multiple' => false))
             ->add('genre',  ChoiceType::class, array('choices' => array('Fiction' => 0, 'Animation' => 1), 'expanded' => true, 'multiple' => false))
@@ -44,7 +33,6 @@ class ProjetType extends AbstractType
             ->add('support',  TextType::class)
             ->add('standard',  TextType::class)
             ->add('titre',  TextType::class)
-<<<<<<< HEAD
 
             ->add('paysRealisateur',    EntityType::class, array(
                 'class' => 'OIFCoreBundle:Pays',
@@ -75,31 +63,10 @@ class ProjetType extends AbstractType
                 'multiple' => false
             ))
 
-=======
-            ->add('paysRealisateur',    EntityType::class, array(
-                'class' => 'OIFCoreBundle:Pays',
-                'choice_label' => 'libelle',
-                'multiple' => false,
-                'query_builder' => function(PaysRepository $repository) use($pattern){ return $repository->getLikeQueryBuilder($pattern); }
-            ))
-            ->add('realisateur',    TextType::class)
-            ->add('annee',  IntegerType::class)
-            ->add('nomStructure',    TextType::class)
-            ->add('typeStructure',  ChoiceType::class, array('choices' => array('SA (Société anonyme)' => 0, 'SARL ou SPRL (société à responsabilité limitée)' => 1, 'EURL (Entreprise unipersonnelle à responsabilité limitée)' => 2, 'Organisme public gérant une chaîne de télévision' => 3), 'expanded' => true, 'multiple' => false))
-            ->add('adresseStructure',    TextType::class)
-            ->add('villeStructure',    TextType::class)
-            ->add('paysStructure',    EntityType::class, array(
-                'class' => 'OIFCoreBundle:Pays',
-                'choice_label' => 'libelle',
-                'multiple' => false,
-                'query_builder' => function(PaysRepository $repository) use($pattern){ return $repository->getLikeQueryBuilder($pattern); }
-            ))
->>>>>>> origin/master
             ->add('nomResponsable',    TextType::class)
             ->add('prenomResponsable',    TextType::class)
             ->add('telResponsable',    TextType::class)
             ->add('emailResponsable', EmailType::class)
-<<<<<<< HEAD
 
             ->add('dateDeb',    DateType::class, [
                 'widget' => 'single_text',
@@ -113,10 +80,6 @@ class ProjetType extends AbstractType
                 'attr' => array('class' => 'date')
             ])
 
-=======
-            ->add('dateDeb',    DateTimeType::class)
-            ->add('dateFin',    DateTimeType::class)
->>>>>>> origin/master
             ->add('coutTotal',  IntegerType::class)
             ->add('montantDemande', IntegerType::class)
             ->add('valider',   SubmitType::class);

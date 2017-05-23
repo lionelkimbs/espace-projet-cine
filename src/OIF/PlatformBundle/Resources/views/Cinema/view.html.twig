@@ -169,23 +169,7 @@
                 </div>
 
                 <div class="col-md-6 col-lg-6 ">
-
-                    <div class="pull-right">
-                        <div class="list-group">
-                            <a href="{{ path('oif_platform_cinema_view', {'id': projet.id } )}}" class="list-group-item {% if app.request.get('_route') == 'oif_platform_cinema_view' %}disabled{% endif %}">
-                                Modifier les informations
-                            </a>
-                            <a href="{{ path('oif_platform_cinema_addFinancement', {'id': projet.id } )}}" class="list-group-item {% if app.request.get('_route') == 'oif_platform_cinema_addFinancement' %}disabled{% endif %}">
-                                Modifier le plan de financement
-                            </a>
-                            <a href="{{ path('oif_platform_cinema_addFinancement', {'id': projet.id } )}}" class="list-group-item">
-                                Modifier les liens
-                            </a>
-                            <a href="{{ path('oif_platform_cinema_addFinancement', {'id': projet.id } )}}" class="list-group-item">
-                                Modifier les pièces
-                            </a>
-                        </div>
-                    </div>
+                    {% include 'OIFPlatformBundle:Cinema:menu.html.twig' %}
                 </div>
 
             </div>

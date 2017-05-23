@@ -65,24 +65,10 @@ class Projet
     private $titre;
 
     /**
-<<<<<<< HEAD
      * @var string
      *
      * @ORM\Column(name="realisateur", type="string", length=255)
      */
-=======
-     * @var smallint
-     *
-     * @ORM\Column(name="paysRealisateur", type="smallint")
-     */
-    private $paysRealisateur;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="realisateur", type="string", length=255)
-     */
->>>>>>> origin/master
     private $realisateur;
 
 
@@ -122,16 +108,6 @@ class Projet
     private $villeStructure;
 
     /**
-<<<<<<< HEAD
-=======
-     * @var smallint
-     *
-     * @ORM\Column(name="paysStructure", type="smallint")
-     */
-    private $paysStructure;
-
-    /**
->>>>>>> origin/master
      * @var string
      *
      * @ORM\Column(name="nomResponsable", type="string", length=255)
@@ -161,30 +137,18 @@ class Projet
 
     /**
      *
-<<<<<<< HEAD
      * @ORM\Column(name="dateDeb", type="date")
-=======
-     * @ORM\Column(name="dateDeb", type="datetime")
->>>>>>> origin/master
      */
     private $dateDeb;
 
     /**
      *
-<<<<<<< HEAD
      * @ORM\Column(name="dateFin", type="date")
-=======
-     * @ORM\Column(name="dateFin", type="datetime")
->>>>>>> origin/master
      */
     private $dateFin;
 
     /**
-<<<<<<< HEAD
      * @var int
-=======
-     * @var smallint
->>>>>>> origin/master
      *
      * @ORM\Column(name="coutTotal", type="smallint")
      */
@@ -199,7 +163,6 @@ class Projet
 
     /**
      *
-<<<<<<< HEAD
      * @ORM\Column(name="dateCreation", type="datetime")
      */
     private $dateCreation;
@@ -233,12 +196,6 @@ class Projet
 
 
     
-=======
-     * @ORM\Column(name="date", type="datetime")
-     */
-    private $date;
-
->>>>>>> origin/master
 
     /**
      * Get id
@@ -824,413 +781,5 @@ class Projet
     public function getPaysStructure()
     {
         return $this->paysStructure;
-    }
-
-    /**
-     * Set support
-     *
-     * @param string $support
-     *
-     * @return Projet
-     */
-    public function setSupport($support)
-    {
-        $this->support = $support;
-
-        return $this;
-    }
-
-    /**
-     * Get support
-     *
-     * @return string
-     */
-    public function getSupport()
-    {
-        return $this->support;
-    }
-
-    /**
-     * Set standard
-     *
-     * @param string $standard
-     *
-     * @return Projet
-     */
-    public function setStandard($standard)
-    {
-        $this->standard = $standard;
-
-        return $this;
-    }
-
-    /**
-     * Get standard
-     *
-     * @return string
-     */
-    public function getStandard()
-    {
-        return $this->standard;
-    }
-
-    /**
-     * Set paysRealisateur
-     *
-     * @param integer $paysRealisateur
-     *
-     * @return Projet
-     */
-    public function setPaysRealisateur($paysRealisateur)
-    {
-        $this->paysRealisateur = $paysRealisateur;
-
-        return $this;
-    }
-
-    /**
-     * Get paysRealisateur
-     *
-     * @return integer
-     */
-    public function getPaysRealisateur()
-    {
-        return $this->paysRealisateur;
-    }
-
-    /**
-     * Set realisateur
-     *
-     * @param string $realisateur
-     *
-     * @return Projet
-     */
-    public function setRealisateur($realisateur)
-    {
-        $this->realisateur = $realisateur;
-
-        return $this;
-    }
-
-    /**
-     * Get realisateur
-     *
-     * @return string
-     */
-    public function getRealisateur()
-    {
-        return $this->realisateur;
-    }
-
-    /**
-     * Set nomStructure
-     *
-     * @param string $nomStructure
-     *
-     * @return Projet
-     */
-    public function setNomStructure($nomStructure)
-    {
-        $this->nomStructure = $nomStructure;
-
-        return $this;
-    }
-
-    /**
-     * Get nomStructure
-     *
-     * @return string
-     */
-    public function getNomStructure()
-    {
-        return $this->nomStructure;
-    }
-
-    /**
-     * Set typeStructure
-     *
-     * @param integer $typeStructure
-     *
-     * @return Projet
-     */
-    public function setTypeStructure($typeStructure)
-    {
-        $this->typeStructure = $typeStructure;
-
-        return $this;
-    }
-
-    /**
-     * Get typeStructure
-     *
-     * @return integer
-     */
-    public function getTypeStructure()
-    {
-        return $this->typeStructure;
-    }
-
-    /**
-     * Set adresseStructure
-     *
-     * @param string $adresseStructure
-     *
-     * @return Projet
-     */
-    public function setAdresseStructure($adresseStructure)
-    {
-        $this->adresseStructure = $adresseStructure;
-
-        return $this;
-    }
-
-    /**
-     * Get adresseStructure
-     *
-     * @return string
-     */
-    public function getAdresseStructure()
-    {
-        return $this->adresseStructure;
-    }
-
-    /**
-     * Set villeStructure
-     *
-     * @param string $villeStructure
-     *
-     * @return Projet
-     */
-    public function setVilleStructure($villeStructure)
-    {
-        $this->villeStructure = $villeStructure;
-
-        return $this;
-    }
-
-    /**
-     * Get villeStructure
-     *
-     * @return string
-     */
-    public function getVilleStructure()
-    {
-        return $this->villeStructure;
-    }
-
-    /**
-     * Set paysStructure
-     *
-     * @param integer $paysStructure
-     *
-     * @return Projet
-     */
-    public function setPaysStructure($paysStructure)
-    {
-        $this->paysStructure = $paysStructure;
-
-        return $this;
-    }
-
-    /**
-     * Get paysStructure
-     *
-     * @return integer
-     */
-    public function getPaysStructure()
-    {
-        return $this->paysStructure;
-    }
-
-    /**
-     * Set nomResponsable
-     *
-     * @param string $nomResponsable
-     *
-     * @return Projet
-     */
-    public function setNomResponsable($nomResponsable)
-    {
-        $this->nomResponsable = $nomResponsable;
-
-        return $this;
-    }
-
-    /**
-     * Get nomResponsable
-     *
-     * @return string
-     */
-    public function getNomResponsable()
-    {
-        return $this->nomResponsable;
-    }
-
-    /**
-     * Set prenomResponsable
-     *
-     * @param string $prenomResponsable
-     *
-     * @return Projet
-     */
-    public function setPrenomResponsable($prenomResponsable)
-    {
-        $this->prenomResponsable = $prenomResponsable;
-
-        return $this;
-    }
-
-    /**
-     * Get prenomResponsable
-     *
-     * @return string
-     */
-    public function getPrenomResponsable()
-    {
-        return $this->prenomResponsable;
-    }
-
-    /**
-     * Set telResponsable
-     *
-     * @param string $telResponsable
-     *
-     * @return Projet
-     */
-    public function setTelResponsable($telResponsable)
-    {
-        $this->telResponsable = $telResponsable;
-
-        return $this;
-    }
-
-    /**
-     * Get telResponsable
-     *
-     * @return string
-     */
-    public function getTelResponsable()
-    {
-        return $this->telResponsable;
-    }
-
-    /**
-     * Set emailResponsable
-     *
-     * @param string $emailResponsable
-     *
-     * @return Projet
-     */
-    public function setEmailResponsable($emailResponsable)
-    {
-        $this->emailResponsable = $emailResponsable;
-
-        return $this;
-    }
-
-    /**
-     * Get emailResponsable
-     *
-     * @return string
-     */
-    public function getEmailResponsable()
-    {
-        return $this->emailResponsable;
-    }
-
-    /**
-     * Set dateDeb
-     *
-     * @param \DateTime $dateDeb
-     *
-     * @return Projet
-     */
-    public function setDateDeb($dateDeb)
-    {
-        $this->dateDeb = $dateDeb;
-
-        return $this;
-    }
-
-    /**
-     * Get dateDeb
-     *
-     * @return \DateTime
-     */
-    public function getDateDeb()
-    {
-        return $this->dateDeb;
-    }
-
-    /**
-     * Set dateFin
-     *
-     * @param \DateTime $dateFin
-     *
-     * @return Projet
-     */
-    public function setDateFin($dateFin)
-    {
-        $this->dateFin = $dateFin;
-
-        return $this;
-    }
-
-    /**
-     * Get dateFin
-     *
-     * @return \DateTime
-     */
-    public function getDateFin()
-    {
-        return $this->dateFin;
-    }
-
-    /**
-     * Set coutTotal
-     *
-     * @param integer $coutTotal
-     *
-     * @return Projet
-     */
-    public function setCoutTotal($coutTotal)
-    {
-        $this->coutTotal = $coutTotal;
-
-        return $this;
-    }
-
-    /**
-     * Get coutTotal
-     *
-     * @return integer
-     */
-    public function getCoutTotal()
-    {
-        return $this->coutTotal;
-    }
-
-    /**
-     * Set montantDemande
-     *
-     * @param integer $montantDemande
-     *
-     * @return Projet
-     */
-    public function setMontantDemande($montantDemande)
-    {
-        $this->montantDemande = $montantDemande;
-
-        return $this;
-    }
-
-    /**
-     * Get montantDemande
-     *
-     * @return integer
-     */
-    public function getMontantDemande()
-    {
-        return $this->montantDemande;
     }
 }

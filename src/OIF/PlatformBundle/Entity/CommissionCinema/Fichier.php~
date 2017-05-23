@@ -1,0 +1,39 @@
+<?php
+
+namespace OIF\PlatformBundle\Entity\CommissionCinema;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Fichier
+ *
+ * @ORM\Table(name="commission_cinema_fichier")
+ * @ORM\Entity(repositoryClass="OIF\PlatformBundle\Repository\CommissionCinema\FichierRepository")
+ */
+class Fichier
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="url", type="string", length=255)
+     */
+    private $url;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="noAide", type="integer")
+     */
+    private $noAide;
+
+
+}

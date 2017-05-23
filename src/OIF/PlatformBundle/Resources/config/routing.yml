@@ -10,14 +10,39 @@ oif_platform_cinema_view:
     requirements:
         id: \d+
 
+## Ajouter un projet cinéma
 oif_platform_cinema_add:
     path:     /commission-cinema/add
     defaults: { _controller: OIFPlatformBundle:CommissionCinema:add }
 
+###### Ajouter un plan de financement au projet cinéma ######
 oif_platform_cinema_addFinancement:
     path:     /commission-cinema/add-financement-{id}
     defaults: { _controller: OIFPlatformBundle:CommissionCinema:addFinancement }
+## Supprimer un financement au projet cinéma
+oif_platform_cinema_deleteFinancement:
+    path:     /commission-cinema/delete-financement-{id}
+    defaults: { _controller: OIFPlatformBundle:CommissionCinema:deleteFinancement }
 
+###### Ajouter un lien au projet cinéma ######
+oif_platform_cinema_addLien:
+    path:     /commission-cinema/add-lien-{id}
+    defaults: { _controller: OIFPlatformBundle:CommissionCinema:addLien }
+## Supprimer un lien au projet cinéma
+oif_platform_cinema_deleteLien:
+    path:     /commission-cinema/delete-lien-{id}
+    defaults: { _controller: OIFPlatformBundle:CommissionCinema:deleteLien }
+
+###### Ajouter une piece au projet cinéma ######
+oif_platform_cinema_addPiece:
+    path:     /commission-cinema/add-piece-{id}
+    defaults: { _controller: OIFPlatformBundle:CommissionCinema:addPiece}
+## Supprimer une piece du projet cinéma ######
+oif_platform_cinema_deletePiece:
+    path:     /commission-cinema/delete-piece-{id}
+    defaults: { _controller: OIFPlatformBundle:CommissionCinema:deletePiece }
+
+# Modifier un projet cinéma ######
 oif_platform_cinema_edit_fiche:
     path:     /commission-cinema/edit-fiche-{id}
     defaults: { _controller: OIFPlatformBundle:CommissionCinema:editFiche }
