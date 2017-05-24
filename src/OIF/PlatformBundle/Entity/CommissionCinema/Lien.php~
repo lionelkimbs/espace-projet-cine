@@ -37,7 +37,7 @@ class Lien
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="OIF\PlatformBundle\Entity\CommissionCinema\Projet")
+     * @ORM\ManyToOne(targetEntity="OIF\PlatformBundle\Entity\CommissionCinema\Projet", inversedBy="liens")
      * @ORM\JoinColumn(nullable=false)
      */
     private $projet;
@@ -99,5 +99,28 @@ class Lien
     {
         return $this->lien;
     }
-}
 
+    /**
+     * Set projet
+     *
+     * @param \OIF\PlatformBundle\Entity\CommissionCinema\Projet $projet
+     *
+     * @return Lien
+     */
+    public function setProjet(\OIF\PlatformBundle\Entity\CommissionCinema\Projet $projet)
+    {
+        $this->projet = $projet;
+
+        return $this;
+    }
+
+    /**
+     * Get projet
+     *
+     * @return \OIF\PlatformBundle\Entity\CommissionCinema\Projet
+     */
+    public function getProjet()
+    {
+        return $this->projet;
+    }
+}

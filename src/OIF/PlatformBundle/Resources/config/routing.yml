@@ -1,8 +1,18 @@
-## Page cinéma
+## PAGES DE COMMISSIONS
+oif_platform_create_commission:
+    path:     /create-commission
+    defaults: { _controller: OIFPlatformBundle:Commission:createCommission }
+
+
+
+
+## COMMISSION CINEMA ##
+#--- Index
 oif_platform_cinema:
     path:     /commission-cinema
     defaults: { _controller: OIFPlatformBundle:CommissionCinema:index }
 
+#--- Vue projet
 oif_platform_cinema_view:
     path:     /commission-cinema/projet-{id}
     defaults:
@@ -10,47 +20,51 @@ oif_platform_cinema_view:
     requirements:
         id: \d+
 
-## Ajouter un projet cinéma
+#--- Ajouter un projet
 oif_platform_cinema_add:
     path:     /commission-cinema/add
     defaults: { _controller: OIFPlatformBundle:CommissionCinema:add }
 
-###### Ajouter un plan de financement au projet cinéma ######
-oif_platform_cinema_addFinancement:
-    path:     /commission-cinema/add-financement-{id}
-    defaults: { _controller: OIFPlatformBundle:CommissionCinema:addFinancement }
-## Supprimer un financement au projet cinéma
-oif_platform_cinema_deleteFinancement:
-    path:     /commission-cinema/delete-financement-{id}
-    defaults: { _controller: OIFPlatformBundle:CommissionCinema:deleteFinancement }
-
-###### Ajouter un lien au projet cinéma ######
-oif_platform_cinema_addLien:
-    path:     /commission-cinema/add-lien-{id}
-    defaults: { _controller: OIFPlatformBundle:CommissionCinema:addLien }
-## Supprimer un lien au projet cinéma
-oif_platform_cinema_deleteLien:
-    path:     /commission-cinema/delete-lien-{id}
-    defaults: { _controller: OIFPlatformBundle:CommissionCinema:deleteLien }
-
-###### Ajouter une piece au projet cinéma ######
-oif_platform_cinema_addPiece:
-    path:     /commission-cinema/add-piece-{id}
-    defaults: { _controller: OIFPlatformBundle:CommissionCinema:addPiece}
-## Supprimer une piece du projet cinéma ######
-oif_platform_cinema_deletePiece:
-    path:     /commission-cinema/delete-piece-{id}
-    defaults: { _controller: OIFPlatformBundle:CommissionCinema:deletePiece }
-
-# Modifier un projet cinéma ######
+#--- Modifier un projet
 oif_platform_cinema_edit_fiche:
     path:     /commission-cinema/edit-fiche-{id}
     defaults: { _controller: OIFPlatformBundle:CommissionCinema:editFiche }
 
-oif_platform_cinema_edit_piece:
-    path:     /commission-cinema/edit-piece-{id}
-    defaults: { _controller: OIFPlatformBundle:CommissionCinema:editPiece }
+#--- Supprimer un projet
+oif_platform_cinema_delete_fiche:
+    path:     /commission-cinema/delete-fiche-{id}
+    defaults: { _controller: OIFPlatformBundle:CommissionCinema:deleteFiche }
 
+#--- Ajouter un financement
+oif_platform_cinema_addFinancement:
+    path:     /commission-cinema/add-financement-{id}
+    defaults: { _controller: OIFPlatformBundle:CommissionCinema:addFinancement }
+#--- Supprimer un financement
+oif_platform_cinema_deleteFinancement:
+    path:     /commission-cinema/delete-financement-{id}
+    defaults: { _controller: OIFPlatformBundle:CommissionCinema:deleteFinancement }
+
+#--- Ajouter un lien
+oif_platform_cinema_addLien:
+    path:     /commission-cinema/add-lien-{id}
+    defaults: { _controller: OIFPlatformBundle:CommissionCinema:addLien }
+#--- Supprimer un lien
+oif_platform_cinema_deleteLien:
+    path:     /commission-cinema/delete-lien-{id}
+    defaults: { _controller: OIFPlatformBundle:CommissionCinema:deleteLien }
+
+#--- Ajouter une piece
+oif_platform_cinema_addPiece:
+    path:     /commission-cinema/add-piece-{id}
+    defaults: { _controller: OIFPlatformBundle:CommissionCinema:addPiece}
+#--- Ajouter une piece
+oif_platform_cinema_deletePiece:
+    path:     /commission-cinema/delete-piece-{id}
+    defaults: { _controller: OIFPlatformBundle:CommissionCinema:deletePiece }
+
+
+
+## COMMISSION AUDIOVISUELLE ##
 
 ## Page cinéma
 oif_platform_audiovisuelle:

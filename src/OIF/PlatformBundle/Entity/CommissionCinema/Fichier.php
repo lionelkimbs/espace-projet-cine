@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Fichier
  *
- * @ORM\Table(name="commission_cinema_fichier")
+ * @ORM\Table(name="oif_commission_cinema_fichier")
  * @ORM\Entity(repositoryClass="OIF\PlatformBundle\Repository\CommissionCinema\FichierRepository")
  */
 class Fichier

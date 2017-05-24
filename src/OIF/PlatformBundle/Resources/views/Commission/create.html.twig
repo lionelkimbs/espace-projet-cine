@@ -1,0 +1,102 @@
+{% extends 'OIFCoreBundle::layout.html.twig' %}
+
+{% block title %}Commission cinéma | {{ parent() }}{% endblock %}
+
+{# CSS files #}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+{% endblock %}
+
+
+{% block body %}
+    {% if is_granted('ROLE_USER') %}
+
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h2 class="panel-title">Créer une commission</h2>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-9">
+                        {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+                        {# Les erreurs générales du formulaire. #}
+                        {{ form_errors(form) }}
+                        <div class="row">
+                            {# Titre #}
+                            <div class="col-md-5 col-md-offset-1">
+                                <div class="form-group">
+                                    {{ form_errors(form.titre) }}
+                                    {{ form_widget(form.titre, {'attr':{'placeholder':'Titre de la commission'} }) }}
+                                </div>
+                            </div>
+                        </div>
+                        {# Type #}
+                        <div class="row">
+                            <div class="col-md-5 col-md-offset-1">
+                                <div class="form-group">
+                                    <h4>Type de commission :</h4>
+                                    {{ form_errors(form.type) }}
+                                    {{ form_widget(form.type) }}
+                                </div>
+                            </div>
+                        </div>
+                            {# Dates #}
+                        <div class="row">
+                            <div class="col-md-5 col-md-offset-1">
+                                <div class="form-group">
+                                    {{ form_errors(form.dateDeb) }}
+                                    {{ form_widget(form.dateDeb, {'attr': {'class': 'js-datepicker', 'placeholder': 'jj/mm/aaaa', 'autocomplete':'off'} }) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_errors(form.dateFin) }}
+                                    {{ form_widget(form.dateFin, {'attr': {'class': 'js-datepicker', 'placeholder': 'jj/mm/aaaa', 'autocomplete':'off'} }) }}
+                                </div>
+                            </div>
+                        </div>
+                            {# Etat #}
+                        <div class="row">
+                            <div class="col-md-5 col-md-offset-1">
+                                <div class="form-group">
+                                    {{ form_errors(form.etat) }}
+                                    {{ form_widget(form.etat) }}
+                                </div>
+                            </div>
+                        </div>
+                            {# Valider #}
+                        <div class="row">
+                            <div class="col-md-5 col-md-offset-1">
+                                <div class="form-group">
+                                    {{ form_widget(form.valider, {'attr': {'class': 'btn btn-info pull-right'} }) }}
+                                </div>
+                            </div>
+                        </div>
+                        {{ form_rest(form) }}
+                        {{ form_end(form) }}
+                    </div>
+                    <div class="col-lg-3">
+                        {% include 'OIFCoreBundle:Core:admin_menu.html.twig' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+
+{# Javascripts files #}
+{% block javascripts %}
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://raw.githubusercontent.com/jquery/jquery-ui/master/ui/i18n/datepicker-fr.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            $('.js-datepicker').datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: 'dd-mm-yy',
+                yearRange: "-0:+1"
+            });
+        });
+    </script>
+{% endblock %}

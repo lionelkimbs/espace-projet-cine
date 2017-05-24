@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Financement
  *
- * @ORM\Table(name="commission_cinema_financement")
+ * @ORM\Table(name="oif_commission_cinema_financement")
  * @ORM\Entity(repositoryClass="OIF\PlatformBundle\Repository\CommissionCinema\FinancementRepository")
  */
 class Financement
@@ -44,7 +44,7 @@ class Financement
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="OIF\PlatformBundle\Entity\CommissionCinema\Projet")
+     * @ORM\ManyToOne(targetEntity="OIF\PlatformBundle\Entity\CommissionCinema\Projet", inversedBy="finacements")
      * @ORM\JoinColumn(nullable=false)
      */
     private $projet;

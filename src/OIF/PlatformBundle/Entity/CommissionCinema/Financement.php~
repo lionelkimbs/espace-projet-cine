@@ -44,7 +44,7 @@ class Financement
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="OIF\PlatformBundle\Entity\CommissionCinema\Projet")
+     * @ORM\ManyToOne(targetEntity="OIF\PlatformBundle\Entity\CommissionCinema\Projet", inversedBy="finacements")
      * @ORM\JoinColumn(nullable=false)
      */
     private $projet;
@@ -130,5 +130,28 @@ class Financement
     {
         return $this->negociation;
     }
-}
 
+    /**
+     * Set projet
+     *
+     * @param \OIF\PlatformBundle\Entity\CommissionCinema\Projet $projet
+     *
+     * @return Financement
+     */
+    public function setProjet(\OIF\PlatformBundle\Entity\CommissionCinema\Projet $projet)
+    {
+        $this->projet = $projet;
+
+        return $this;
+    }
+
+    /**
+     * Get projet
+     *
+     * @return \OIF\PlatformBundle\Entity\CommissionCinema\Projet
+     */
+    public function getProjet()
+    {
+        return $this->projet;
+    }
+}

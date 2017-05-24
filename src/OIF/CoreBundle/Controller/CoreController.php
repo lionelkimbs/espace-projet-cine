@@ -12,8 +12,13 @@ class CoreController extends Controller {
      * @Security("has_role('ROLE_USER')")
      */
     public function indexAction(Request $request){
-
-        return $this->render('OIFCoreBundle:Core:index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $commissions = $em->getRepository('OIFPlatformBundle:Commission')->findBy([
+            'etat' => 1
+        ]);
+        return $this->render('OIFCoreBundle:Core:index.html.twig', [
+            'commissions' => $commissions
+        ]);
     }
 
     //---- -- PAGE DU PROFIL

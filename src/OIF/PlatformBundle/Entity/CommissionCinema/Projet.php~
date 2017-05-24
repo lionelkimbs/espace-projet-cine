@@ -2,6 +2,7 @@
 
 namespace OIF\PlatformBundle\Entity\CommissionCinema;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -169,6 +170,15 @@ class Projet
 
 
 
+
+    /**
+     * @ORM\OneToMany(targetEntity="OIF\PlatformBundle\Entity\CommissionCinema\Lien", mappedBy="projet", cascade={"remove"})
+     */
+    protected $liens;
+    /**
+     * @ORM\OneToMany(targetEntity="OIF\PlatformBundle\Entity\CommissionCinema\Financement", mappedBy="projet", cascade={"remove"})
+     */
+    protected $financements;
     /**
      * @ORM\ManyToOne(targetEntity="OIF\PlatformBundle\Entity\Commission")
      * @ORM\JoinColumn(nullable=false)
@@ -191,9 +201,10 @@ class Projet
      */
     public function __construct(){
         $this->dateCreation = new \DateTime();
+        $this->liens = new ArrayCollection();
+        $this->financements = new ArrayCollection();
     }
 
 
 
-    
 }

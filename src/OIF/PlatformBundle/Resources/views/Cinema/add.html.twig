@@ -6,7 +6,6 @@
 {% block stylesheets %}
     {{ parent() }}
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
 {% endblock %}
 
 {# Content #}
@@ -151,11 +150,11 @@
                         {# dateDeb de la structure #}
                         <div class="form-group">
                             {{ form_errors(form.dateDeb) }}
-                            {{ form_widget(form.dateDeb, {'attr': {'class': 'js-datepicker', 'placeholder': 'jj/mm/aaaa'} }) }}
+                            {{ form_widget(form.dateDeb, {'attr': {'class': 'js-datepicker', 'placeholder': 'jj/mm/aaaa', 'autocomplete':'off'} }) }}
                         </div>
                         <div class="form-group">
                             {{ form_errors(form.dateFin) }}
-                            {{ form_widget(form.dateFin, {'attr': {'class': 'js-datepicker', 'placeholder': 'jj/mm/aaaa'} }) }}
+                            {{ form_widget(form.dateFin, {'attr': {'class': 'js-datepicker', 'placeholder': 'jj/mm/aaaa', 'autocomplete':'off'} }) }}
                         </div>
 
                         {# Coût total du projet #}

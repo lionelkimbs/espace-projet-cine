@@ -2,3 +2,50 @@
 
 {% block title %}Tableau de bord {{ parent() }}{% endblock %}
 
+{% block body %}
+
+{% if is_granted('ROLE_USER') %}
+<div class="panel panel-info">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-9">
+                <h3>Commissions actuellement ouvertes</h3>
+                <div class="list-group">
+                    {% for commission in commissions %}
+                        <a href="#" class="list-group-item">
+                            {% if commission.type == 1 %}
+                                <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span> <b>Commission Audiovisuelle : </b>
+                            {% elseif commission.type == 2 %}
+                                <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span> <b>Commission Cinéma : </b>
+                            {% endif %}
+                            {{ commission.titre }}
+                            <br>
+                            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                            Du {{ commission.dateDeb|date('d/m') }} au {{ commission.dateFin|date('d/m/Y') }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-lg-3">
+                {% include 'OIFCoreBundle:Core:admin_menu.html.twig' %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if is_granted('ROLE_USER') %}
+<div class="panel panel-info">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-12">
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+
+
+{% endblock %}

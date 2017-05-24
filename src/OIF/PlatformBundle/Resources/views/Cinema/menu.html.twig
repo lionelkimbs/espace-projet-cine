@@ -1,6 +1,9 @@
 {% block menu %}
     <div class="list-group">
         <a href="{{ path('oif_platform_cinema_view', {'id': projet.id } )}}" class="list-group-item {% if app.request.get('_route') == 'oif_platform_cinema_view' %}disabled{% endif %}">
+            Afficher le projet
+        </a>
+        <a href="{{ path('oif_platform_cinema_edit_fiche', {'id': projet.id } )}}" class="list-group-item {% if app.request.get('_route') == 'oif_platform_cinema_edit_fiche' %}disabled{% endif %}">
             Modifier les informations
         </a>
         <a href="{{ path('oif_platform_cinema_addFinancement', {'id': projet.id } )}}" class="list-group-item {% if app.request.get('_route') == 'oif_platform_cinema_addFinancement' %}disabled{% endif %}">
@@ -11,6 +14,9 @@
         </a>
         <a href="{{ path('oif_platform_cinema_addPiece', {'id': projet.id } )}}" class="list-group-item {% if app.request.get('_route') == 'oif_platform_cinema_addPiece' %}disabled{% endif %}">
             Modifier les pièces
+        </a>
+        <a href="{{ path('oif_platform_cinema_delete_fiche', {'id': projet.id } )}}" class="list-group-item list-group-item-danger {% if app.request.get('_route') == 'oif_platform_cinema_delete_fiche' %}disabled{% endif %}" title="Cette opération est irréversible">
+            Supprimer le projet
         </a>
     </div>
 {% endblock %}

@@ -2,6 +2,7 @@
 
 namespace OIF\PlatformBundle\Entity\CommissionCinema;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -169,6 +170,15 @@ class Projet
 
 
 
+
+    /**
+     * @ORM\OneToMany(targetEntity="OIF\PlatformBundle\Entity\CommissionCinema\Lien", mappedBy="projet", cascade={"remove"})
+     */
+    protected $liens;
+    /**
+     * @ORM\OneToMany(targetEntity="OIF\PlatformBundle\Entity\CommissionCinema\Financement", mappedBy="projet", cascade={"remove"})
+     */
+    protected $financements;
     /**
      * @ORM\ManyToOne(targetEntity="OIF\PlatformBundle\Entity\Commission")
      * @ORM\JoinColumn(nullable=false)
@@ -191,11 +201,12 @@ class Projet
      */
     public function __construct(){
         $this->dateCreation = new \DateTime();
+        $this->liens = new ArrayCollection();
+        $this->financements = new ArrayCollection();
     }
 
 
 
-    
 
     /**
      * Get id
@@ -709,6 +720,74 @@ class Projet
     public function getDateCreation()
     {
         return $this->dateCreation;
+    }
+
+    /**
+     * Add lien
+     *
+     * @param \OIF\PlatformBundle\Entity\CommissionCinema\Lien $lien
+     *
+     * @return Projet
+     */
+    public function addLien(\OIF\PlatformBundle\Entity\CommissionCinema\Lien $lien)
+    {
+        $this->liens[] = $lien;
+
+        return $this;
+    }
+
+    /**
+     * Remove lien
+     *
+     * @param \OIF\PlatformBundle\Entity\CommissionCinema\Lien $lien
+     */
+    public function removeLien(\OIF\PlatformBundle\Entity\CommissionCinema\Lien $lien)
+    {
+        $this->liens->removeElement($lien);
+    }
+
+    /**
+     * Get liens
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLiens()
+    {
+        return $this->liens;
+    }
+
+    /**
+     * Add financement
+     *
+     * @param \OIF\PlatformBundle\Entity\CommissionCinema\Financement $financement
+     *
+     * @return Projet
+     */
+    public function addFinancement(\OIF\PlatformBundle\Entity\CommissionCinema\Financement $financement)
+    {
+        $this->financements[] = $financement;
+
+        return $this;
+    }
+
+    /**
+     * Remove financement
+     *
+     * @param \OIF\PlatformBundle\Entity\CommissionCinema\Financement $financement
+     */
+    public function removeFinancement(\OIF\PlatformBundle\Entity\CommissionCinema\Financement $financement)
+    {
+        $this->financements->removeElement($financement);
+    }
+
+    /**
+     * Get financements
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFinancements()
+    {
+        return $this->financements;
     }
 
     /**
