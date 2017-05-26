@@ -1,6 +1,6 @@
 <?php
 
-namespace OIF\PlatformBundle\Entity\CommissionCinema;
+namespace OIF\PlatformBundle\Entity\CommissionAudiovisuelle;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -8,11 +8,12 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 /**
  * Fichier
  *
- * @ORM\Table(name="oif_commission_cinema_fichier")
- * @ORM\Entity(repositoryClass="OIF\PlatformBundle\Repository\CommissionCinema\FichierRepository")
+ * @ORM\Table(name="oif_commission_audiovisuelle_fichier")
+ * @ORM\Entity(repositoryClass="OIF\PlatformBundle\Repository\CommissionAudiovisuelle\FichierRepository")
  * @ORM\HasLifecycleCallbacks
  */
-class Fichier{
+class Fichier
+{
     /**
      * @var int
      *
@@ -32,12 +33,20 @@ class Fichier{
     /**
      * @var string
      *
+     * @ORM\Column(name="titre", type="string", length=255)
+     */
+    private $titre;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="url", type="string", length=255)
      */
     private $url;
 
+
     /**
-     * @ORM\ManyToOne(targetEntity="OIF\PlatformBundle\Entity\CommissionCinema\Projet", inversedBy="fichiers")
+     * @ORM\ManyToOne(targetEntity="OIF\PlatformBundle\Entity\CommissionAudiovisuelle\Projet", inversedBy="fichiers")
      * @ORM\JoinColumn(nullable=false)
      */
     private $projet;
@@ -111,12 +120,13 @@ class Fichier{
     }
     public function getUploadDir(){
         // On retourne le chemin relatif vers l'image pour un navigateur
-        return 'uploads/img';
+        return 'uploads/projets/com_audiovisuelle';
     }
     protected function getUploadRootDir(){
         // On retourne le chemin relatif vers l'image pour notre code PHP
         return __DIR__.'/../../../../../web/'.$this->getUploadDir();
     }
+
 
     /**
      * Get id
@@ -179,11 +189,11 @@ class Fichier{
     /**
      * Set projet
      *
-     * @param \OIF\PlatformBundle\Entity\CommissionCinema\Projet $projet
+     * @param \OIF\PlatformBundle\Entity\CommissionAudiovisuelle\Projet $projet
      *
      * @return Fichier
      */
-    public function setProjet(\OIF\PlatformBundle\Entity\CommissionCinema\Projet $projet)
+    public function setProjet(\OIF\PlatformBundle\Entity\CommissionAudiovisuelle\Projet $projet)
     {
         $this->projet = $projet;
 
@@ -193,10 +203,34 @@ class Fichier{
     /**
      * Get projet
      *
-     * @return \OIF\PlatformBundle\Entity\CommissionCinema\Projet
+     * @return \OIF\PlatformBundle\Entity\CommissionAudiovisuelle\Projet
      */
     public function getProjet()
     {
         return $this->projet;
+    }
+
+    /**
+     * Set titre
+     *
+     * @param string $titre
+     *
+     * @return Fichier
+     */
+    public function setTitre($titre)
+    {
+        $this->titre = $titre;
+
+        return $this;
+    }
+
+    /**
+     * Get titre
+     *
+     * @return string
+     */
+    public function getTitre()
+    {
+        return $this->titre;
     }
 }

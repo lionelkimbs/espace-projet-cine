@@ -12,7 +12,7 @@
                 <h3>Commissions actuellement ouvertes</h3>
                 <div class="list-group">
                     {% for commission in commissions %}
-                        <a href="#" class="list-group-item">
+                        <a href="{{ path('oif_platform_view_commission', {'id': commission.id } )}}" class="list-group-item">
                             {% if commission.type == 1 %}
                                 <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span> <b>Commission Audiovisuelle : </b>
                             {% elseif commission.type == 2 %}

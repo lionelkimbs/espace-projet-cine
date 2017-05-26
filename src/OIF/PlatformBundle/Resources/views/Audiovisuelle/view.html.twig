@@ -1,6 +1,6 @@
 {% extends 'OIFCoreBundle::layout.html.twig' %}
 
-{% block title %}{{ projet.titre }} - Commission cinéma | {{ parent() }}{% endblock %}
+{% block title %}{{ projet.titre }} - Commission audiovisuelle | {{ parent() }}{% endblock %}
 
 {% block body %}
     <div class="panel panel-info">
@@ -15,8 +15,8 @@
                         <tr>
                             <td>Type d'intervention :</td>
                             <td>
-                                {% if projet.typeIntervention == 0 %} <b>Aide à la production</b>
-                                {% elseif projet.typeIntervention == 1 %} <b>Aide à la finition</b>
+                                {% if projet.typeIntervention == 1 %} <b>Aide à la production</b>
+                                {% elseif projet.typeIntervention == 2 %} <b>Aide à la finition</b>
                                 {% endif %}
                             </td>
                         </tr>
@@ -24,8 +24,10 @@
                         <tr>
                             <td>Genre :</td>
                             <td>
-                                {% if projet.genre == 0 %} <b>Fiction</b>
-                                {% elseif projet.genre == 1 %} <b>Animation</b>
+                                {% if projet.genre == 1 %} <b>Animation</b>
+                                {% elseif projet.genre == 2 %} <b>Fiction</b>
+                                {% elseif projet.genre == 2 %} <b>Documentaire</b>
+                                {% elseif projet.genre == 2 %} <b>Magazine</b>
                                 {% endif %}
                             </td>
                         </tr>
@@ -33,24 +35,25 @@
                         <tr>
                             <td>Durée :</td>
                             <td>
-                                {% if projet.duree == 0 %} <b>Court-métrage (- de 30')</b>
-                                {% elseif projet.duree == 1 %} <b>Moyen-métrage (30' à 60')</b>
-                                {% elseif projet.duree == 2 %} <b>Long-métrage (+ de 60')</b>
+                                <b>{{ projet.duree }} minutes</b>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Nombre d'épisodes :</td>
+                            <td>
+                                <b>{{ projet.episode }}</b>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Type support</td>
+                            <td>
+                                {% if projet.support == 1 %} <b>HD</b>
+                                {% elseif projet.support == 2 %} <b>Beta numérique</b>
+                                {% elseif projet.support == 2 %} <b>LDV CAM ou DVC PRO</b>
+                                {% elseif projet.support == 2 %} <b>Autres</b>
                                 {% endif %}
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>Support de tournage prévu :</td>
-                            <td>
-                                <b>{{ projet.support }}</b>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>Standard de projection ou de diffusion prévu :</td>
-                            <td>
-                                <b>{{ projet.standard }}</b>
                             </td>
                         </tr>
 
@@ -69,13 +72,6 @@
                         </tr>
 
                         <tr>
-                            <td>Année de naissance :</td>
-                            <td>
-                                <b>{{ projet.annee }}</b>
-                            </td>
-                        </tr>
-
-                        <tr>
                             <td>Nom de la structure :</td>
                             <td>
                                 <b>{{ projet.nomStructure }}</b>
@@ -83,13 +79,9 @@
                         </tr>
 
                         <tr>
-                            <td>Type de la structure :</td>
+                            <td>Montant du capital social :</td>
                             <td>
-                                {% if projet.typeStructure == 0 %} <b>SA (Société anonyme)</b>
-                                {% elseif projet.typeStructure == 1 %} <b>SARL ou SPRL (société à responsabilité limitée)</b>
-                                {% elseif projet.typeStructure == 2 %} <b>EURL (Entreprise unipersonnelle à responsabilité limitée)</b>
-                                {% elseif projet.typeStructure == 3 %} <b>Organisme public gérant une chaîne de télévision</b>
-                                {% endif %}
+                                <b>{{ projet.capital }} {{ projet.devise }}</b>
                             </td>
                         </tr>
 
@@ -97,6 +89,13 @@
                             <td>Adresse de la structure :</td>
                             <td>
                                 <b>{{ projet.adresseStructure }}</b>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Code postal :</td>
+                            <td>
+                                <b>{{ projet.codePostal }}</b>
                             </td>
                         </tr>
 
@@ -169,7 +168,7 @@
                 </div>
 
                 <div class="col-lg-3">
-                    {% include 'OIFPlatformBundle:Cinema:menu.html.twig' %}
+                    {% include 'OIFPlatformBundle:Audiovisuelle:menu.html.twig' %}
                 </div>
 
             </div>

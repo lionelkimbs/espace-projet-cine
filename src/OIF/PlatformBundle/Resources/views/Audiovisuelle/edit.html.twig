@@ -1,6 +1,6 @@
 {% extends 'OIFCoreBundle::layout.html.twig' %}
 
-{% block title %}Nouveau projet - Commission audiovisuelle | {{ parent() }}{% endblock %}
+{% block title %}Modifier le projet - Commission audiovisuelle | {{ parent() }}{% endblock %}
 
 {# CSS files #}
 {% block stylesheets %}
@@ -16,7 +16,7 @@
         </div>
         <div class="panel-body">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-9">
                     {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
                     {# Les erreurs générales du formulaire. #}
                     {{ form_errors(form) }}
@@ -28,7 +28,7 @@
                                 {{ form_errors(form.typeIntervention) }}
                                 {{ form_widget(form.typeIntervention) }}
                             </div>
-                        {# Genre #}
+                            {# Genre #}
                             <div class="form-group">
                                 <h4>2. Genre :</h4>
                                 {{ form_errors(form.genre) }}
@@ -170,6 +170,11 @@
                     {{ form_end(form) }}
 
                 </div>
+
+                <div class="col-lg-3">
+                    {% include 'OIFPlatformBundle:Audiovisuelle:menu.html.twig' %}
+                </div>
+
             </div>
         </div>
     </div>

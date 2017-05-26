@@ -1,6 +1,6 @@
 <?php
 
-namespace OIF\PlatformBundle\Form\CommissionCinema;
+namespace OIF\PlatformBundle\Form\CommissionAudiovisuelle;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -14,7 +14,8 @@ class FichierType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options){
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
         $builder
             ->add('file', FileType::class)
             ->add('valider', SubmitType::class);
@@ -22,8 +23,8 @@ class FichierType extends AbstractType
         $entity = $builder->getData();
         $projet = $entity->getProjet();
 
-        if( $projet && is_a($projet,'OIF\PlatformBundle\Entity\CommissionCinema\Projet') ){
-            if( $projet->getTypeIntervention() != 1 ) {
+        if( $projet && is_a($projet,'OIF\PlatformBundle\Entity\CommissionAudiovisuelle\Projet') ){
+            if( $projet->getTypeIntervention() == 1 ) {
                 $builder
                     ->add('noaide', ChoiceType::class, [
                         'choices' => [
@@ -41,7 +42,7 @@ class FichierType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'OIF\PlatformBundle\Entity\CommissionCinema\Fichier'
+            'data_class' => 'OIF\PlatformBundle\Entity\CommissionAudiovisuelle\Fichier'
         ));
     }
 
@@ -50,7 +51,7 @@ class FichierType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'oif_platformbundle_commissioncinema_fichier';
+        return 'oif_platformbundle_commissionaudiovisuelle_fichier';
     }
 
 

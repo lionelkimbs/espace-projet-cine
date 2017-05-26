@@ -12,10 +12,10 @@
         <a href="{{ path('oif_platform_cinema_addLien', {'id': projet.id } )}}" class="list-group-item {% if app.request.get('_route') == 'oif_platform_cinema_addLien' %}disabled{% endif %}">
             Modifier les liens
         </a>
-        <a href="{{ path('oif_platform_cinema_addPiece', {'id': projet.id } )}}" class="list-group-item {% if app.request.get('_route') == 'oif_platform_cinema_addPiece' %}disabled{% endif %}">
-            Modifier les pièces
+        <a href="{{ path('oif_platform_cinema_addFichier', {'id': projet.id } )}}" class="list-group-item {% if app.request.get('_route') == 'oif_platform_cinema_addFichier' %}disabled{% endif %}">
+            Modifier les fichiers
         </a>
-        <a href="{{ path('oif_platform_cinema_delete_fiche', {'id': projet.id } )}}" class="list-group-item list-group-item-danger {% if app.request.get('_route') == 'oif_platform_cinema_delete_fiche' %}disabled{% endif %}" title="Cette opération est irréversible">
+        <a href="{{ path('oif_platform_cinema_delete_fiche', {'id': projet.id } )}}" class="list-group-item list-group-item-danger {% if app.request.get('_route') == 'oif_platform_cinema_delete_fiche' %}disabled{% endif %}" title="Cette opération est irréversible" onclick="return confirm('Êtes-vous sûre de vouloir supprimer ce projet ? Cette action est irréversible.')">
             Supprimer le projet
         </a>
     </div>

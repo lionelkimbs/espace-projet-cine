@@ -1,0 +1,171 @@
+{% extends 'OIFCoreBundle::layout.html.twig' %}
+
+{% block title %}Financement du projet - Commission audiovisuelle | {{ parent() }}{% endblock %}
+
+{# Content #}
+{% block body %}
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h2 class="panel-title">Plan de financement du projet</h2>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="alert alert-info">ATTENTION : Les champs de saisie sont tous obligatoires !</div>
+                    <blockquote>
+                        Vous pouvez ajouter autant de partenaires que vous souhaitez, il vous suffit d'entrer les informations demandées et de cliquer sur le bouton "Enregistrer".
+                        Le total de votre plan de financement doit être équivalent au coût total de votre projet (<b>{{ projet.coutTotal }} €</b>).
+                    </blockquote>
+
+                    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th class="text-center">Partenaires</th>
+                            <th class="text-center">Montant Sollicité (en €)</th>
+                            <th class="text-center" colspan="2">Etat des négociations</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        {# Formulaire #}
+                        <tr>
+                            <td>
+                                <div class="col-md-10 col-md-offset-1">
+                                    <div class="form-group">
+                                        {{ form_errors(form.partenaire) }}
+                                        {{ form_widget(form.partenaire, {'attr': {'placeholder': 'Nom du partenaire', 'value': '' } }) }}
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="col-md-10 col-md-offset-1">
+                                    <div class="form-group">
+                                        {{ form_errors(form.montant) }}
+                                        {{ form_widget(form.montant, {'attr': {'placeholder': 'Montant sollicité', 'value': '' } }) }}
+                                    </div>
+                                </div>
+                            </td>
+
+                            {% block gender_widget %}
+                                {% spaceless %}
+                                    {% if form.negociation %}
+                                        {% for child in form.negociation %}
+                                            {{ block('widget_container_attributes') }}
+                                            <td>
+                                                <div class="col-md-10 col-md-offset-1">
+                                                    <div class="form-group">
+                                                        {{ form_widget(child) }}
+                                                        {{ form_label(child) }}
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endspaceless %}
+                            {% endblock %}
+
+                            <td>
+                                <div class="col-md-10 col-md-offset-1">
+                                    <div class="form-group">
+                                        {{ form_widget(form.valider, {'attr': {'class': 'btn btn-success pull-right'} }) }}
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+                        {# all financements #}
+                        {% for item in financements %}
+                            <tr>
+                                <td class="text-center">{{ item.partenaire }}</td>
+                                <td class="text-center">
+                                    {{ item.montant }} €
+                                </td>
+                                <td class="text-center">
+                                    {% if item.negociation == 0 %}
+                                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                    {% endif %}
+                                </td>
+                                <td class="text-center">
+                                    {% if item.negociation == 1 %}
+                                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <div class="col-md-10 col-md-offset-1">
+                                        <div class="form-group pull-right">
+                                            <a href="{{ path('oif_platform_audiovisuelle_deleteFinancement', {'id': item.id }) }}" class="btn btn-danger">Supprimer</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+                        {# OIF #}
+                        <tr>
+                            <td class="text-center">Montant demande à l'OIF</td>
+                            <td class="text-center">
+                                {{ projet.montantDemande }} €
+                            </td>
+                            <td class="text-center">
+                                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+
+                        {# Total #}
+                        <tr class="active">
+                            <td class="text-center"><b>Total</b></td>
+                            <td class="text-center">
+                                {# Prévu #}
+                                {% set prevu = 0 %}
+                                {% for finance in financements %}
+                                    {% if finance.negociation == 0 %}
+                                        {% set prevu = prevu + finance.montant %}
+                                    {% endif %}
+                                {% endfor %}
+                                {# Acquis #}
+                                {% set acquis = 0 %}
+                                {% for finance in financements %}
+                                    {% if finance.negociation == 1 %}
+                                        {% set acquis = acquis + finance.montant %}
+                                    {% endif %}
+                                {% endfor %}
+
+                                <b>{{ projet.montantDemande + prevu + acquis }} €</b>
+                            </td>
+                            <td class="text-center">
+                                {{ projet.montantDemande + prevu }} €
+                            </td>
+                            <td class="text-center">
+                                {{ acquis }} €
+                            </td>
+                        </tr>
+
+                        {# Pourcentage des financements acquis par rapport au budget global #}
+                        <tr class="info">
+                            <td colspan="2" class="text-center">Pourcentage des financements acquis par rapport au budget global</td>
+                            <td colspan="2" class="text-center">
+                                <b>{{ ( (projet.montantDemande + prevu + acquis) * 100 ) / projet.coutTotal }} %</b>
+                            </td>
+                            <td></td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                    {{ form_rest(form) }}
+
+                    {{ form_end(form) }}
+
+                </div>
+
+                <div class="col-lg-3">
+                    {% include 'OIFPlatformBundle:Audiovisuelle:menu.html.twig' %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

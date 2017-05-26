@@ -7,6 +7,7 @@ use OIF\PlatformBundle\Entity\CommissionCinema\Financement;
 use OIF\PlatformBundle\Entity\CommissionCinema\Lien;
 use OIF\PlatformBundle\Entity\CommissionCinema\Piece;
 use OIF\PlatformBundle\Entity\CommissionCinema\Projet;
+use OIF\PlatformBundle\Form\CommissionCinema\FichierType;
 use OIF\PlatformBundle\Form\CommissionCinema\FinancementType;
 use OIF\PlatformBundle\Form\CommissionCinema\LienType;
 use OIF\PlatformBundle\Form\CommissionCinema\PieceType;
@@ -164,39 +165,22 @@ class CommissionCinemaController extends Controller{
     }
 
 
-    /// AJOUTER UNE PIECE ///
-    public function addPieceAction(Request $request, $id){
+    /// AJOUTER UN FICHIER ///
+    public function addFichierAction(Request $request, $id){
+        $fichier = new Fichier();
         $em = $this->getDoctrine()->getManager();
         $projet = $em->getRepository('OIFPlatformBundle:CommissionCinema\Projet')->find($id);
-        $piece = new Piece();
-
-        /// Liste des pièces ///
-        for($i = 2 ; $i <= 17 ; $i++){
-            $fichier = new Fichier();
-            $fichier->setNoAide($i);
-            $piece->getFichier()->add($fichier);
-        }
-
-        $form = $this->createForm(PieceType::class, $piece);
-
-        $pieces = $em->getRepository('OIFPlatformBundle:CommissionCinema\Piece')->findBy(
-            ['projet' => $projet]
-        );
+        $fichier->setProjet($projet);
+        $form = $this->createForm( FichierType::class, $fichier);
 
         if( $request->isMethod('POST') && $form->handleRequest($request)->isValid() ){
-            $piece->setProjet($projet);
-            $em->persist($piece);
+            $em->persist($fichier);
             $em->flush();
-            return $this->render('OIFPlatformBundle:Cinema:addPiece.html.twig', [
-                'projet' => $projet,
-                'pieces' => $pieces,
-                'form' => $form->createView()
-            ]);
         }
-        return $this->render("OIFPlatformBundle:Cinema:addPiece.html.twig", [
-            'projet' => $projet,
-            'pieces' => $pieces,
-            'form' => $form->createView()
+
+        return $this->render("OIFPlatformBundle:Cinema:addFichier.html.twig", [
+            'form' => $form->createView(),
+            'projet' => $projet
         ]);
     }
 
@@ -206,9 +190,9 @@ class CommissionCinemaController extends Controller{
 	    //--- On crée l'objet Projet
 	    $projet = new Projet();
 	    $form = $this->createForm(ProjetType::class, $projet);
+        $form->handleRequest($request);
         //Si la requete est en POST
         if( $request->isMethod('POST') && $form->handleRequest($request)->isValid() ){
-            // On enregistre notre objet dans la base de données, par exemple
             $em = $this->getDoctrine()->getManager();
 
             // On récupère la commission cinéma active
@@ -261,6 +245,5 @@ class CommissionCinemaController extends Controller{
         $request->getSession()->getFlashBag()->add('notice', 'Projet supprimé avec succès !');
         return $this->redirectToRoute('oif_platform_cinema');
     }
-
 }
 

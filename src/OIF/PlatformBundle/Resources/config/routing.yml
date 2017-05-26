@@ -3,6 +3,11 @@ oif_platform_create_commission:
     path:     /create-commission
     defaults: { _controller: OIFPlatformBundle:Commission:createCommission }
 
+oif_platform_view_commission:
+    path:     /commission-{id}
+    defaults: { _controller: OIFPlatformBundle:Commission:view }
+    requirements:
+        id: \d+
 
 
 
@@ -29,49 +34,126 @@ oif_platform_cinema_add:
 oif_platform_cinema_edit_fiche:
     path:     /commission-cinema/edit-fiche-{id}
     defaults: { _controller: OIFPlatformBundle:CommissionCinema:editFiche }
+    requirements:
+        id: \d+
 
 #--- Supprimer un projet
 oif_platform_cinema_delete_fiche:
     path:     /commission-cinema/delete-fiche-{id}
     defaults: { _controller: OIFPlatformBundle:CommissionCinema:deleteFiche }
+    requirements:
+        id: \d+
 
 #--- Ajouter un financement
 oif_platform_cinema_addFinancement:
     path:     /commission-cinema/add-financement-{id}
     defaults: { _controller: OIFPlatformBundle:CommissionCinema:addFinancement }
+    requirements:
+        id: \d+
 #--- Supprimer un financement
 oif_platform_cinema_deleteFinancement:
     path:     /commission-cinema/delete-financement-{id}
     defaults: { _controller: OIFPlatformBundle:CommissionCinema:deleteFinancement }
+    requirements:
+        id: \d+
 
 #--- Ajouter un lien
 oif_platform_cinema_addLien:
     path:     /commission-cinema/add-lien-{id}
     defaults: { _controller: OIFPlatformBundle:CommissionCinema:addLien }
+    requirements:
+        id: \d+
 #--- Supprimer un lien
 oif_platform_cinema_deleteLien:
     path:     /commission-cinema/delete-lien-{id}
     defaults: { _controller: OIFPlatformBundle:CommissionCinema:deleteLien }
+    requirements:
+        id: \d+
 
-#--- Ajouter une piece
-oif_platform_cinema_addPiece:
-    path:     /commission-cinema/add-piece-{id}
-    defaults: { _controller: OIFPlatformBundle:CommissionCinema:addPiece}
-#--- Ajouter une piece
+#--- Ajouter une fichier
+oif_platform_cinema_addFichier:
+    path:     /commission-cinema/add-fichier-{id}
+    defaults: { _controller: OIFPlatformBundle:CommissionCinema:addFichier}
+    requirements:
+        id: \d+
+#--- Supprimer un fichier
 oif_platform_cinema_deletePiece:
-    path:     /commission-cinema/delete-piece-{id}
+    path:     /commission-cinema/delete-fichier-{id}
     defaults: { _controller: OIFPlatformBundle:CommissionCinema:deletePiece }
+    requirements:
+        id: \d+
 
 
 
 ## COMMISSION AUDIOVISUELLE ##
-
-## Page cinéma
 oif_platform_audiovisuelle:
     path:     /commission-audiovisuelle
     defaults: { _controller: OIFPlatformBundle:CommissionAudiovisuelle:index }
 
+#--- Ajouter un projet
 oif_platform_audiovisuelle_add:
     path:     /commission-audiovisuelle/add
     defaults: { _controller: OIFPlatformBundle:CommissionAudiovisuelle:add }
 
+#--- Vue projet
+oif_platform_audiovisuelle_view:
+    path:     /commission-audiovisuelle/projet-{id}
+    defaults:
+        _controller: OIFPlatformBundle:CommissionAudiovisuelle:view
+    requirements:
+        id: \d+
+
+#--- Modifier projet
+oif_platform_audiovisuelle_edit_fiche:
+    path:     /commission-audiovisuelle/edit-fiche-{id}
+    defaults:
+        _controller: OIFPlatformBundle:CommissionAudiovisuelle:editFiche
+    requirements:
+        id: \d+
+
+#--- Supprimer projet
+oif_platform_audiovisuelle_delete_fiche:
+    path:     /commission-audiovisuelle/delete-fiche-{id}
+    defaults:
+        _controller: OIFPlatformBundle:CommissionAudiovisuelle:deleteFiche
+    requirements:
+        id: \d+
+
+#--- Ajouter un financement
+oif_platform_audiovisuelle_addFinancement:
+    path:     /commission-audiovisuelle/add-financement-{id}
+    defaults: { _controller: OIFPlatformBundle:CommissionAudiovisuelle:addFinancement }
+    requirements:
+        id: \d+
+#--- Supprimer un financement
+oif_platform_audiovisuelle_deleteFinancement:
+    path:     /commission-audiovisuelle/delete-financement-{id}
+    defaults: { _controller: OIFPlatformBundle:CommissionAudiovisuelle:deleteFinancement }
+    requirements:
+        id: \d+
+
+#--- Ajouter un lien
+oif_platform_audiovisuelle_addLien:
+    path:     /commission-audiovisuelle/add-lien-{id}
+    defaults: { _controller: OIFPlatformBundle:CommissionAudiovisuelle:addLien }
+    requirements:
+        id: \d+
+#--- Supprimer un lien
+oif_platform_audiovisuelle_deleteLien:
+    path:     /commission-audiovisuelle/delete-lien-{id}
+    defaults: { _controller: OIFPlatformBundle:CommissionAudiovisuelle:deleteLien }
+    requirements:
+        id: \d+
+
+#--- Ajouter un fichier
+oif_platform_audiovisuelle_addFichier:
+    path:     /commission-audiovisuelle/add-fichier-{id}
+    defaults: { _controller: OIFPlatformBundle:CommissionAudiovisuelle:addFichier }
+    requirements:
+        id: \d+
+#--- Supprimer un fichier
+oif_platform_audiovisuelle_deleteFichier:
+    path:     /commission-audiovisuelle/delete-fichier-{id}
+    defaults: { _controller: OIFPlatformBundle:CommissionAudiovisuelle:deleteFichier }
+    requirements:
+        id: \d+

@@ -1,0 +1,19 @@
+{% extends 'OIFCoreBundle::layout.html.twig' %}
+
+{% block title %}{{ commission.titre }} | {{ parent() }}{% endblock %}
+
+{# Content #}
+{% block body %}
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h2 class="panel-title">{{ commission.titre }}</h2>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-9">
+                Du {{ commission.dateDeb|date('d/m/Y') }} au {{ commission.dateFin|date('d/m/Y') }}.
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

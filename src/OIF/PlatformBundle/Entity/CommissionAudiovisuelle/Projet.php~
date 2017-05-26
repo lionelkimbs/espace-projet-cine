@@ -1,18 +1,16 @@
 <?php
 
-namespace OIF\PlatformBundle\Entity\CommissionCinema;
+namespace OIF\PlatformBundle\Entity\CommissionAudiovisuelle;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Projet
  *
- * @ORM\Table(name="oif_commission_cinema_projet")
- * @ORM\Entity(repositoryClass="OIF\PlatformBundle\Repository\CommissionCinema\ProjetRepository")
+ * @ORM\Table(name="oif_commission_audiovisuelle_projet")
+ * @ORM\Entity(repositoryClass="OIF\PlatformBundle\Repository\CommissionAudiovisuelle\ProjetRepository")
  */
-class Projet
-{
+class Projet{
     /**
      * @var int
      *
@@ -25,16 +23,23 @@ class Projet
     /**
      * @var int
      *
-     * @ORM\Column(name="typeIntervention", type="integer")
+     * @ORM\Column(name="typeIntervention", type="smallint")
      */
     private $typeIntervention;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="genre", type="integer")
+     * @ORM\Column(name="genre", type="smallint")
      */
     private $genre;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="format", type="smallint")
+     */
+    private $format;
 
     /**
      * @var int
@@ -44,18 +49,18 @@ class Projet
     private $duree;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="support", type="string", length=255)
+     * @ORM\Column(name="episode", type="smallint")
      */
-    private $support;
+    private $episode;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="standard", type="string", length=255)
+     * @ORM\Column(name="support", type="smallint")
      */
-    private $standard;
+    private $support;
 
     /**
      * @var string
@@ -71,14 +76,6 @@ class Projet
      */
     private $realisateur;
 
-
-    /**
-     * @var array
-     *
-     * @ORM\Column(name="annee", type="array")
-     */
-    private $annee;
-
     /**
      * @var string
      *
@@ -87,11 +84,18 @@ class Projet
     private $nomStructure;
 
     /**
-     * @var smallint
+     * @var int
      *
-     * @ORM\Column(name="typeStructure", type="smallint")
+     * @ORM\Column(name="capital", type="smallint")
      */
-    private $typeStructure;
+    private $capital;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="devise", type="string", length=255)
+     */
+    private $devise;
 
     /**
      * @var string
@@ -99,6 +103,13 @@ class Projet
      * @ORM\Column(name="adresseStructure", type="string", length=255)
      */
     private $adresseStructure;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="codePostal", type="string", length=255)
+     */
+    private $codePostal;
 
     /**
      * @var string
@@ -124,7 +135,7 @@ class Projet
     /**
      * @var string
      *
-     * @ORM\Column(name="telResponsable", type="string", length=35)
+     * @ORM\Column(name="telResponsable", type="string", length=255)
      */
     private $telResponsable;
 
@@ -136,12 +147,14 @@ class Projet
     private $emailResponsable;
 
     /**
+     * @var \DateTime
      *
      * @ORM\Column(name="dateDeb", type="date")
      */
     private $dateDeb;
 
     /**
+     * @var \DateTime
      *
      * @ORM\Column(name="dateFin", type="date")
      */
@@ -155,31 +168,31 @@ class Projet
     private $coutTotal;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="montantDemande", type="smallint")
      */
     private $montantDemande;
 
     /**
+     * @var \DateTime
      *
-     * @ORM\Column(name="dateCreation", type="datetime")
+     * @ORM\Column(name="dateCreation", type="date")
      */
     private $dateCreation;
 
 
 
-
     /**
-     * @ORM\OneToMany(targetEntity="OIF\PlatformBundle\Entity\CommissionCinema\Fichier", mappedBy="projet", cascade={"remove"})
+     * @ORM\OneToMany(targetEntity="OIF\PlatformBundle\Entity\CommissionAudiovisuelle\Fichier", mappedBy="projet", cascade={"remove"})
      */
     protected $fichiers;
     /**
-     * @ORM\OneToMany(targetEntity="OIF\PlatformBundle\Entity\CommissionCinema\Lien", mappedBy="projet", cascade={"remove"})
+     * @ORM\OneToMany(targetEntity="OIF\PlatformBundle\Entity\CommissionAudiovisuelle\Lien", mappedBy="projet", cascade={"remove"})
      */
     protected $liens;
     /**
-     * @ORM\OneToMany(targetEntity="OIF\PlatformBundle\Entity\CommissionCinema\Financement", mappedBy="projet", cascade={"remove"})
+     * @ORM\OneToMany(targetEntity="OIF\PlatformBundle\Entity\CommissionAudiovisuelle\Financement", mappedBy="projet", cascade={"remove"})
      */
     protected $financements;
     /**
@@ -198,24 +211,10 @@ class Projet
      */
     private $paysStructure;
 
-
-    /**
-     * Projet constructor.
-     */
-    public function __construct(){
-        $this->dateCreation = new \DateTime();
-        $this->liens = new ArrayCollection();
-        $this->financements = new ArrayCollection();
-        $this->fichiers = new ArrayCollection();
-    }
-
-
-
-
     /**
      * Get id
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -239,7 +238,7 @@ class Projet
     /**
      * Get typeIntervention
      *
-     * @return integer
+     * @return int
      */
     public function getTypeIntervention()
     {
@@ -263,11 +262,35 @@ class Projet
     /**
      * Get genre
      *
-     * @return integer
+     * @return int
      */
     public function getGenre()
     {
         return $this->genre;
+    }
+
+    /**
+     * Set format
+     *
+     * @param integer $format
+     *
+     * @return Projet
+     */
+    public function setFormat($format)
+    {
+        $this->format = $format;
+
+        return $this;
+    }
+
+    /**
+     * Get format
+     *
+     * @return int
+     */
+    public function getFormat()
+    {
+        return $this->format;
     }
 
     /**
@@ -287,7 +310,7 @@ class Projet
     /**
      * Get duree
      *
-     * @return integer
+     * @return int
      */
     public function getDuree()
     {
@@ -295,9 +318,33 @@ class Projet
     }
 
     /**
+     * Set episode
+     *
+     * @param string $episode
+     *
+     * @return Projet
+     */
+    public function setEpisode($episode)
+    {
+        $this->episode = $episode;
+
+        return $this;
+    }
+
+    /**
+     * Get episode
+     *
+     * @return string
+     */
+    public function getEpisode()
+    {
+        return $this->episode;
+    }
+
+    /**
      * Set support
      *
-     * @param string $support
+     * @param integer $support
      *
      * @return Projet
      */
@@ -311,35 +358,11 @@ class Projet
     /**
      * Get support
      *
-     * @return string
+     * @return int
      */
     public function getSupport()
     {
         return $this->support;
-    }
-
-    /**
-     * Set standard
-     *
-     * @param string $standard
-     *
-     * @return Projet
-     */
-    public function setStandard($standard)
-    {
-        $this->standard = $standard;
-
-        return $this;
-    }
-
-    /**
-     * Get standard
-     *
-     * @return string
-     */
-    public function getStandard()
-    {
-        return $this->standard;
     }
 
     /**
@@ -391,30 +414,6 @@ class Projet
     }
 
     /**
-     * Set annee
-     *
-     * @param array $annee
-     *
-     * @return Projet
-     */
-    public function setAnnee($annee)
-    {
-        $this->annee = $annee;
-
-        return $this;
-    }
-
-    /**
-     * Get annee
-     *
-     * @return array
-     */
-    public function getAnnee()
-    {
-        return $this->annee;
-    }
-
-    /**
      * Set nomStructure
      *
      * @param string $nomStructure
@@ -439,27 +438,51 @@ class Projet
     }
 
     /**
-     * Set typeStructure
+     * Set capital
      *
-     * @param integer $typeStructure
+     * @param string $capital
      *
      * @return Projet
      */
-    public function setTypeStructure($typeStructure)
+    public function setCapital($capital)
     {
-        $this->typeStructure = $typeStructure;
+        $this->capital = $capital;
 
         return $this;
     }
 
     /**
-     * Get typeStructure
+     * Get capital
      *
-     * @return integer
+     * @return string
      */
-    public function getTypeStructure()
+    public function getCapital()
     {
-        return $this->typeStructure;
+        return $this->capital;
+    }
+
+    /**
+     * Set devise
+     *
+     * @param string $devise
+     *
+     * @return Projet
+     */
+    public function setDevise($devise)
+    {
+        $this->devise = $devise;
+
+        return $this;
+    }
+
+    /**
+     * Get devise
+     *
+     * @return string
+     */
+    public function getDevise()
+    {
+        return $this->devise;
     }
 
     /**
@@ -484,6 +507,30 @@ class Projet
     public function getAdresseStructure()
     {
         return $this->adresseStructure;
+    }
+
+    /**
+     * Set codePostal
+     *
+     * @param string $codePostal
+     *
+     * @return Projet
+     */
+    public function setCodePostal($codePostal)
+    {
+        $this->codePostal = $codePostal;
+
+        return $this;
+    }
+
+    /**
+     * Get codePostal
+     *
+     * @return string
+     */
+    public function getCodePostal()
+    {
+        return $this->codePostal;
     }
 
     /**
@@ -671,7 +718,7 @@ class Projet
     /**
      * Get coutTotal
      *
-     * @return integer
+     * @return int
      */
     public function getCoutTotal()
     {
@@ -695,7 +742,7 @@ class Projet
     /**
      * Get montantDemande
      *
-     * @return integer
+     * @return int
      */
     public function getMontantDemande()
     {
@@ -705,7 +752,7 @@ class Projet
     /**
      * Set dateCreation
      *
-     * @param \DateTime $dateCreation
+     * @param string $dateCreation
      *
      * @return Projet
      */
@@ -719,184 +766,10 @@ class Projet
     /**
      * Get dateCreation
      *
-     * @return \DateTime
+     * @return string
      */
     public function getDateCreation()
     {
         return $this->dateCreation;
-    }
-
-    /**
-     * Add lien
-     *
-     * @param \OIF\PlatformBundle\Entity\CommissionCinema\Lien $lien
-     *
-     * @return Projet
-     */
-    public function addLien(\OIF\PlatformBundle\Entity\CommissionCinema\Lien $lien)
-    {
-        $this->liens[] = $lien;
-
-        return $this;
-    }
-
-    /**
-     * Remove lien
-     *
-     * @param \OIF\PlatformBundle\Entity\CommissionCinema\Lien $lien
-     */
-    public function removeLien(\OIF\PlatformBundle\Entity\CommissionCinema\Lien $lien)
-    {
-        $this->liens->removeElement($lien);
-    }
-
-    /**
-     * Get liens
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getLiens()
-    {
-        return $this->liens;
-    }
-
-    /**
-     * Add financement
-     *
-     * @param \OIF\PlatformBundle\Entity\CommissionCinema\Financement $financement
-     *
-     * @return Projet
-     */
-    public function addFinancement(\OIF\PlatformBundle\Entity\CommissionCinema\Financement $financement)
-    {
-        $this->financements[] = $financement;
-
-        return $this;
-    }
-
-    /**
-     * Remove financement
-     *
-     * @param \OIF\PlatformBundle\Entity\CommissionCinema\Financement $financement
-     */
-    public function removeFinancement(\OIF\PlatformBundle\Entity\CommissionCinema\Financement $financement)
-    {
-        $this->financements->removeElement($financement);
-    }
-
-    /**
-     * Get financements
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getFinancements()
-    {
-        return $this->financements;
-    }
-
-    /**
-     * Set commission
-     *
-     * @param \OIF\PlatformBundle\Entity\Commission $commission
-     *
-     * @return Projet
-     */
-    public function setCommission(\OIF\PlatformBundle\Entity\Commission $commission)
-    {
-        $this->commission = $commission;
-
-        return $this;
-    }
-
-    /**
-     * Get commission
-     *
-     * @return \OIF\PlatformBundle\Entity\Commission
-     */
-    public function getCommission()
-    {
-        return $this->commission;
-    }
-
-    /**
-     * Set paysRealisateur
-     *
-     * @param \OIF\CoreBundle\Entity\Pays $paysRealisateur
-     *
-     * @return Projet
-     */
-    public function setPaysRealisateur(\OIF\CoreBundle\Entity\Pays $paysRealisateur)
-    {
-        $this->paysRealisateur = $paysRealisateur;
-
-        return $this;
-    }
-
-    /**
-     * Get paysRealisateur
-     *
-     * @return \OIF\CoreBundle\Entity\Pays
-     */
-    public function getPaysRealisateur()
-    {
-        return $this->paysRealisateur;
-    }
-
-    /**
-     * Set paysStructure
-     *
-     * @param \OIF\CoreBundle\Entity\Pays $paysStructure
-     *
-     * @return Projet
-     */
-    public function setPaysStructure(\OIF\CoreBundle\Entity\Pays $paysStructure)
-    {
-        $this->paysStructure = $paysStructure;
-
-        return $this;
-    }
-
-    /**
-     * Get paysStructure
-     *
-     * @return \OIF\CoreBundle\Entity\Pays
-     */
-    public function getPaysStructure()
-    {
-        return $this->paysStructure;
-    }
-
-    /**
-     * Add fichier
-     *
-     * @param \OIF\PlatformBundle\Entity\CommissionCinema\Fichier $fichier
-     *
-     * @return Projet
-     */
-    public function addFichier(\OIF\PlatformBundle\Entity\CommissionCinema\Fichier $fichier)
-    {
-        $this->fichiers[] = $fichier;
-
-        return $this;
-    }
-
-    /**
-     * Remove fichier
-     *
-     * @param \OIF\PlatformBundle\Entity\CommissionCinema\Fichier $fichier
-     */
-    public function removeFichier(\OIF\PlatformBundle\Entity\CommissionCinema\Fichier $fichier)
-    {
-        $this->fichiers->removeElement($fichier);
-    }
-
-    /**
-     * Get fichiers
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getFichiers()
-    {
-        return $this->fichiers;
     }
 }
