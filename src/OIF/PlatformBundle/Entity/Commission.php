@@ -54,6 +54,30 @@ class Commission
      */
     private $etat;
 
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="activation", type="boolean")
+     */
+    private $activation;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="exception", type="boolean")
+     */
+    private $exception;
+
+    /**
+     * @ORM\OneToMany(targetEntity="OIF\PlatformBundle\Entity\CommissionCinema\Projet", mappedBy="commission")
+     */
+    protected $projetsCinemas;
+    /**
+     * @ORM\OneToMany(targetEntity="OIF\PlatformBundle\Entity\CommissionDocumentaireSerie\Projet", mappedBy="commission")
+     */
+    protected $projetsDocumentaireSeries;
+
+
 
     /**
      * Get id
@@ -114,6 +138,155 @@ class Commission
     }
 
     /**
+     * Set etat
+     *
+     * @param boolean $etat
+     *
+     * @return Commission
+     */
+    public function setEtat($etat)
+    {
+        $this->etat = $etat;
+
+        return $this;
+    }
+
+    /**
+     * Get etat
+     *
+     * @return boolean
+     */
+    public function getEtat()
+    {
+        return $this->etat;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct(){
+        $this->projetsCinemas = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->projetsDocumentaireSeries = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->activation = true;
+        $this->exception = false;
+    }
+
+    /**
+     * Add projetsCinema
+     *
+     * @param \OIF\PlatformBundle\Entity\CommissionCinema\Projet $projetsCinema
+     *
+     * @return Commission
+     */
+    public function addProjetsCinema(\OIF\PlatformBundle\Entity\CommissionCinema\Projet $projetsCinema)
+    {
+        $this->projetsCinemas[] = $projetsCinema;
+
+        return $this;
+    }
+
+    /**
+     * Remove projetsCinema
+     *
+     * @param \OIF\PlatformBundle\Entity\CommissionCinema\Projet $projetsCinema
+     */
+    public function removeProjetsCinema(\OIF\PlatformBundle\Entity\CommissionCinema\Projet $projetsCinema)
+    {
+        $this->projetsCinemas->removeElement($projetsCinema);
+    }
+
+    /**
+     * Get projetsCinemas
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProjetsCinemas()
+    {
+        return $this->projetsCinemas;
+    }
+
+    /**
+     * Add projetsDocumentaireSerie
+     *
+     * @param \OIF\PlatformBundle\Entity\CommissionDocumentaireSerie\Projet $projetsDocumentaireSerie
+     *
+     * @return Commission
+     */
+    public function addProjetsDocumentaireSerie(\OIF\PlatformBundle\Entity\CommissionDocumentaireSerie\Projet $projetsDocumentaireSerie)
+    {
+        $this->projetsDocumentaireSeries[] = $projetsDocumentaireSerie;
+
+        return $this;
+    }
+
+    /**
+     * Remove projetsDocumentaireSerie
+     *
+     * @param \OIF\PlatformBundle\Entity\CommissionDocumentaireSerie\Projet $projetsDocumentaireSerie
+     */
+    public function removeProjetsDocumentaireSerie(\OIF\PlatformBundle\Entity\CommissionDocumentaireSerie\Projet $projetsDocumentaireSerie)
+    {
+        $this->projetsDocumentaireSeries->removeElement($projetsDocumentaireSerie);
+    }
+
+    /**
+     * Get projetsDocumentaireSeries
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProjetsDocumentaireSeries()
+    {
+        return $this->projetsDocumentaireSeries;
+    }
+
+    /**
+     * Set exception
+     *
+     * @param boolean $exception
+     *
+     * @return Commission
+     */
+    public function setException($exception)
+    {
+        $this->exception = $exception;
+
+        return $this;
+    }
+
+    /**
+     * Get exception
+     *
+     * @return boolean
+     */
+    public function getException()
+    {
+        return $this->exception;
+    }
+
+    /**
+     * Add projetsDocumentaireSeries
+     *
+     * @param \OIF\PlatformBundle\Entity\CommissionDocumentaireSerie\Projet $projetsDocumentaireSeries
+     *
+     * @return Commission
+     */
+    public function addProjetsDocumentaireSeries(\OIF\PlatformBundle\Entity\CommissionDocumentaireSerie\Projet $projetsDocumentaireSeries)
+    {
+        $this->projetsDocumentaireSeries[] = $projetsDocumentaireSeries;
+
+        return $this;
+    }
+
+    /**
+     * Remove projetsDocumentaireSeries
+     *
+     * @param \OIF\PlatformBundle\Entity\CommissionDocumentaireSerie\Projet $projetsDocumentaireSeries
+     */
+    public function removeProjetsDocumentaireSeries(\OIF\PlatformBundle\Entity\CommissionDocumentaireSerie\Projet $projetsDocumentaireSeries)
+    {
+        $this->projetsDocumentaireSeries->removeElement($projetsDocumentaireSeries);
+    }
+
+    /**
      * Set dateDeb
      *
      * @param \DateTime $dateDeb
@@ -162,26 +335,26 @@ class Commission
     }
 
     /**
-     * Set etat
+     * Set activation
      *
-     * @param boolean $etat
+     * @param boolean $activation
      *
      * @return Commission
      */
-    public function setEtat($etat)
+    public function setActivation($activation)
     {
-        $this->etat = $etat;
+        $this->activation = $activation;
 
         return $this;
     }
 
     /**
-     * Get etat
+     * Get activation
      *
      * @return boolean
      */
-    public function getEtat()
+    public function getActivation()
     {
-        return $this->etat;
+        return $this->activation;
     }
 }

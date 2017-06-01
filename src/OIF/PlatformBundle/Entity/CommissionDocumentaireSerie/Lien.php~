@@ -1,0 +1,45 @@
+<?php
+
+namespace OIF\PlatformBundle\Entity\CommissionDocumentaireSerie;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Lien
+ *
+ * @ORM\Table(name="oif_commission_documentaireSerie_lien")
+ * @ORM\Entity(repositoryClass="OIF\PlatformBundle\Repository\CommissionDocumentaireSerie\LienRepository")
+ */
+class Lien
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="titre", type="string", length=255)
+     */
+    private $titre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lien", type="string", length=255)
+     */
+    private $lien;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="OIF\PlatformBundle\Entity\CommissionDocumentaireSerie\Projet", inversedBy="liens")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $projet;
+
+}

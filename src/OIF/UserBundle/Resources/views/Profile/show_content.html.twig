@@ -9,7 +9,7 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-3 col-lg-3 " align="center">
-                    <img alt="User Pic" src="https://www.mautic.org/media/images/default_avatar.png" class="img-circle img-responsive">
+                    <img alt="User Pic" src="https://www.mautic.org/media/images/default_avatar.png" title="Fonctionnalité bientôt disponible" class="img-circle img-responsive">
                 </div>
 
                 <div class=" col-md-9 col-lg-9 ">
@@ -17,34 +17,31 @@
                         <tbody>
 
                             <tr>
-                                <td>Rôle:</td>
+                                <td>Identifiant :</td>
                                 <td>
-                                    {% if is_granted('ROLE_USER') %}
-                                        Utilisateur
-                                        {% elseif is_granted('ROLE_ADMIN') %}
-                                        Administrateur
-                                    {% endif %}
+                                    <b>{{ user.username }}</b>
                                 </td>
                             </tr>
 
                             <tr>
-                                <td>Identifiant :</td>
-                                <td>{{ user.username }}</td>
-                            </tr>
-
-                            <tr>
                                 <td>Email :</td>
-                                <td>{{ user.email }}</td>
+                                <td>
+                                    <b>{{ user.email }}</b>
+                                </td>
                             </tr>
 
                             <tr>
                                 <td>Activité :</td>
-                                <td>{{ user.activite.libelle }}</td>
+                                <td>
+                                    <b>{{ user.activite.libelle }}</b>
+                                </td>
                             </tr>
 
                             <tr>
                                 <td>Inscirt le :</td>
-                                <td>{{ user.dateInscription|date('d/m/Y') }}</td>
+                                <td>
+                                    <b>{{ user.dateInscription|date('d/m/Y') }}</b>
+                                </td>
                             </tr>
 
                             <tr>
@@ -58,17 +55,23 @@
 
                             <tr>
                                 <td>Pays :</td>
-                                <td>{{ user.pays.libelle }}</td>
+                                <td>
+                                    <b>{{ user.pays.libelle }}</b>
+                                </td>
                             </tr>
 
                             <tr>
                                 <td>Facebook :</td>
-                                <td>{{ user.facebook }}</td>
+                                <td>
+                                    <a href="{{ user.facebook }}" target="_blank">{{ user.facebook }}</a>
+                                </td>
                             </tr>
 
                             <tr>
                                 <td>Twitter :</td>
-                                <td>{{ user.twitter }}</td>
+                                <td>
+                                    <a href="{{ user.twitter }}" target="_blank">{{ user.twitter }}</a>
+                                </td>
                             </tr>
 
                             <tr>
@@ -91,6 +94,7 @@
                         </tbody>
                     </table>
                     <div class="pull-right">
+                        <a href="{{ path('fos_user_change_password')}}" class="btn btn-warning">Modifier le mot de passe</a>
                         <a href="{{ path('fos_user_profile_edit')}}" class="btn btn-info">Modifier votre profil</a>
                     </div>
                 </div>

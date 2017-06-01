@@ -24,7 +24,7 @@
                         {{ form_errors(form) }}
                         <div class="row">
                             {# Titre #}
-                            <div class="col-md-5 col-md-offset-1">
+                            <div class="col-md-6 col-md-offset-1">
                                 <div class="form-group">
                                     {{ form_errors(form.titre) }}
                                     {{ form_widget(form.titre, {'attr':{'placeholder':'Titre de la commission'} }) }}
@@ -33,7 +33,7 @@
                         </div>
                         {# Type #}
                         <div class="row">
-                            <div class="col-md-5 col-md-offset-1">
+                            <div class="col-md-6 col-md-offset-1">
                                 <div class="form-group">
                                     <h4>Type de commission :</h4>
                                     {{ form_errors(form.type) }}
@@ -41,9 +41,9 @@
                                 </div>
                             </div>
                         </div>
-                            {# Dates #}
+                        {# Dates #}
                         <div class="row">
-                            <div class="col-md-5 col-md-offset-1">
+                            <div class="col-md-6 col-md-offset-1">
                                 <div class="form-group">
                                     {{ form_errors(form.dateDeb) }}
                                     {{ form_widget(form.dateDeb, {'attr': {'class': 'js-datepicker', 'placeholder': 'jj/mm/aaaa', 'autocomplete':'off'} }) }}
@@ -54,18 +54,27 @@
                                 </div>
                             </div>
                         </div>
-                            {# Etat #}
+                        {# Etat #}
                         <div class="row">
-                            <div class="col-md-5 col-md-offset-1">
+                            <div class="col-md-6 col-md-offset-1">
                                 <div class="form-group">
                                     {{ form_errors(form.etat) }}
                                     {{ form_widget(form.etat) }}
                                 </div>
                             </div>
                         </div>
-                            {# Valider #}
+                        {# Activation automatique #}
                         <div class="row">
-                            <div class="col-md-5 col-md-offset-1">
+                            <div class="col-md-6 col-md-offset-1">
+                                <div class="form-group">
+                                    {{ form_errors(form.activation) }}
+                                    {{ form_widget(form.activation) }}
+                                </div>
+                            </div>
+                        </div>
+                        {# Valider #}
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-1">
                                 <div class="form-group">
                                     {{ form_widget(form.valider, {'attr': {'class': 'btn btn-info pull-right'} }) }}
                                 </div>

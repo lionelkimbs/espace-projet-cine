@@ -1,0 +1,164 @@
+<?php
+
+namespace OIF\PlatformBundle\Entity\CommissionDocumentaireSerie;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
+
+
+/**
+ * Financement
+ *
+ * @ORM\Table(name="oif_commission_documentaireSerie_financement")
+ * @ORM\Entity(repositoryClass="OIF\PlatformBundle\Repository\CommissionDocumentaireSerie\FinancementRepository")
+ */
+class Financement
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="partenaire", type="string", length=255)
+     */
+    private $partenaire;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="montant", type="smallint")
+     * @Assert\Range(
+     *      min = 1,
+     *      minMessage = "Les montant minimum de financement est de {{ limit }} €."
+     * )
+     */
+    private $montant;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="negociation", type="boolean")
+     */
+    private $negociation;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="OIF\PlatformBundle\Entity\CommissionDocumentaireSerie\Projet", inversedBy="finacements")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $projet;
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set partenaire
+     *
+     * @param string $partenaire
+     *
+     * @return Financement
+     */
+    public function setPartenaire($partenaire)
+    {
+        $this->partenaire = $partenaire;
+
+        return $this;
+    }
+
+    /**
+     * Get partenaire
+     *
+     * @return string
+     */
+    public function getPartenaire()
+    {
+        return $this->partenaire;
+    }
+
+    /**
+     * Set montant
+     *
+     * @param integer $montant
+     *
+     * @return Financement
+     */
+    public function setMontant($montant)
+    {
+        $this->montant = $montant;
+
+        return $this;
+    }
+
+    /**
+     * Get montant
+     *
+     * @return integer
+     */
+    public function getMontant()
+    {
+        return $this->montant;
+    }
+
+    /**
+     * Set negociation
+     *
+     * @param boolean $negociation
+     *
+     * @return Financement
+     */
+    public function setNegociation($negociation)
+    {
+        $this->negociation = $negociation;
+
+        return $this;
+    }
+
+    /**
+     * Get negociation
+     *
+     * @return boolean
+     */
+    public function getNegociation()
+    {
+        return $this->negociation;
+    }
+
+    /**
+     * Set projet
+     *
+     * @param \OIF\PlatformBundle\Entity\CommissionDocumentaireSerie\Projet $projet
+     *
+     * @return Financement
+     */
+    public function setProjet(\OIF\PlatformBundle\Entity\CommissionDocumentaireSerie\Projet $projet)
+    {
+        $this->projet = $projet;
+
+        return $this;
+    }
+
+    /**
+     * Get projet
+     *
+     * @return \OIF\PlatformBundle\Entity\CommissionDocumentaireSerie\Projet
+     */
+    public function getProjet()
+    {
+        return $this->projet;
+    }
+}

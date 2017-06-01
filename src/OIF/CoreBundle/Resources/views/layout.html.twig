@@ -14,12 +14,9 @@
 
 <body>
     <div class="container">
-
-        {# Header #}
         <div class="page-header">
-
             <div class="media">
-                {# Si l'utilisateur est connecté il doit pouvoir se déconnecter #}
+                {########### Si l'utilisateur est connecté il doit pouvoir se déconnecter #}
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                     <div class="pull-right text-right">
                         Connecté(e) en tant que <b>{{ app.user.username }}</b>
@@ -28,78 +25,78 @@
                             <span class="glyphicon glyphicon-log-out"></span> Se déconnecter
                         </a>
                     </div>
+                {## SINON il se connecter #}
                 {% else %}
                     <div class="pull-right text-right">
                         <a href="{{ path('fos_user_security_login') }}" class="btn btn-info btn-sm">Connexion</a>
                     </div>
                 {% endif %}
+                {########### FIN : Si l'utilisateur est connecté il doit pouvoir se déconnecter #}
 
+                {# Logo #}
                 <div class="media-left">
                     <a href="{{ path('oif_core_homepage') }}" title="Tableau de bord">
                         <img  class="media-object" src="http://www.spla.pro/gestion_oif/02_medias/01_interface/logo_bas.gif"/>
                     </a>
                 </div>
                 <div class="media-body">
-                    <h4 class="media-heading">Fonds Images pour la francophonie</h4>
+                    <h4 class="media-heading">Fonds Image de la Francophonie</h4>
                     Espace Projets
                 </div>
-
-
             </div>
-
         </div>
 
-        {# Body #}
-        {# Si l'utilisateur est connecté le menu s'affiche #}
+        {########### Si l'utilisateur est connecté #}
         {% if is_granted('ROLE_USER') %}
-        {# Main Menu #}
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a href="#" class="navbar-brand">
-                        <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span>
-                    </a>
+            {# Main Menu #}
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a href="#" class="navbar-brand">
+                            <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+                        <ul class="nav navbar-nav">
+                            <li role="dashboard" {% if app.request.get('_route') == 'oif_core_homepage' %}class="active"{% endif %}>
+                                <a href="{{ path('oif_core_homepage') }}" title="Tableau de bord">Tableau de bord</a>
+                            </li>
+                            <li role="documentaireserie" {% if app.request.get('_route') == 'oif_platform_documentaireserie' %}class="active"{% endif %}>
+                                <a href="{{ path('oif_platform_documentaireserie') }}">Commission Documentaires / Séries</a>
+                            </li>
+                            <li role="cinema" {% if app.request.get('_route') == 'oif_platform_cinema' %}class="active"{% endif %}>
+                                <a href="{{ path('oif_platform_cinema') }}">Commission cinéma</a>
+                            </li>
+                            <li role="archives" {% if app.request.get('_route') == 'oif_core_archives' %}class="active"{% endif %}>
+                                <a href="{{ path('oif_core_archives') }}">Archives</a>
+                            </li>
+                            <li role="profil" {% if app.request.get('_route') == 'fos_user_profile_show' %}class="active"{% endif %}>
+                                <a href="{{ path('fos_user_profile_show') }}">Mon profil</a>
+                            </li>
+                            <li role="profil" {% if app.request.get('_route') == 'oif_core_contact' %}class="active"{% endif %}>
+                                <a href="{{ path('oif_core_contact') }}">Contacter l'OIF</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
-                    <ul class="nav navbar-nav">
-                        <li role="dashboard" {% if app.request.get('_route') == 'oif_core_homepage' %}class="active"{% endif %}>
-                            <a href="{{ path('oif_core_homepage') }}" title="Tableau de bord">Tableau de bord</a>
-                        </li>
-                        <li role="audiovisuel" {% if app.request.get('_route') == 'oif_platform_audiovisuelle' %}class="active"{% endif %}>
-                            <a href="{{ path('oif_platform_audiovisuelle') }}">Commission audiovisuelle</a>
-                        </li>
-                        <li role="cinema" {% if app.request.get('_route') == 'oif_platform_cinema' %}class="active"{% endif %}>
-                            <a href="{{ path('oif_platform_cinema') }}">Commission cinéma</a>
-                        </li>
-                        <li role="archives" {% if app.request.get('_route') == 'oif_core_archives' %}class="active"{% endif %}>
-                            <a href="{{ path('oif_core_archives') }}">Archives</a>
-                        </li>
-                        <li role="profil" {% if app.request.get('_route') == 'fos_user_profile_show' %}class="active"{% endif %}>
-                            <a href="{{ path('fos_user_profile_show') }}">Mon profil</a>
-                        </li>
-                        <li role="profil" {% if app.request.get('_route') == 'oif_core_contact' %}class="active"{% endif %}>
-                            <a href="{{ path('oif_core_contact') }}">Contacter l'OIF</a>
-                        </li>
-                    </ul>
+            </nav>
+            {# Body #}
+            <div class="row">
+                <div class="col-md-12">
+                    {% block body %}{% endblock %}
                 </div>
             </div>
-        </nav>
-
-
-        <div class="row">
-            <div class="col-md-12">
-                {% block body %}{% endblock %}
-            </div>
-        </div>
         {% endif %}
+        {########### FIN : Si l'utilisateur est connecté #}
 
-        {% if ( app.request.get('_route') != 'fos_user_security_login' and app.request.get('_route') != 'fos_user_registration_register' ) %}
+
+        {% if ( app.request.get('_route') != 'fos_user_security_login' and app.request.get('_route') != 'fos_user_registration_register' and app.request.get('_route') != 'fos_user_resetting_request' and app.request.get('_route') != 'fos_user_resetting_check_email' ) %}
             {% if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}
             <div class="row">
                 <div class="col-sm-10 col-sm-offset-1">
@@ -117,6 +114,10 @@
                 {% block login_body %}{% endblock %}
             </div>
         </div>
+
+        {# Erreur #}
+        {% block error_page %}
+        {% endblock %}
 
         {% block javascripts %}
         {# On charge le JS de bootstrap depuis le site directement #}

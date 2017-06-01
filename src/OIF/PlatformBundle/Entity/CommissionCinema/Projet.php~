@@ -3,8 +3,9 @@
 namespace OIF\PlatformBundle\Entity\CommissionCinema;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 /**
  * Projet
@@ -36,6 +37,13 @@ class Projet
      * @ORM\Column(name="genre", type="integer")
      */
     private $genre;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="format", type="smallint")
+     */
+    private $format;
 
     /**
      * @var int
@@ -74,11 +82,12 @@ class Projet
 
 
     /**
-     * @var array
+     * @var int
      *
-     * @ORM\Column(name="annee", type="array")
+     * @ORM\Column(name="anneeNaissance", type="smallint")
+     * @Assert\Length(min=4, max=4, minMessage="L'année de naissance doit tenir sous {{ limit }} chiffres.", maxMessage="L'année de naissance doit tenir sous {{ limit }} chiffres.")
      */
-    private $annee;
+    private $anneeNaissance;
 
     /**
      * @var string
@@ -100,6 +109,13 @@ class Projet
      * @ORM\Column(name="adresseStructure", type="string", length=255)
      */
     private $adresseStructure;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="codePostal", type="string", length=255)
+     */
+    private $codePostal;
 
     /**
      * @var string
@@ -133,32 +149,38 @@ class Projet
      * @var string
      *
      * @ORM\Column(name="emailResponsable", type="string", length=255)
+     * @Assert\Email(
+     *     message = "L'adresse email '{{ value }}' n'est pas valide.",
+     *     checkMX = true
+     * )
      */
     private $emailResponsable;
 
     /**
      *
      * @ORM\Column(name="dateDeb", type="date")
+     * @Assert\Date()
      */
     private $dateDeb;
 
     /**
      *
      * @ORM\Column(name="dateFin", type="date")
+     * @Assert\Date()
      */
     private $dateFin;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="coutTotal", type="smallint")
+     * @ORM\Column(name="coutTotal", type="integer")
      */
     private $coutTotal;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="montantDemande", type="smallint")
+     * @ORM\Column(name="montantDemande", type="integer")
      */
     private $montantDemande;
 
@@ -167,8 +189,6 @@ class Projet
      * @ORM\Column(name="dateCreation", type="datetime")
      */
     private $dateCreation;
-
-
 
 
     /**
@@ -198,20 +218,48 @@ class Projet
      * @ORM\JoinColumn(nullable=false)
      */
     private $paysStructure;
-
+    /**
+     * @ORM\ManyToOne(targetEntity="OIF\UserBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
 
     /**
-     * Projet constructor.
+     * @Assert\Callback
+     */
+    public function isContentValid(ExecutionContextInterface $context){
+        if( $this->getMontantDemande() > $this->getCoutTotal() ){
+            $context
+                ->buildViolation("Le montant demandé à l'OIF ne peut pas être supérieur au coût total du projet !")
+                ->atPath('montantDemande')
+                ->addViolation()
+            ;
+        }
+        if( $this->getDateDeb() >= $this->getDateFin() ){
+            $context
+                ->buildViolation("La date de début du projet ne peut pas être supérieure, ni égale à la date de fin !")
+                ->atPath('dateDeb')
+                ->addViolation()
+            ;
+        }
+        if( $this->getTypeIntervention() == 2 && $this->getFormat() != 3 ){
+            $context
+                ->buildViolation("Les aides à la finition ne sont possibles que pour les longs-métrages !")
+                ->atPath('format')
+                ->addViolation()
+            ;
+        }
+    }
+
+    /**
+     * Constructor
      */
     public function __construct(){
         $this->dateCreation = new \DateTime();
-        $this->liens = new ArrayCollection();
-        $this->financements = new ArrayCollection();
-        $this->fichiers = new ArrayCollection();
+        $this->fichiers = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->liens = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->financements = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
-
-
 
     /**
      * Get id
@@ -392,27 +440,27 @@ class Projet
     }
 
     /**
-     * Set annee
+     * Set anneeNaissance
      *
-     * @param array $annee
+     * @param integer $anneeNaissance
      *
      * @return Projet
      */
-    public function setAnnee($annee)
+    public function setAnneeNaissance($anneeNaissance)
     {
-        $this->annee = $annee;
+        $this->anneeNaissance = $anneeNaissance;
 
         return $this;
     }
 
     /**
-     * Get annee
+     * Get anneeNaissance
      *
-     * @return array
+     * @return integer
      */
-    public function getAnnee()
+    public function getAnneeNaissance()
     {
-        return $this->annee;
+        return $this->anneeNaissance;
     }
 
     /**
@@ -728,6 +776,40 @@ class Projet
     }
 
     /**
+     * Add fichier
+     *
+     * @param \OIF\PlatformBundle\Entity\CommissionCinema\Fichier $fichier
+     *
+     * @return Projet
+     */
+    public function addFichier(\OIF\PlatformBundle\Entity\CommissionCinema\Fichier $fichier)
+    {
+        $this->fichiers[] = $fichier;
+
+        return $this;
+    }
+
+    /**
+     * Remove fichier
+     *
+     * @param \OIF\PlatformBundle\Entity\CommissionCinema\Fichier $fichier
+     */
+    public function removeFichier(\OIF\PlatformBundle\Entity\CommissionCinema\Fichier $fichier)
+    {
+        $this->fichiers->removeElement($fichier);
+    }
+
+    /**
+     * Get fichiers
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFichiers()
+    {
+        return $this->fichiers;
+    }
+
+    /**
      * Add lien
      *
      * @param \OIF\PlatformBundle\Entity\CommissionCinema\Lien $lien
@@ -868,36 +950,50 @@ class Projet
     }
 
     /**
-     * Add fichier
+     * Set user
      *
-     * @param \OIF\PlatformBundle\Entity\CommissionCinema\Fichier $fichier
+     * @param \OIF\UserBundle\Entity\User $user
      *
      * @return Projet
      */
-    public function addFichier(\OIF\PlatformBundle\Entity\CommissionCinema\Fichier $fichier)
+    public function setUser(\OIF\UserBundle\Entity\User $user)
     {
-        $this->fichiers[] = $fichier;
+        $this->user = $user;
 
         return $this;
     }
 
     /**
-     * Remove fichier
+     * Get user
      *
-     * @param \OIF\PlatformBundle\Entity\CommissionCinema\Fichier $fichier
+     * @return \OIF\UserBundle\Entity\User
      */
-    public function removeFichier(\OIF\PlatformBundle\Entity\CommissionCinema\Fichier $fichier)
+    public function getUser()
     {
-        $this->fichiers->removeElement($fichier);
+        return $this->user;
     }
 
     /**
-     * Get fichiers
+     * Set format
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @param integer $format
+     *
+     * @return Projet
      */
-    public function getFichiers()
+    public function setFormat($format)
     {
-        return $this->fichiers;
+        $this->format = $format;
+
+        return $this;
+    }
+
+    /**
+     * Get format
+     *
+     * @return integer
+     */
+    public function getFormat()
+    {
+        return $this->format;
     }
 }

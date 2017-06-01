@@ -37,16 +37,22 @@
                                 {{ form_widget(form.genre) }}
                             </div>
                         </div>
-                        {# Durée #}
+                        <div class="col-md-10 col-md-offset-1">
+                            <hr>
+                        </div>
+                        {# Format #}
                         <div class="col-md-4 col-md-offset-1">
                             <div class="form-group">
-                                <h4>3. Durée :</h4>
+                                <h4>3. Format :</h4>
+                                {{ form_errors(form.format) }}
+                                {{ form_widget(form.format) }}
+                            </div>
+                            <div class="form-group">
                                 {{ form_errors(form.duree) }}
-                                {{ form_widget(form.duree) }}
+                                {{ form_widget(form.duree, {'attr': {'class': 'form-control', 'placeholder': 'Durée en minutes'} }) }}
                             </div>
                         </div>
-
-                        {# Support de tournage prévu #}
+                        {# Type de support #}
                         <div class="col-md-4 col-md-offset-1">
                             <div class="form-group">
                                 <h4>4. Support de tournage et Support diffusion :</h4>
@@ -57,96 +63,85 @@
                                 {{ form_widget(form.standard, {'attr': {'class': 'form-control', 'placeholder': 'Standard de projection ou de diffusion prévu (2K, 4K, HD, etc.)'} }) }}
                             </div>
                         </div>
-
-                        {# Caractéristiques du projet #}
                         <div class="col-md-10 col-md-offset-1">
                             <hr>
-                            <h4>5. Caractéristiques du projet :</h4>
                         </div>
+
+                        {# 5. Structure et Responsable #}
                         <div class="col-md-4 col-md-offset-1">
-                            {# Titre du projet #}
-                            <div class="form-group">
-                                {{ form_errors(form.titre) }}
-                                {{ form_widget(form.titre, {'attr': {'class': 'form-control', 'placeholder': 'Titre du projet'} }) }}
-                            </div>
-
-                            {# Pays #}
-                            <div class="form-group">
-                                <h5>Pays du réalisateur </h5>
-                                {{ form_errors(form.paysRealisateur) }}
-                                {{ form_widget(form.paysRealisateur, {'attr': {'class': 'form-control'} }) }}
-                            </div>
-
-                            {# Réalisateur #}
-                            <div class="form-group">
-                                {{ form_errors(form.realisateur) }}
-                                {{ form_widget(form.realisateur, {'attr': {'class': 'form-control', 'placeholder': 'Réalisateur'} }) }}
-                            </div>
-
-                            {# Année #}
-                            <div class="form-group">
-                                {{ form_errors(form.annee) }}
-                                {{ form_widget(form.annee, {'attr': {'class': 'form-control', 'placeholder': 'Année de naissance'} }) }}
-                            </div>
-
+                            <h4>5. Structure de production :</h4>
                             {# Nom de la structure #}
                             <div class="form-group">
                                 {{ form_errors(form.nomStructure) }}
                                 {{ form_widget(form.nomStructure, {'attr': {'class': 'form-control', 'placeholder': 'Nom de la structure'} }) }}
                             </div>
-
                             {# Type de structure #}
                             <div class="form-group">
-                                <h5>Type de structure</h5>
+                                <h5><b>Type de structure</b></h5>
                                 {{ form_errors(form.typeStructure) }}
                                 {{ form_widget(form.typeStructure) }}
                             </div>
-
                             {# Adresse de la structure #}
                             <div class="form-group">
                                 {{ form_errors(form.adresseStructure) }}
                                 {{ form_widget(form.adresseStructure, {'attr': {'class': 'form-control', 'placeholder': 'Adresse de la structure'} }) }}
-                            </div>
-
-                            {# Ville de la structure #}
-                            <div class="form-group">
+                                {# Code postal de la structure #}
+                                {{ form_errors(form.codePostal) }}
+                                {{ form_widget(form.codePostal, {'attr': {'class': 'form-control', 'placeholder': 'Code postal de la structure'} }) }}
+                                {# Ville de la structure #}
                                 {{ form_errors(form.villeStructure) }}
                                 {{ form_widget(form.villeStructure, {'attr': {'class': 'form-control', 'placeholder': 'Ville de la structure'} }) }}
                             </div>
-
                             {# Pays de la structure #}
                             <div class="form-group">
-                                <h5>Pays de la structure </h5>
+                                <h5>Pays de la structure <small>seuls les ressortissants des pays du Sud membres de l'OIF sont éligibles.</small></h5>
                                 {{ form_errors(form.paysStructure) }}
                                 {{ form_widget(form.paysStructure, {'attr': {'class': 'form-control'} }) }}
                             </div>
-                        </div>
-
-                        <div class="col-md-4 col-md-offset-1">
-                            {# Nom du responsable de la structure #}
+                            <h5><b>Responsable :</b></h5>
                             <div class="form-group">
+                                {# Prénom du responsable de la structure #}
+                                {{ form_errors(form.prenomResponsable) }}
+                                {{ form_widget(form.prenomResponsable, {'attr': {'class': 'form-control', 'placeholder': 'Prénom du responsable de la structure'} }) }}
+                                {# Nom du responsable de la structure #}
                                 {{ form_errors(form.nomResponsable) }}
                                 {{ form_widget(form.nomResponsable, {'attr': {'class': 'form-control', 'placeholder': 'Nom du responsable de la structure'} }) }}
                             </div>
-
-                            {# Prénom du responsable de la structure #}
-                            <div class="form-group">
-                                {{ form_errors(form.prenomResponsable) }}
-                                {{ form_widget(form.prenomResponsable, {'attr': {'class': 'form-control', 'placeholder': 'Prénom du responsable de la structure'} }) }}
-                            </div>
-
                             {# Téléphone de la structure #}
                             <div class="form-group">
                                 {{ form_errors(form.telResponsable) }}
                                 {{ form_widget(form.telResponsable, {'attr': {'class': 'form-control', 'placeholder': 'Téléphone'} }) }}
-                            </div>
-
-                            {# Email de la structure #}
-                            <div class="form-group">
+                                {# Email de la structure #}
                                 {{ form_errors(form.emailResponsable) }}
                                 {{ form_widget(form.emailResponsable, {'attr': {'class': 'form-control', 'placeholder': 'Email'} }) }}
                             </div>
+                        </div>
 
+
+                        {# 6. Caractéristiques du projet #}
+                        <div class="col-md-4 col-md-offset-1">
+                            <h4>6. Caractéristiques du projet :</h4>
+                            {# Titre du projet #}
+                            <div class="form-group">
+                                {{ form_errors(form.titre) }}
+                                {{ form_widget(form.titre, {'attr': {'class': 'form-control', 'placeholder': 'Titre du projet'} }) }}
+                            </div>
+                            {# Réalisateur #}
+                            <div class="form-group">
+                                {{ form_errors(form.realisateur) }}
+                                {{ form_widget(form.realisateur, {'attr': {'class': 'form-control', 'placeholder': 'Réalisateur'} }) }}
+                            </div>
+                            {# Pays #}
+                            <div class="form-group">
+                                <h5>Nationalité du réalisateur <small>seuls les ressortissants des pays du Sud membres de l'OIF sont éligibles.</small></h5>
+                                {{ form_errors(form.paysRealisateur) }}
+                                {{ form_widget(form.paysRealisateur, {'attr': {'class': 'form-control'} }) }}
+                            </div>
+                            {# Année de naissance du réalisateur #}
+                            <div class="form-group">
+                                {{ form_errors(form.anneeNaissance) }}
+                                {{ form_widget(form.anneeNaissance, {'attr': {'class': 'form-control', 'placeholder': 'Année de naissance du réalisateur'} }) }}
+                            </div>
                             {# dateDeb de la structure #}
                             <div class="form-group">
                                 {{ form_errors(form.dateDeb) }}
@@ -156,25 +151,21 @@
                                 {{ form_errors(form.dateFin) }}
                                 {{ form_widget(form.dateFin, {'attr': {'class': 'js-datepicker', 'placeholder': 'jj/mm/aaaa', 'autocomplete':'off'} }) }}
                             </div>
-
                             {# Coût total du projet #}
                             <div class="form-group">
                                 {{ form_errors(form.coutTotal) }}
                                 {{ form_widget(form.coutTotal, {'attr': {'class': 'form-control', 'placeholder': 'Coût total du projet'} }) }}
                             </div>
-
                             {# Montant demandé à l'OIF #}
                             <div class="form-group">
                                 {{ form_errors(form.montantDemande) }}
                                 {{ form_widget(form.montantDemande, {'attr': {'class': 'form-control', 'placeholder': 'Montant demandé à l\'OIF'} }) }}
                             </div>
-
                             {#Valider#}
                             <div class="form-group">
                                 {{ form_widget(form.valider, {'attr': {'class': 'btn btn-success pull-right'} }) }}
                             </div>
                         </div>
-
                         {{ form_rest(form) }}
                     </div>
                     {{ form_end(form) }}

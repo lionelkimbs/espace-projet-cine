@@ -10,6 +10,7 @@ use FOS\UserBundle\Model\User as BaseUser;
  *
  * @ORM\Table(name="oif_user")
  * @ORM\Entity(repositoryClass="OIF\UserBundle\Repository\UserRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class User extends BaseUser {
     /**
@@ -110,9 +111,13 @@ class User extends BaseUser {
 
 
     /**
+     * @ORM\PostLoad
+     */
+    /**
      * User constructor.
      */
     public function __construct(){
+        parent::__construct();
         $this->dateInscription = new \DateTime();
     }
 

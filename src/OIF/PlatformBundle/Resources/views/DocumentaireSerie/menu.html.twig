@@ -1,0 +1,25 @@
+{% block menu %}
+    <div class="list-group">
+        <a href="{{ path('oif_platform_documentaireserie_add', {'id': projet.id } )}}" class="list-group-item list-group-item-info {% if app.request.get('_route') == 'oif_platform_documentaireserie_add' %}disabled{% endif %}">
+            Ajouter un projet
+        </a>
+        <a href="{{ path('oif_platform_documentaireserie_view', {'id': projet.id } )}}" class="list-group-item {% if app.request.get('_route') == 'oif_platform_documentaireserie_view' %}disabled{% endif %}">
+            Afficher le projet
+        </a>
+        <a href="{{ path('oif_platform_documentaireserie_edit_fiche', {'id': projet.id } )}}" class="list-group-item {% if app.request.get('_route') == 'oif_platform_documentaireserie_edit_fiche' %}disabled{% endif %}">
+            Modifier le projet
+        </a>
+        <a href="{{ path('oif_platform_documentaireserie_addFinancement', {'id': projet.id } )}}" class="list-group-item {% if app.request.get('_route') == 'oif_platform_documentaireserie_addFinancement' %}disabled{% endif %}">
+            Modifier le plan de financement
+        </a>
+        <a href="{{ path('oif_platform_documentaireserie_addLien', {'id': projet.id } )}}" class="list-group-item {% if app.request.get('_route') == 'oif_platform_documentaireserie_addLien' %}disabled{% endif %}">
+            Modifier les liens
+        </a>
+        <a href="{{ path('oif_platform_documentaireserie_addFichier', {'id': projet.id } )}}" class="list-group-item {% if app.request.get('_route') == 'oif_platform_documentaireserie_addFichier' %}disabled{% endif %}">
+            Modifier les pièces
+        </a>
+        <a href="{{ path('oif_platform_documentaireserie_delete_fiche', {'id': projet.id } )}}" class="list-group-item list-group-item-danger {% if app.request.get('_route') == 'oif_platform_documentaireserie_delete_fiche' %}disabled{% endif %}" title="Cette opération est irréversible" onclick="return confirm('Êtes-vous sûre de vouloir supprimer ce projet ? Cette action est irréversible.')">
+            Supprimer le projet
+        </a>
+    </div>
+{% endblock %}

@@ -4,6 +4,7 @@ namespace OIF\PlatformBundle\Entity\CommissionCinema;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Fichier
@@ -32,9 +33,17 @@ class Fichier{
     /**
      * @var string
      *
+     * @ORM\Column(name="titre", type="string", length=255)
+     */
+    private $titre;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="url", type="string", length=255)
      */
     private $url;
+
 
     /**
      * @ORM\ManyToOne(targetEntity="OIF\PlatformBundle\Entity\CommissionCinema\Projet", inversedBy="fichiers")
@@ -44,6 +53,15 @@ class Fichier{
 
 
     private $tempFilename; // On ajoute cet attribut pour y stocker le nom du fichier temporairement
+
+    /**
+     * @Assert\File(
+     *     maxSize = "2M",
+     *     maxSizeMessage = "Ce fichier est trop lourd. La taille maximale acceptée est {{ limit }} {{ suffix }}",
+     *     mimeTypes = {"application/pdf", "application/x-pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"},
+     *     mimeTypesMessage = "Merci d'uploader un fichier valide (PDF ou Word)"
+     * )
+     */
     private $file;
     public function getFile(){
         return $this->file;
@@ -81,7 +99,7 @@ class Fichier{
         }
         // Si on avait un ancien fichier, on le supprime
         if (null !== $this->tempFilename) {
-            $oldFile = $this->getUploadRootDir().'/'.$this->id.'.'.$this->tempFilename;
+            $oldFile = $this->getUploadRootDir().'/'. $this->projet->getId() .'-'. $this->noaide . '.'.$this->tempFilename;
             if (file_exists($oldFile)) {
                 unlink($oldFile);
             }
@@ -89,7 +107,7 @@ class Fichier{
         // On déplace le fichier envoyé dans le répertoire de notre choix
         $this->file->move(
             $this->getUploadRootDir(), // Le répertoire de destination
-            $this->id.'.'.$this->url   // Le nom du fichier à créer, ici « id.extension »
+            $this->projet->getId() .'-'. $this->noaide . '.' .$this->url   // Le nom du fichier à créer, ici « id.extension »
         );
     }
     /**
@@ -97,7 +115,7 @@ class Fichier{
      */
     public function preRemoveUpload(){
         // On sauvegarde temporairement le nom du fichier, car il dépend de l'id
-        $this->tempFilename = $this->getUploadRootDir().'/'.$this->id.'.'.$this->url;
+        $this->tempFilename = $this->getUploadRootDir().'/'. $this->projet->getId() .'-'. $this->noaide . '.' . $this->url;
     }
     /**
      * @ORM\PostRemove()
@@ -111,17 +129,18 @@ class Fichier{
     }
     public function getUploadDir(){
         // On retourne le chemin relatif vers l'image pour un navigateur
-        return 'uploads/img';
+        return 'uploads/projets/com_cinema/projet-' . $this->projet->getId() ;
     }
     protected function getUploadRootDir(){
         // On retourne le chemin relatif vers l'image pour notre code PHP
         return __DIR__.'/../../../../../web/'.$this->getUploadDir();
     }
 
+
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -145,11 +164,35 @@ class Fichier{
     /**
      * Get noaide
      *
-     * @return int
+     * @return integer
      */
     public function getNoaide()
     {
         return $this->noaide;
+    }
+
+    /**
+     * Set titre
+     *
+     * @param string $titre
+     *
+     * @return Fichier
+     */
+    public function setTitre($titre)
+    {
+        $this->titre = $titre;
+
+        return $this;
+    }
+
+    /**
+     * Get titre
+     *
+     * @return string
+     */
+    public function getTitre()
+    {
+        return $this->titre;
     }
 
     /**

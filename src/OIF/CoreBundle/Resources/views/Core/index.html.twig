@@ -4,7 +4,7 @@
 
 {% block body %}
 
-{% if is_granted('ROLE_USER') %}
+{% if is_granted('ROLE_ADMIN') %}
 <div class="panel panel-info">
     <div class="panel-body">
         <div class="row">
@@ -14,14 +14,20 @@
                     {% for commission in commissions %}
                         <a href="{{ path('oif_platform_view_commission', {'id': commission.id } )}}" class="list-group-item">
                             {% if commission.type == 1 %}
-                                <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span> <b>Commission Audiovisuelle : </b>
+                                <h4><span class="glyphicon glyphicon-inbox" aria-hidden="true"></span> Commission Documentaire / Séries : {{ commission.titre }}</h4>
+                                <h5>
+                                    <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>&nbsp; <b>{{ commission.projetsDocumentaireSeries.count }}</b> projets soumis.
+                                </h5>
                             {% elseif commission.type == 2 %}
-                                <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span> <b>Commission Cinéma : </b>
+                                <h4><span class="glyphicon glyphicon-inbox" aria-hidden="true"></span> Commission Cinéma : {{ commission.titre }}</h4>
+                                <h5 class="has-success">
+                                    <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>&nbsp; <b>{{ commission.projetsCinemas.count }}</b> projets soumis.
+                                </h5>
                             {% endif %}
-                            {{ commission.titre }}
-                            <br>
-                            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                            Du {{ commission.dateDeb|date('d/m') }} au {{ commission.dateFin|date('d/m/Y') }}
+                            <div>
+                                <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                                Du {{ commission.dateDeb|date('d/m') }} au {{ commission.dateFin|date('d/m/Y') }}
+                            </div>
                         </a>
                     {% endfor %}
                 </div>
@@ -39,6 +45,213 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-lg-12">
+                {% if commissions is not empty %}
+                    <h3>Mes projets</h3>
+                    <hr>
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    {% for commission in commissions %}
+                        {% if commission.type == 1 %}
+                            <div class="panel panel-info">
+                                <div class="panel-heading" role="tab" id="headingOne">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span> Commission Documentaire / Séries : {{ commission.titre }}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="panel-body">
+
+                                        {% if commission.projetsDocumentaireSeries is not empty %}
+                                            {% set compteur = 0 %}
+                                            {%  for projet in commission.projetsDocumentaireSeries %}
+                                                {% if projet.user == app.user %}
+                                                {% set compteur = compteur + 1 %}
+                                                <div class="col-sm-6 col-md-4">
+                                                    <div class="thumbnail alert alert-success">
+                                                        <div class="caption">
+                                                            <h3>
+                                                                <a href="{{ path('oif_platform_documentaireserie_view', {'id': projet.id } ) }}">
+                                                                    {{ projet.titre }}
+                                                                </a>
+                                                            </h3>
+                                                            <p>
+                                                                Réalisateur : <b>{{ projet.realisateur }}</b>
+                                                                <br>
+                                                                Responsable : <b>{{ projet.prenomResponsable }} {{ projet.nomResponsable }}</b>
+                                                            </p>
+                                                            <p>
+                                                                <span class="glyphicon glyphicon-home" aria-hidden="true"></span> {{ projet.nomStructure }}
+                                                                <br>
+                                                                <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Envoyé le <b>{{ projet.dateCreation|date('d/m/Y') }}</b>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {% endif %}
+                                                {% if compteur == 0 %}
+                                                    <h4>Vous n'avez soumis aucun projet pour l'instant.</h4>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% else %}
+                                            <h4>Vous n'avez soumis aucun projet pour l'instant.</h4>
+                                        {% endif %}
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% elseif commission.type == 2 %}
+                            <div class="panel panel-primary">
+                                <div class="panel-heading" role="tab" id="headingTwo">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                            <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span> Commission Cinéma : {{ commission.titre }}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+                                    <div class="panel-body">
+                                        {% if commission.projetsCinemas is not empty %}
+                                            {% set compteur = 0 %}
+                                            {%  for projet in commission.projetsCinemas %}
+                                                {% if projet.user == app.user %}
+                                                {% set compteur = compteur + 1 %}
+                                                <div class="col-sm-6 col-md-4">
+                                                    <div class="thumbnail alert alert-success">
+                                                        <div class="caption">
+                                                            <h3>
+                                                                <a href="{{ path('oif_platform_cinema_view', {'id': projet.id } ) }}">
+                                                                    {{ projet.titre }}
+                                                                </a>
+                                                            </h3>
+                                                            <p>
+                                                                Réalisateur : <b>{{ projet.realisateur }}</b>
+                                                                <br>
+                                                                Responsable : <b>{{ projet.prenomResponsable }} {{ projet.nomResponsable }}</b>
+                                                            </p>
+                                                            <p>
+                                                                <span class="glyphicon glyphicon-home" aria-hidden="true"></span> {{ projet.nomStructure }}
+                                                                <br>
+                                                                <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Envoyé le <b>{{ projet.dateCreation|date('d/m/Y') }}</b>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {% endif %}
+                                                {% if compteur == 0 %}
+                                                    <h4>Vous n'avez soumis aucun projet pour l'instant.</h4>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% else %}
+                                            <h4>Vous n'avez soumis aucun projet pour l'instant.</h4>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+                {% endif %}
+                <hr>
+                <h3>Règlement</h3>
+
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-info">
+                        <div class="panel-heading" role="tab" id="reglementOne">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#colreglementOne" aria-expanded="true" aria-controls="colreglementOne">
+                                    <b>1. Objectifs</b>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="colreglementOne" class="panel-colreglement collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                Le Fonds Image de la Francophonie a pour objectifs :
+                                <ol>
+                                    <li>la promotion de la création cinématographique et audiovisuelle</li>
+                                    <li>l'émergence et l'épanouissement de jeunes talents</li>
+                                    <li>la professionnalisation et l'autonomisation des structures de production des pays éligibles</li>
+                                    <li>le rayonnement de la production des pays francophones éligibles</li>
+                                    <li>le renforcement de la coopération audiovisuelle francophone par le biais de coproductions et/ou de partenariats techniques</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-info">
+                        <div class="panel-heading" role="tab" id="reglementTwo">
+                            <h4 class="panel-title">
+                                <a class="colreglementd" role="button" data-toggle="collapse" data-parent="#accordion" href="#colreglementTwo" aria-expanded="false" aria-controls="colreglementTwo">
+                                    <b>2. Calendrier</b>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="colreglementTwo" class="panel-colreglement collapse" role="tabpanel" aria-labelledby="reglementTwo">
+                            <div class="panel-body">
+                                Deux appels à projet ont lieu chaque année pour le cinéma comme pour l'audiovisuel. Les commissions de sélection correspondantes se réunissent selon le calendrier suivant :
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Sessions</th>
+                                        <th>Dates Commissions</th>
+                                        <th>Dates de dépôt des dossiers</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>Session 1</td>
+                                        <td>Avril/mai</td>
+                                        <td>1er au 15 janvier</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Session 1</td>
+                                        <td>Septembre</td>
+                                        <td>1er au 15 juin</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            <div class="alert alert-danger">ATTENTION : Seuls les 50 dossiers les plus complets seront inscrits à l'ordre du jour de chaque commission.</div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-info">
+                        <div class="panel-heading" role="tab" id="reglementThree">
+                            <h4 class="panel-title">
+                                <a class="colreglementd" role="button" data-toggle="collapse" data-parent="#accordion" href="#colreglementThree" aria-expanded="false" aria-controls="colreglementThree">
+                                    <b>3. Éligibilité</b>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="colreglementThree" class="panel-colreglement collapse" role="tabpanel" aria-labelledby="reglementThree">
+                            <div class="panel-body">
+                                <h4>Pour être éligible, un projet doit porter sur une œuvre :</h4>
+                                <ol>
+                                    <li>« de création », c'est-à-dire faisant appel à un travail de recherche, de scénarisation ou de découpage préalable ; peuvent être présentés des projets de fiction ou d'animation (courts-métrages, longs-métrages ou séries) ou des documentaires de création (unitaires ou en séries)</li>
+                                    <li>
+                                        écrite ou co-écrite et réalisée par un ressortissant d'un pays du Sud membre de l'Organisation internationale de la Francophonie (37 pays éligibles, voir encadré)
+                                        <div class="alert alert-primary">
+                                            <h5>Les pays éligibles</h5>
+                                            Bénin, Burkina Faso, Burundi, Cambodge, Cameroun, Cap Vert, Comores, Congo, Côte d'Ivoire, Djibouti, Dominique, Egypte, Gabon, Guinée, Guinée-Bissau, Guinée Equatoriale, Haïti, Laos, Liban, Madagascar, Mali, Maroc, Maurice, Mauritanie, Niger, République centrafricaine, République démocratique du Congo, Rwanda, Sainte Lucie, Sao Tomé & Principe, Sénégal, Seychelles, Tchad, Togo, Tunisie, Vanuatu, Vietnam
+                                        </div>
+
+                                    </li>
+                                    <li>produite par une chaîne de télévision d'un pays francophone du Sud, diffusant légalement par voie hertzienne sur le territoire de ce pays et disposant de moyens autonomes et de personnels qualifiés de production ou par une société de production (SA, SARL, EURL ou SPRL) légalement enregistrée dans un pays membre de l'Organisation internationale de la Francophonie et remplissant les conditions suivantes :
+                                        <ul>
+                                            <li>pour la commission « Documentaires / Séries», seules les sociétés des pays francophones listés au point 3.2 sont éligibles</li>
+                                            <li>pour la commission « Cinéma-fiction », toute société de production enregistrée dans un pays francophone est éligible</li>
+                                            <li>tournée majoritairement en français ou dans l'une des langues locales des pays éligibles, avec un sous-titrage ou un doublage en français</li>
+                                            <li>faisant appel majoritairement à des techniciens et/ou artistes des pays éligibles</li>
+                                            <li>dont le réalisateur n'a pas déjà été aidé par le Fonds sur cinq projets différents ou plus (cette limite ne concerne que les demandes d'aide à la production).</li>
+                                        </ul>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>

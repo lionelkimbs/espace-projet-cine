@@ -1,0 +1,53 @@
+<?php
+
+namespace OIF\PlatformBundle\Entity\CommissionDocumentaireSerie;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Financement
+ *
+ * @ORM\Table(name="oif_commission_documentaireSerie_financement")
+ * @ORM\Entity(repositoryClass="OIF\PlatformBundle\Repository\CommissionDocumentaireSerie\FinancementRepository")
+ */
+class Financement
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="partenaire", type="string", length=255)
+     */
+    private $partenaire;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="montant", type="smallint")
+     */
+    private $montant;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="negociation", type="boolean")
+     */
+    private $negociation;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="OIF\PlatformBundle\Entity\CommissionDocumentaireSerie\Projet", inversedBy="finacements")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $projet;
+
+    
+}

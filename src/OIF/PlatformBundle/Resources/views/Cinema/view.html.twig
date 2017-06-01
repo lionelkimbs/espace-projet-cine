@@ -15,8 +15,8 @@
                         <tr>
                             <td>Type d'intervention :</td>
                             <td>
-                                {% if projet.typeIntervention == 0 %} <b>Aide à la production</b>
-                                {% elseif projet.typeIntervention == 1 %} <b>Aide à la finition</b>
+                                {% if projet.typeIntervention == 1 %} <b>Aide à la production</b>
+                                {% elseif projet.typeIntervention == 2 %} <b>Aide à la finition</b>
                                 {% endif %}
                             </td>
                         </tr>
@@ -24,8 +24,18 @@
                         <tr>
                             <td>Genre :</td>
                             <td>
-                                {% if projet.genre == 0 %} <b>Fiction</b>
-                                {% elseif projet.genre == 1 %} <b>Animation</b>
+                                {% if projet.genre == 1 %} <b>Fiction</b>
+                                {% elseif projet.genre == 2 %} <b>Animation</b>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Format :</td>
+                            <td>
+                                {% if projet.format == 1 %} <b>Court-métrage (- de 30')</b>
+                                {% elseif projet.format == 2 %} <b>Moyen-métrage (30' à 60')</b>
+                                {% elseif projet.format == 3 %} <b>Long-métrage (+ de 60')</b>
                                 {% endif %}
                             </td>
                         </tr>
@@ -33,10 +43,7 @@
                         <tr>
                             <td>Durée :</td>
                             <td>
-                                {% if projet.duree == 0 %} <b>Court-métrage (- de 30')</b>
-                                {% elseif projet.duree == 1 %} <b>Moyen-métrage (30' à 60')</b>
-                                {% elseif projet.duree == 2 %} <b>Long-métrage (+ de 60')</b>
-                                {% endif %}
+                                <b>{{ projet.duree }}</b>
                             </td>
                         </tr>
 
@@ -71,7 +78,7 @@
                         <tr>
                             <td>Année de naissance :</td>
                             <td>
-                                <b>{{ projet.annee }}</b>
+                                <b>{{ projet.anneeNaissance }}</b>
                             </td>
                         </tr>
 

@@ -9,5 +9,67 @@ namespace OIF\PlatformBundle\Repository;
  * repository methods below.
  */
 class CommissionRepository extends \Doctrine\ORM\EntityRepository{
+    public function changeCommission($type){
+        $queryBuilder = $this->createQueryBuilder('c')
+            ->where('c.type = :type')
+                ->setParameter('type', $type)
+            ->andWhere('c.etat = 1')
+            ->andWhere('c.exception = 0')
+        ;
+        $comActuels = $queryBuilder->getQuery()->getResult();
+        $em = $this->getEntityManager();
+        if( !empty($comActuels) ){
+            foreach ($comActuels as $comActuel) {
+                $comActuel->setEtat(0);
+                $em->persist($comActuel);
+                $em->flush();
+            }
+        }
+    }
 
+    public function disableOldCommission(){
+        $today = date('Y-m-d');
+        $queryBuilder = $this->createQueryBuilder('c');
+        $queryBuilder
+            ->where('c.dateDeb > :today')
+            ->andWhere('c.dateFin < :today')
+                ->setParameter('today', $today )
+            ->andWhere('c.exception = 0')
+        ;
+        $array = $queryBuilder->getQuery()->getResult();
+
+        $em = $this->getEntityManager();
+        if( !empty($array) ){
+            foreach ($array as $commission){
+                if( $commission->getEtat() != 0 ){
+                    $commission->setEtat(0);
+                    $em->persist($commission);
+                    $em->flush();
+                }
+            }
+        }
+    }
+
+    public function activeCurrentCommission(){
+        $today = date('Y-m-d');
+        $queryBuilder = $this->createQueryBuilder('c');
+        $queryBuilder
+            ->where('c.dateDeb <= :today')
+            ->andWhere('c.dateFin >= :today')
+                ->setParameter('today', $today )
+            ->andWhere('c.activation = 1')
+        ;
+        $array = $queryBuilder->getQuery()->getResult();
+
+        $em = $this->getEntityManager();
+        if( !empty($array) ){
+            foreach ($array as $commission){
+                if( $commission->getEtat() != 1 ){
+                    $commission->setEtat(1);
+                    $em->persist($commission);
+                    $em->flush();
+                }
+            }
+        }
+    }
 }

@@ -13,20 +13,6 @@
                     {# Les erreurs générales du formulaire. #}
                     {{ form_errors(form) }}
 
-                    {# Identifiant #}
-                    <div class="form-group">
-                        <h5>Identifiant </h5>
-                        {{ form_errors(form.username) }}
-                        {{ form_widget(form.username, {'attr': {'class': 'form-control', 'placeholder': 'Identifiant'} }) }}
-                    </div>
-
-                    {# Email #}
-                    <div class="form-group">
-                        <h5>Email </h5>
-                        {{ form_errors(form.email) }}
-                        {{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder': 'Email'} }) }}
-                    </div>
-
                     {# Prénom #}
                     <div class="form-group">
                         <h5>Prénom </h5>

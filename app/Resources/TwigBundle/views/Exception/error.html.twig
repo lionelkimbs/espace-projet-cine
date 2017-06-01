@@ -1,0 +1,17 @@
+{% extends 'OIFCoreBundle::layout.html.twig' %}
+
+{% block title %}Oops! Une erreur s'est produite - Images francophones{% endblock %}
+
+
+
+{% block error_page %}
+    <h1>Oops! Une erreur s'est produite</h1>
+    <h2>The server returned a "{{ status_code }} {{ status_text }}".</h2>
+
+    <div>
+        Something is broken. Please let us know what you were doing when this error occurred.
+        We will fix it as soon as possible. Sorry for any inconvenience caused.
+    </div>
+{% endblock %}
+
+

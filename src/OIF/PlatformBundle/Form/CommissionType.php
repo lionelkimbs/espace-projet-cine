@@ -22,7 +22,7 @@ class CommissionType extends AbstractType
             ->add('titre', TextType::class)
             ->add('type', ChoiceType::class, [
                 'choices' => [
-                    'Audiovisuelle' => 1,
+                    'DocumentaireSerie' => 1,
                     'Cinéma' => 2
                 ],
                 'expanded' => true,
@@ -40,6 +40,10 @@ class CommissionType extends AbstractType
             ])
             ->add('etat', CheckboxType::class, [
                 'label' => 'Activer la commission',
+                'required' => false
+            ])
+            ->add('activation', CheckboxType::class, [
+                'label' => 'Activation / désactivation automatique par rapport à la date',
                 'required' => false
             ])
             ->add('valider', SubmitType::class)

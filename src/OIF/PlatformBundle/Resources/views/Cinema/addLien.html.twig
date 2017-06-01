@@ -60,7 +60,7 @@
                     {% for item in liens %}
                         <tr>
                             <td class="text-center">{{ item.titre }}</td>
-                            <td class="text-center">{{ item.lien }}</td>
+                            <td class="text-center"><a href="{{ item.lien }}" target="_blank">{{ item.lien }}</a></td>
                             <td>
                                 <div class="col-md-10 col-md-offset-1">
                                     <div class="form-group pull-right">

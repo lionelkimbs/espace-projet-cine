@@ -5,207 +5,73 @@ namespace OIF\PlatformBundle\Controller;
 use OIF\PlatformBundle\Entity\CommissionCinema\Fichier;
 use OIF\PlatformBundle\Entity\CommissionCinema\Financement;
 use OIF\PlatformBundle\Entity\CommissionCinema\Lien;
-use OIF\PlatformBundle\Entity\CommissionCinema\Piece;
 use OIF\PlatformBundle\Entity\CommissionCinema\Projet;
 use OIF\PlatformBundle\Form\CommissionCinema\FichierType;
 use OIF\PlatformBundle\Form\CommissionCinema\FinancementType;
 use OIF\PlatformBundle\Form\CommissionCinema\LienType;
-use OIF\PlatformBundle\Form\CommissionCinema\PieceType;
 use OIF\PlatformBundle\Form\CommissionCinema\ProjetEditType;
 use OIF\PlatformBundle\Form\CommissionCinema\ProjetType;
+use OIF\PlatformBundle\Form\CommissionType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class CommissionCinemaController extends Controller{
-    /// PAGE D'ACCUEIL DEPOT PROJET CINEMA ///
-	public function indexAction(){
+/////// RECUPERE LA COMMISSION ACTIVEE
+    public function getTheCommission(){
         $em = $this->getDoctrine()->getManager();
-        $commission = $em->getRepository('OIFPlatformBundle:Commission')->findOneBy(
-            [
+        $commission = $em->getRepository('OIFPlatformBundle:Commission')->findOneBy([
                 'type' => 2,
                 'etat' => 1
             ],
-            [
-                'dateDeb' => 'desc'
-            ]
+            ['dateDeb' => 'desc']
         );
-
-		return $this->render("OIFPlatformBundle:Cinema:index.html.twig", [
-		    'commission' => $commission
-        ]);
-	}
-
-
-    /// AFFICHER UN PROJET ///
-	public function viewAction(Request $request, $id){
+        return $commission;
+    }
+/////// RECUPERE LE PROJET
+    public function getTheProjet($id){
         $em = $this->getDoctrine()->getManager();
-        $projet = $em->getRepository('OIFPlatformBundle:CommissionCinema\Projet')->find($id);
-
-        if( null === $projet ){
-            $request->getSession()->getFlashBag()->add("notice", "Ce projet n'existe pas !");
-            // On redirige vers la page de visualisation du projet nouvellement créé
+        $projet = $em->getRepository(Projet::class)->findOneBy([
+            'id' => $id,
+            'user' => $this->getUser()
+        ]);
+        return $projet;
+    }
+/////// VERIFIE QUE LA COMMISSION EST ACTIVÉE
+    public function checkCommission(){
+        if( $this->getTheCommission() === null ){
             return $this->redirectToRoute('oif_core_homepage');
         }
+    }
 
-        return $this->render('OIFPlatformBundle:Cinema:view.html.twig', array(
-            "projet" => $projet
-        ));
-	}
-
-
-	/// PAGE AJOUTER FINACEMENT ///
-	public function addFinancementAction(Request $request, $id){
-	    ////// NOUVEAU FINANCEMENT /////
-        $financement = new Financement();
-
-        /// On récupère le projet concerné ///
-        $em = $this->getDoctrine()->getManager();
-        $projet = $em->getRepository('OIFPlatformBundle:CommissionCinema\Projet')->find($id);
-
-        /// On récupère tous les financements déjà effectués ///
-        $financements = $em->getRepository('OIFPlatformBundle:CommissionCinema\Financement')->findBy(
-            ['projet' => $projet]
-        );
-
-        if( null === $projet ){
-            throw new NotFoundHttpException("Ce projet n'existe pas !");
-        }
-
-        /// SI on a arrive jusqu'ici, c'est que c'est bon, on crée le form ///
-        $formulaire = $this->createForm(FinancementType::class, $financement);
-        /// On envoie le formulaire en POST ///
-        if( $request->isMethod('POST') && $formulaire->handleRequest($request)->isValid() ){
-            /// On n'oublie pas de définir le projet concerné hein
-            $financement->setProjet($projet);
-
-            $em->persist($financement);
+/////// PAGE D'ACCUEIL COM AUDIOVISUELLE ///
+	public function indexAction(Request $request){
+        $commission = $this->getTheCommission();
+        $form = $this->createForm(CommissionType::class, $commission);
+        if( $request->isMethod('POST') && $form->handleRequest($request)->isValid() ) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($commission);
             $em->flush();
-
-            $request->getSession()->getFlashBag()->add('notice', 'Financement ajouté avec succès !');
-
-            /// On reslectionne les financements et redirige sur la même page
-            $newFinancements = $em->getRepository('OIFPlatformBundle:CommissionCinema\Financement')->findBy(
-                ['projet' => $projet]
-            );
-
-            return $this->render('OIFPlatformBundle:Cinema:addFinancement.html.twig', array(
-                'form' => $formulaire->createView(),
-                'projet' => $projet,
-                'financements' => $newFinancements
-            ));
+            $request->getSession()->getFlashBag()->add('notice', 'Commission mise à jour avec succès !');
         }
-        return $this->render('OIFPlatformBundle:Cinema:addFinancement.html.twig', array(
-            'form' => $formulaire->createView(),
-            'projet' => $projet,
-            'financements' => $financements
-        ));
-    }
-    /// SUPPRIMER UN FINANCEMENT ///
-    public function deleteFinancementAction(Request $request, $id){
-	    $em = $this->getDoctrine()->getManager();
-        $financement = $em->getRepository('OIFPlatformBundle:CommissionCinema\Financement')->find($id);
-	    /// On recupère d'abord le projet concerné ///
-        $projet = $financement->getProjet();
-        /// Et on supprime le financement ///
-	    $em->remove($financement);
-	    $em->flush();
-        $request->getSession()->getFlashBag()->add('notice', 'Financement supprimé avec succès !');
-
-        /// Retour sur la page de financement
-        return $this->redirectToRoute('oif_platform_cinema_addFinancement', [
-            'id' => $projet->getId(),
+		return $this->render("OIFPlatformBundle:Cinema:index.html.twig", [
+		    'commission' => $commission,
+            'form' => $form->createView()
         ]);
     }
 
 
-    /// AJOUTER UN LIEN ///
-    public function addLienAction(Request $request, $id){
-        $em = $this->getDoctrine()->getManager();
-        $projet = $em->getRepository('OIFPlatformBundle:CommissionCinema\Projet')->find($id);
-        $lien = new Lien();
-        $formulaire = $this->createForm(LienType::class, $lien);
-
-        $liens = $em->getRepository('OIFPlatformBundle:CommissionCinema\Lien')->findBy(
-            ['projet' => $projet]
-        );
-
-        if( $request->isMethod('POST') && $formulaire->handleRequest($request)->isValid() ){
-            $lien->setProjet($projet);
-            $em->persist($lien);
-            $em->flush();
-            $newLiens = $em->getRepository('OIFPlatformBundle:CommissionCinema\Lien')->findBy(
-                ['projet' => $projet]
-            );
-
-            return $this->render('OIFPlatformBundle:Cinema:addLien.html.twig', [
-                'projet' => $projet,
-                'liens' => $newLiens,
-                'form' => $formulaire->createView()
-            ]);
-        }
-        return $this->render("OIFPlatformBundle:Cinema:addLien.html.twig", [
-            'projet' => $projet,
-            'liens' => $liens,
-            'form' => $formulaire->createView()
-        ]);
-    }
-    /// SUPPRIMER UN LIEN ///
-    public function deleteLienAction(Request $request, $id){
-        $em = $this->getDoctrine()->getManager();
-        $lien = $em->getRepository('OIFPlatformBundle:CommissionCinema\Lien')->find($id);
-        $projet = $lien->getProjet();
-        $em->remove($lien);
-        $em->flush();
-        $request->getSession()->getFlashBag()->add('notice', 'Lien supprimé avec succès !');
-
-        return $this->redirectToRoute('oif_platform_cinema_addLien', [
-            'id' => $projet->getId(),
-        ]);
-    }
-
-
-    /// AJOUTER UN FICHIER ///
-    public function addFichierAction(Request $request, $id){
-        $fichier = new Fichier();
-        $em = $this->getDoctrine()->getManager();
-        $projet = $em->getRepository('OIFPlatformBundle:CommissionCinema\Projet')->find($id);
-        $fichier->setProjet($projet);
-        $form = $this->createForm( FichierType::class, $fichier);
-
-        if( $request->isMethod('POST') && $form->handleRequest($request)->isValid() ){
-            $em->persist($fichier);
-            $em->flush();
-        }
-
-        return $this->render("OIFPlatformBundle:Cinema:addFichier.html.twig", [
-            'form' => $form->createView(),
-            'projet' => $projet
-        ]);
-    }
-
-
-    /// AJOUTER UN PROJET ///
-	public function addAction(Request $request){
-	    //--- On crée l'objet Projet
-	    $projet = new Projet();
-	    $form = $this->createForm(ProjetType::class, $projet);
-        $form->handleRequest($request);
-        //Si la requete est en POST
+/////// AJOUTER UN PROJET ///
+    public function addAction(Request $request){
+	    $this->checkCommission();
+        $projet = new Projet();
+        $form = $this->createForm(ProjetType::class, $projet);
         if( $request->isMethod('POST') && $form->handleRequest($request)->isValid() ){
             $em = $this->getDoctrine()->getManager();
-
-            // On récupère la commission cinéma active
-            $commission = $em->getRepository('OIFPlatformBundle:Commission')->findOneBy([
-                'type' => 2,
-                'etat' => 1
-                ]
-            );
-            $projet->setCommission($commission);
+            $projet->setCommission($this->getTheCommission());
+            $projet->setUser($this->getUser());
             $em->persist($projet);
             $em->flush();
-            $request->getSession()->getFlashBag()->add('notice', 'Projet crée avec succès !');
-            // On redirige vers la page de visualisation du projet nouvellement créé
+            $request->getSession()->getFlashBag()->add('notice', 'Projet cinéma crée avec succès !');
             return $this->redirectToRoute('oif_platform_cinema_view', array(
                 'id' => $projet->getId()
             ));
@@ -213,14 +79,28 @@ class CommissionCinemaController extends Controller{
         return $this->render("OIFPlatformBundle:Cinema:add.html.twig", array(
             "form" => $form->createView()
         ));
+    }
+
+/////// AFFICHER UN PROJET ///
+	public function viewAction(Request $request, $id){
+        $this->checkCommission();
+        if( $this->getTheProjet($id) === null ){
+            return $this->redirectToRoute('oif_core_homepage');
+        }
+        return $this->render('OIFPlatformBundle:Cinema:view.html.twig', array(
+            "projet" => $this->getTheProjet($id)
+        ));
 	}
 
-
-    /// MODIFIER UN PROJET ///
+/////// MODIFIER UN PROJET ///
     public function editFicheAction(Request $request, $id){
-	    $em = $this->getDoctrine()->getManager();
-	    $projet = $em->getRepository('OIFPlatformBundle:CommissionCinema\Projet')->find($id);
-	    $form = $this->createForm(ProjetEditType::class, $projet);
+        $this->checkCommission();
+        if( $this->getTheProjet($id) === null ){
+            return $this->redirectToRoute('oif_core_homepage');
+        }
+        $projet = $this->getTheProjet($id);
+        $em = $this->getDoctrine()->getManager();
+        $form = $this->createForm(ProjetEditType::class, $projet);
         if( $request->isMethod('POST') && $form->handleRequest($request)->isValid() ){
             $em->persist($projet);
             $em->flush();
@@ -235,15 +115,175 @@ class CommissionCinemaController extends Controller{
         ]);
     }
 
-
-    /// SUPPRIMER UN PROJET ///
+/////// SUPPRIMER UN PROJET
     public function deleteFicheAction(Request $request, $id){
-	    $em = $this->getDoctrine()->getManager();
-	    $projet = $em->getRepository('OIFPlatformBundle:CommissionCinema\Projet')->find($id);
-	    $em->remove($projet);
-	    $em->flush();
+        $this->checkCommission();
+        if( $this->getTheProjet($id) === null ){
+            return $this->redirectToRoute('oif_core_homepage');
+        }
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($this->getTheProjet($id));
+        $em->flush();
         $request->getSession()->getFlashBag()->add('notice', 'Projet supprimé avec succès !');
         return $this->redirectToRoute('oif_platform_cinema');
     }
-}
 
+
+/////// MODIFIER LE PLAN DE FINANCEMENT  ///
+	public function addFinancementAction(Request $request, $id){
+        $this->checkCommission();
+        if( $this->getTheProjet($id) === null ){
+            return $this->redirectToRoute('oif_core_homepage');
+        }
+        $projet = $this->getTheProjet($id);
+        $financement = new Financement();
+        $em = $this->getDoctrine()->getManager();
+        $financements = $em->getRepository('OIFPlatformBundle:CommissionCinema\Financement')->findBy(
+            ['projet' => $projet]
+        );
+        $formulaire = $this->createForm(FinancementType::class, $financement);
+        if( $request->isMethod('POST') && $formulaire->handleRequest($request)->isValid() ){
+            $financement->setProjet($projet);
+            $em->persist($financement);
+            $em->flush();
+            $request->getSession()->getFlashBag()->add('notice', 'Financement ajouté avec succès !');
+            $newFinancements = $em->getRepository('OIFPlatformBundle:CommissionCinema\Financement')->findBy(
+                ['projet' => $projet]
+            );
+            return $this->render('OIFPlatformBundle:Cinema:addFinancement.html.twig', array(
+                'form' => $formulaire->createView(),
+                'projet' => $projet,
+                'financements' => $newFinancements
+            ));
+        }
+        return $this->render('OIFPlatformBundle:Cinema:addFinancement.html.twig', array(
+            'form' => $formulaire->createView(),
+            'projet' => $projet,
+            'financements' => $financements
+        ));
+    }
+    /// DELETE LE PLAN DE FINANCEMENT  ///
+    public function deleteFinancementAction(Request $request, $id){
+        $this->checkCommission();
+	    $em = $this->getDoctrine()->getManager();
+        $financement = $em->getRepository('OIFPlatformBundle:CommissionCinema\Financement')->find($id);
+        $projet = $financement->getProjet();
+        if( $this->getTheProjet($projet->getId()) === null ){
+            return $this->redirectToRoute('oif_core_homepage');
+        }
+        $em->remove($financement);
+	    $em->flush();
+        $request->getSession()->getFlashBag()->add('notice', 'Financement supprimé avec succès !');
+        return $this->redirectToRoute('oif_platform_cinema_addFinancement', [
+            'id' => $projet->getId(),
+        ]);
+    }
+
+/////// MODIFIER UN LIEN  ///
+    public function addLienAction(Request $request, $id){
+        $this->checkCommission();
+        if( $this->getTheProjet($id) === null ){
+            return $this->redirectToRoute('oif_core_homepage');
+        }
+        $projet = $this->getTheProjet($id);
+        $em = $this->getDoctrine()->getManager();
+        $lien = new Lien();
+        $formulaire = $this->createForm(LienType::class, $lien);
+        $liens = $em->getRepository('OIFPlatformBundle:CommissionCinema\Lien')->findBy(
+            ['projet' => $projet]
+        );
+        if( $request->isMethod('POST') && $formulaire->handleRequest($request)->isValid() ){
+            $lien->setProjet($projet);
+            $em->persist($lien);
+            $em->flush();
+            $newLiens = $em->getRepository('OIFPlatformBundle:CommissionCinema\Lien')->findBy(
+                ['projet' => $projet]
+            );
+            return $this->render('OIFPlatformBundle:Cinema:addLien.html.twig', [
+                'projet' => $projet,
+                'liens' => $newLiens,
+                'form' => $formulaire->createView()
+            ]);
+        }
+        return $this->render("OIFPlatformBundle:Cinema:addLien.html.twig", [
+            'projet' => $projet,
+            'liens' => $liens,
+            'form' => $formulaire->createView()
+        ]);
+    }
+    /// DELETE UN LIEN  ///
+    public function deleteLienAction(Request $request, $id){
+        $this->checkCommission();
+        $em = $this->getDoctrine()->getManager();
+        $lien = $em->getRepository(Lien::class)->find($id);
+        $projet = $lien->getProjet();
+        if( $projet->getId() === null ){
+            return $this->redirectToRoute('oif_core_homepage');
+        }
+        $em->remove($lien);
+        $em->flush();
+        $request->getSession()->getFlashBag()->add('notice', 'Lien supprimé avec succès !');
+        return $this->redirectToRoute('oif_platform_cinema_addLien', [
+            'id' => $projet->getId(),
+        ]);
+    }
+
+/////// MODIFIER UN FICHIER  ///
+    public function addFichierAction(Request $request, $id){
+        $this->checkCommission();
+        if( $this->getTheProjet($id) === null ){
+            return $this->redirectToRoute('oif_core_homepage');
+        }
+        $projet = $this->getTheProjet($id);
+        $fichier = new Fichier();
+        $fichier->setProjet($projet);
+        $em = $this->getDoctrine()->getManager();
+        $fichiers = $em->getRepository(Fichier::class)->findBy(
+            ['projet' => $projet]
+        );
+        $form = $this->createForm(FichierType::class, $fichier);
+        if( $request->isMethod('POST') && $form->handleRequest($request)->isValid() ){
+            //Si ce fichier existe déjà on le supprime de la base pour mettre le nouveau
+            $oldFichier = $em->getRepository(Fichier::class)->findOneBy([
+                'noaide' => $fichier->getNoaide()
+            ]);
+            if( !empty($oldFichier) ) $em->remove($oldFichier);
+            $em->flush();
+            //Titre du fichier
+            $listeFichiers = $this->container->get('oif_platform.fichiers_cinema') ->listFiles();
+            foreach ($listeFichiers as $key => $value){
+                if( $fichier->getNoaide() == $key ) $fichier->setTitre($value);
+            }
+            $em->persist($fichier);
+            $em->flush();
+            $fichiers = $em->getRepository(Fichier::class)->findBy(
+                ['projet' => $projet]
+            );
+            return $this->render("OIFPlatformBundle:Cinema:addFichier.html.twig", [
+                'form' => $form->createView(),
+                'projet' => $projet,
+                'fichiers' => $fichiers
+            ]);
+        }
+        return $this->render("OIFPlatformBundle:Cinema:addFichier.html.twig", [
+            'form' => $form->createView(),
+            'projet' => $projet,
+            'fichiers' => $fichiers
+        ]);
+    }
+    /// DELETE UN LIEN  ///
+    public function deleteFichierAction($id){
+        $this->checkCommission();
+        $em = $this->getDoctrine()->getManager();
+        $fichier = $em->getRepository(Fichier::class)->find($id);
+        $projet = $fichier->getProjet();
+        if( $this->getTheProjet($projet->getId()) === null ){
+            return $this->redirectToRoute('oif_core_homepage');
+        }
+        $em->remove($fichier);
+        $em->flush();
+        return $this->redirectToRoute('oif_platform_cinema_addFichier', [
+            'id' => $projet->getId(),
+        ]);
+    }
+}

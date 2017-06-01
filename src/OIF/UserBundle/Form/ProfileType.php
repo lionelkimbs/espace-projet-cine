@@ -39,6 +39,9 @@ class ProfileType extends AbstractType
             ->add('autorisation',   CheckboxType::class, array(
                 'label' => 'J\'autorise que mes coordonnées soient consultables depuis l\'annuaire et les archives du site Images francophones.'
             ))
+            ->remove('username')
+            ->remove('email')
+            ->remove('plainPassword')
             ->getForm();
     }
 
