@@ -4,7 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Form/CommissionCinema/FichierType.php" line="24" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34145577-7190-4062-b03c-b555688c9a22" name="Default" comment="" />
+    <list default="true" id="24368a41-46b0-4f44-9e5c-f182a2b6e601" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,77 +18,167 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/OIF/CoreBundle/Resources/views/Core/index.html.twig">
+    <leaf>
+      <file leaf-file-name="CommissionDocumentaireSerieController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Controller/CommissionDocumentaireSerieController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="45" column="35" lean-forward="false" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
+            <state relative-caret-position="554">
+              <caret line="360" column="14" lean-forward="false" selection-start-line="360" selection-start-column="14" selection-end-line="360" selection-end-column="14" />
               <folding>
-                <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-                <element signature="e#2211#2254#0#Twig" expanded="true" />
-                <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="false" />
+                <element signature="e#49#115#0#PHP" expanded="true" />
+                <element signature="e#1082#1405#0#PHP" expanded="false" />
+                <element signature="e#1744#1909#0#PHP" expanded="false" />
+                <element signature="e#1942#2173#0#PHP" expanded="false" />
+                <element signature="e#2115#2134#1#PHP" expanded="true" />
+                <element signature="e#2981#3919#0#PHP" expanded="false" />
+                <element signature="e#3955#4351#0#PHP" expanded="false" />
+                <element signature="e#4387#5360#0#PHP" expanded="false" />
+                <element signature="e#5393#5932#0#PHP" expanded="false" />
+                <element signature="e#5984#7601#0#PHP" expanded="false" />
+                <element signature="e#7649#8413#0#PHP" expanded="false" />
+                <element signature="e#8449#9753#0#PHP" expanded="false" />
+                <element signature="e#9786#10452#0#PHP" expanded="false" />
+                <element signature="e#12453#13026#0#PHP" expanded="false" />
+                <element signature="e#13246#13265#1#PHP" expanded="true" />
+                <element signature="e#13500#13519#1#PHP" expanded="true" />
+                <element signature="e#14604#14655#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CoreController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/OIF/CoreBundle/Controller/CoreController.php">
+      <file leaf-file-name="pdf.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/DocumentaireSerie/pdf.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="19" column="30" lean-forward="false" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+            <state relative-caret-position="425">
+              <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CommissionCinemaController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Controller/CommissionCinemaController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="384">
+              <caret line="352" column="46" lean-forward="false" selection-start-line="352" selection-start-column="46" selection-end-line="352" selection-end-column="46" />
               <folding>
-                <element signature="e#45#86#0#PHP" expanded="true" />
+                <element signature="e#49#104#0#PHP" expanded="true" />
+                <element signature="e#914#1237#0#PHP" expanded="false" />
+                <element signature="e#1042#1072#1#PHP" expanded="true" />
+                <element signature="e#1269#1525#0#PHP" expanded="false" />
+                <element signature="e#1576#1741#0#PHP" expanded="false" />
+                <element signature="e#1704#1723#1#PHP" expanded="true" />
+                <element signature="e#1774#2005#0#PHP" expanded="false" />
+                <element signature="e#1947#1966#1#PHP" expanded="true" />
+                <element signature="e#2053#2738#0#PHP" expanded="false" />
+                <element signature="e#2598#2640#0#PHP" expanded="true" />
+                <element signature="e#2774#3673#0#PHP" expanded="false" />
+                <element signature="e#3434#3460#0#PHP" expanded="true" />
+                <element signature="e#3565#3605#0#PHP" expanded="true" />
+                <element signature="e#3706#4088#0#PHP" expanded="false" />
+                <element signature="e#3914#3933#1#PHP" expanded="true" />
+                <element signature="e#3975#4016#0#PHP" expanded="true" />
+                <element signature="e#4124#5071#0#PHP" expanded="false" />
+                <element signature="e#4337#4356#1#PHP" expanded="true" />
+                <element signature="e#4821#4847#0#PHP" expanded="true" />
+                <element signature="e#4934#4975#0#PHP" expanded="true" />
+                <element signature="e#5104#5632#0#PHP" expanded="false" />
+                <element signature="e#5319#5338#1#PHP" expanded="true" />
+                <element signature="e#5603#5624#1#PHP" expanded="true" />
+                <element signature="e#5681#7254#0#PHP" expanded="false" />
+                <element signature="e#5899#5918#1#PHP" expanded="true" />
+                <element signature="e#6110#6158#1#PHP" expanded="true" />
+                <element signature="e#6650#6698#1#PHP" expanded="true" />
+                <element signature="e#6795#6846#0#PHP" expanded="true" />
+                <element signature="e#7051#7102#0#PHP" expanded="true" />
+                <element signature="e#7302#8051#0#PHP" expanded="false" />
+                <element signature="e#7521#7569#1#PHP" expanded="true" />
+                <element signature="e#7732#7751#1#PHP" expanded="true" />
+                <element signature="e#7956#7992#0#PHP" expanded="true" />
+                <element signature="e#8087#9429#0#PHP" expanded="false" />
+                <element signature="e#8298#8317#1#PHP" expanded="true" />
+                <element signature="e#8553#8594#1#PHP" expanded="true" />
+                <element signature="e#8884#8925#1#PHP" expanded="true" />
+                <element signature="e#9022#9066#0#PHP" expanded="true" />
+                <element signature="e#9252#9296#0#PHP" expanded="true" />
+                <element signature="e#9462#10117#0#PHP" expanded="false" />
+                <element signature="e#9816#9835#1#PHP" expanded="true" />
+                <element signature="e#10029#10058#0#PHP" expanded="true" />
+                <element signature="e#10370#10389#1#PHP" expanded="true" />
+                <element signature="e#11643#11690#0#PHP" expanded="true" />
+                <element signature="e#11873#11920#0#PHP" expanded="true" />
+                <element signature="e#12086#12669#0#PHP" expanded="false" />
+                <element signature="e#12455#12474#1#PHP" expanded="true" />
+                <element signature="e#12578#12610#0#PHP" expanded="true" />
+                <element signature="e#12889#12908#1#PHP" expanded="true" />
+                <element signature="e#13143#13162#1#PHP" expanded="true" />
+                <element signature="e#14292#14332#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommissionRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Repository/CommissionRepository.php">
+      <file leaf-file-name="pdf.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/Cinema/pdf.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="60" column="27" lean-forward="false" selection-start-line="60" selection-start-column="27" selection-end-line="60" selection-end-column="27" />
-              <folding>
-                <element signature="e#48#65#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/DocumentaireSerie/index.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
-              <caret line="181" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
-              <folding>
-                <element signature="n#div#0;n#!!top" expanded="false" />
-                <element signature="e#10554#10597#0#Twig" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="all_commissions.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/Commission/all_commissions.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="36" column="51" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+            <state relative-caret-position="323">
+              <caret line="21" column="51" lean-forward="true" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="view.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/Commission/view.html.twig">
+        <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/Cinema/view.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="175" column="0" lean-forward="false" selection-start-line="175" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
+            <state relative-caret-position="384">
+              <caret line="166" column="53" lean-forward="false" selection-start-line="166" selection-start-column="53" selection-end-line="166" selection-end-column="53" />
               <folding>
-                <element signature="e#9777#9820#0#Twig" expanded="true" />
+                <element signature="e#12#43#0#Twig" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/OIF/CoreBundle/Resources/views/layout.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="680">
+              <caret line="115" column="0" lean-forward="false" selection-start-line="113" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+              <folding>
+                <element signature="e#4740#4754#0#Twig" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppKernel.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="163">
+              <caret line="22" column="12" lean-forward="false" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="656">
+              <caret line="97" column="78" lean-forward="false" selection-start-line="97" selection-start-column="78" selection-end-line="97" selection-end-column="78" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjetRepository.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Repository/CommissionDocumentaireSerie/ProjetRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="29" lean-forward="false" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -97,18 +187,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>paysRealisateur</find>
-      <find>anneeNaissance</find>
-      <find>dateDeb</find>
-      <find>coutTotal</find>
-      <find>montantDemande</find>
-      <find>valider</find>
-      <find>dev</find>
-      <find>forma</find>
-      <find>sub</find>
-      <find>vali</find>
-      <find>ann</find>
-      <find>docu</find>
       <find>6</find>
       <find>inter</find>
       <find>suppo</find>
@@ -127,6 +205,18 @@
       <find>manyto</find>
       <find>pro</find>
       <find>exce</find>
+      <find>cinema</find>
+      <find>cinéma</find>
+      <find>docum</find>
+      <find>cine</find>
+      <find>doc</find>
+      <find>docu</find>
+      <find>cin</find>
+      <find>% if</find>
+      <find>ciné</find>
+      <find>flas</find>
+      <find>step</find>
+      <find>dir</find>
     </findStrings>
     <replaceStrings>
       <replace>audiovisuelle</replace>
@@ -150,18 +240,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/OIF/UserBundle/Form/ProfileType.php" />
-        <option value="$PROJECT_DIR$/src/OIF/UserBundle/Resources/views/ChangePassword/change_password_content.html.twig" />
-        <option value="$PROJECT_DIR$/src/OIF/UserBundle/Resources/views/Profile/show_content.html.twig" />
-        <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/FiltreFichiers/FichiersDocumentaireSerie.php" />
         <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Services/ActivationCommission.php" />
-        <option value="$PROJECT_DIR$/src/OIF/CoreBundle/Controller/CoreController.php" />
-        <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/config/services.yml" />
         <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Entity/CommissionCinema/Fichier.php" />
         <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/DocumentaireSerie/add.html.twig" />
         <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/Cinema/add.html.twig" />
         <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Form/CommissionCinema/ProjetType.php" />
-        <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Controller/CommissionDocumentaireSerieController.php" />
         <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/Cinema/view.html.twig" />
         <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/Cinema/edit.html.twig" />
         <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/Cinema/addLien.html.twig" />
@@ -173,34 +256,41 @@
         <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Entity/Commission.php" />
         <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/Commission/create.html.twig" />
         <option value="$PROJECT_DIR$/src/OIF/UserBundle/Resources/views/Security/login_content.html.twig" />
-        <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/app/AppKernel.php" />
         <option value="$PROJECT_DIR$/app/config/routing_dev.yml" />
         <option value="$PROJECT_DIR$/web/config.php" />
         <option value="$PROJECT_DIR$/app/Resources/TwigBundle/views/Exception/error.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/TwigBundle/views/Exception/error404.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/TwigBundle/views/email/password_resetting.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/TwigBundle/views/email/password_resetting.email.twig" />
-        <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/app/config/parameters.yml" />
         <option value="$PROJECT_DIR$/src/OIF/CoreBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/OIF/UserBundle/Entity/User.php" />
-        <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Controller/CommissionCinemaController.php" />
         <option value="$PROJECT_DIR$/src/OIF/CoreBundle/Resources/views/layout.html.twig" />
         <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Form/CommissionType.php" />
         <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/Commission/menu.html.twig" />
-        <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Controller/CommissionController.php" />
-        <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/config/routing.yml" />
-        <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/Commission/all_commissions.html.twig" />
         <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Entity/CommissionDocumentaireSerie/Projet.php" />
         <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Entity/CommissionCinema/Projet.php" />
         <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Entity/CommissionDocumentaireSerie/Financement.php" />
         <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Entity/CommissionCinema/Financement.php" />
         <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Repository/CommissionRepository.php" />
-        <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/DocumentaireSerie/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/Cinema/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/Commission/view.html.twig" />
         <option value="$PROJECT_DIR$/src/OIF/CoreBundle/Resources/views/Core/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/OIF/CoreBundle/Controller/CoreController.php" />
+        <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/Cinema/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/Commission/all_commissions.html.twig" />
+        <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Controller/CommissionController.php" />
+        <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/DocumentaireSerie/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/Commission/view.html.twig" />
+        <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/config/routing.yml" />
+        <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/FiltreFichiers/ProjetFile.php" />
+        <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/config/services.yml" />
+        <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Repository/CommissionDocumentaireSerie/ProjetRepository.php" />
+        <option value="$PROJECT_DIR$/app/AppKernel.php" />
+        <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/app/config/config.yml" />
+        <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Controller/CommissionDocumentaireSerieController.php" />
+        <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Controller/CommissionCinemaController.php" />
+        <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/DocumentaireSerie/pdf.html.twig" />
+        <option value="$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/Cinema/pdf.html.twig" />
       </list>
     </option>
   </component>
@@ -250,13 +340,15 @@
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle" />
       <path value="$PROJECT_DIR$/vendor/coresphere/console-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-snappy" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-snappy-bundle" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -273,25 +365,40 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
+              <option name="myItemId" value="imagesfrancophones" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
+              <option name="myItemId" value="imagesfrancophones" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
+              <option name="myItemId" value="imagesfrancophones" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
+              <option name="myItemId" value="imagesfrancophones" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imagesfrancophones" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imagesfrancophones" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -301,11 +408,11 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
+              <option name="myItemId" value="imagesfrancophones" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
+              <option name="myItemId" value="imagesfrancophones" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -319,11 +426,11 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
+              <option name="myItemId" value="imagesfrancophones" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
+              <option name="myItemId" value="imagesfrancophones" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -341,11 +448,11 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
+              <option name="myItemId" value="imagesfrancophones" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
+              <option name="myItemId" value="imagesfrancophones" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -375,11 +482,11 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
+              <option name="myItemId" value="imagesfrancophones" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
+              <option name="myItemId" value="imagesfrancophones" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -402,18 +509,14 @@
               <option name="myItemId" value="views" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Commission" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
+              <option name="myItemId" value="imagesfrancophones" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
+              <option name="myItemId" value="imagesfrancophones" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -443,11 +546,11 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
+              <option name="myItemId" value="imagesfrancophones" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
+              <option name="myItemId" value="imagesfrancophones" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -466,18 +569,14 @@
               <option name="myItemId" value="Resources" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
+              <option name="myItemId" value="imagesfrancophones" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
+              <option name="myItemId" value="imagesfrancophones" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -493,103 +592,17 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Entity" />
+              <option name="myItemId" value="FiltreFichiers" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
+              <option name="myItemId" value="imagesfrancophones" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OIF" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PlatformBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Entity" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CommissionDocumentaireSerie" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OIF" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PlatformBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Entity" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CommissionCinema" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OIF" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PlatformBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
+              <option name="myItemId" value="imagesfrancophones" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -607,11 +620,11 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
+              <option name="myItemId" value="imagesfrancophones" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
+              <option name="myItemId" value="imagesfrancophones" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -637,45 +650,11 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
+              <option name="myItemId" value="imagesfrancophones" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OIF" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CoreBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Core" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
+              <option name="myItemId" value="imagesfrancophones" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -697,63 +676,11 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
+              <option name="myItemId" value="imagesfrancophones" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OIF" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CoreBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Repository" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OIF" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CoreBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="espaceprojets" />
+              <option name="myItemId" value="imagesfrancophones" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -761,9 +688,26 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imagesfrancophones" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imagesfrancophones" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -891,7 +835,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="201759000" />
+    <option name="totallyTimeSpent" value="223206000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -903,25 +847,35 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25768667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28624734" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25768667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -932,111 +886,22 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="21" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/OIF/PlatformBundle/Controller/CommissionController.php</url>
+          <line>81</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="23" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/DocumentaireSerie/addLien.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="62" column="56" lean-forward="false" selection-start-line="62" selection-start-column="56" selection-end-line="62" selection-end-column="117" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/Cinema/addLien.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="62" column="113" lean-forward="false" selection-start-line="62" selection-start-column="113" selection-end-line="62" selection-end-column="113" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Controller/CommissionDocumentaireSerieController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="252" column="11" lean-forward="false" selection-start-line="252" selection-start-column="11" selection-end-line="252" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Form/CommissionCinema/FichierType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/FiltreFichiers/FichiersCinema.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="634">
-          <caret line="45" column="163" lean-forward="false" selection-start-line="45" selection-start-column="163" selection-end-line="45" selection-end-column="163" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Form/CommissionDocumentaireSerie/FichierType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1853">
-          <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/DocumentaireSerie/addFichier.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="60" column="63" lean-forward="true" selection-start-line="60" selection-start-column="63" selection-end-line="60" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/Cinema/addFichier.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="32" lean-forward="true" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/Cinema/edit.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2873">
-          <caret line="169" column="23" lean-forward="false" selection-start-line="169" selection-start-column="23" selection-end-line="169" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/Cinema/add.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="14" column="36" lean-forward="true" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Repository/FinancementRepository.php" />
-    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/Commission/reglement.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/OIF/UserBundle/Resources/views/Security/login_content.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="43" lean-forward="false" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="30" column="80" lean-forward="false" selection-start-line="30" selection-start-column="80" selection-end-line="30" selection-end-column="80" />
-          <folding>
-            <element signature="e#7#47#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1065,7 +930,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="59" lean-forward="false" selection-start-line="11" selection-start-column="59" selection-end-line="11" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1073,7 +937,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="10" lean-forward="false" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1102,7 +965,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="23" lean-forward="false" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1122,66 +984,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/OIF/UserBundle/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="515">
           <caret line="136" column="5" lean-forward="true" selection-start-line="136" selection-start-column="5" selection-end-line="136" selection-end-column="5" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Controller/CommissionCinemaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-709">
-          <caret line="39" column="11" lean-forward="false" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
-          <folding>
-            <element signature="e#811#1134#0#PHP" expanded="false" />
-            <element signature="e#939#969#1#PHP" expanded="false" />
-            <element signature="e#1166#1422#0#PHP" expanded="false" />
-            <element signature="e#1473#1638#0#PHP" expanded="false" />
-            <element signature="e#1686#2339#0#PHP" expanded="false" />
-            <element signature="e#2376#3243#0#PHP" expanded="false" />
-            <element signature="e#3277#3627#0#PHP" expanded="false" />
-            <element signature="e#3664#4579#0#PHP" expanded="false" />
-            <element signature="e#4613#5109#0#PHP" expanded="false" />
-            <element signature="e#5158#6699#0#PHP" expanded="false" />
-            <element signature="e#5555#5603#1#PHP" expanded="false" />
-            <element signature="e#6095#6143#1#PHP" expanded="false" />
-            <element signature="e#6747#7464#0#PHP" expanded="false" />
-            <element signature="e#6934#6982#1#PHP" expanded="false" />
-            <element signature="e#7500#8810#0#PHP" expanded="false" />
-            <element signature="e#7934#7975#1#PHP" expanded="false" />
-            <element signature="e#8265#8306#1#PHP" expanded="false" />
-            <element signature="e#8843#9466#0#PHP" expanded="false" />
-            <element signature="e#11403#11954#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Entity/CommissionCinema/Fichier.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2301">
-          <caret line="181" column="0" lean-forward="false" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OIF/CoreBundle/Resources/views/layout.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="21" column="32" lean-forward="false" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
-          <folding>
-            <element signature="n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#4740#4754#0#Twig" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1197,20 +1004,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="e#47#64#0#Twig" expanded="false" />
-            <element signature="e#227#257#0#Twig" expanded="false" />
-            <element signature="e#438#468#0#Twig" expanded="false" />
-            <element signature="e#648#678#0#Twig" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1218,9 +1011,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="13" />
-          <folding>
-            <element signature="n#div#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1228,34 +1018,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="7" column="143" lean-forward="false" selection-start-line="7" selection-start-column="143" selection-end-line="7" selection-end-column="143" />
-          <folding>
-            <element signature="e#438#466#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Controller/CommissionController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="71" column="20" lean-forward="false" selection-start-line="71" selection-start-column="20" selection-end-line="71" selection-end-column="27" />
-          <folding>
-            <element signature="e#342#1359#0#PHP" expanded="false" />
-            <element signature="e#1402#2375#0#PHP" expanded="false" />
-            <element signature="e#2415#3065#0#PHP" expanded="false" />
-            <element signature="e#3113#3460#0#PHP" expanded="false" />
-            <element signature="e#3341#3397#0#PHP" expanded="true" />
-            <element signature="e#3680#3699#1#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OIF/CoreBundle/Controller/CoreController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="19" column="30" lean-forward="false" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
-          <folding>
-            <element signature="e#45#86#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1263,14 +1025,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="226" column="112" lean-forward="false" selection-start-line="226" selection-start-column="112" selection-end-line="226" selection-end-column="112" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Entity/CommissionCinema/Projet.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="206" column="101" lean-forward="false" selection-start-line="206" selection-start-column="101" selection-end-line="206" selection-end-column="101" />
           <folding />
         </state>
       </provider>
@@ -1307,63 +1061,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Repository/CommissionRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="60" column="27" lean-forward="false" selection-start-line="60" selection-start-column="27" selection-end-line="60" selection-end-column="27" />
-          <folding>
-            <element signature="e#48#65#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/Commission/all_commissions.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="36" column="51" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/DocumentaireSerie/add.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1041">
           <caret line="105" column="0" lean-forward="false" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
-          <folding>
-            <element signature="e#12#43#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/DocumentaireSerie/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="181" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
-          <folding>
-            <element signature="n#div#0;n#!!top" expanded="false" />
-            <element signature="e#10554#10597#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/Commission/view.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="175" column="0" lean-forward="false" selection-start-line="175" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
-          <folding>
-            <element signature="e#9777#9820#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/Cinema/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="184" column="35" lean-forward="true" selection-start-line="184" selection-start-column="35" selection-end-line="184" selection-end-column="35" />
-          <folding>
-            <element signature="n#div#0;n#!!top" expanded="false" />
-            <element signature="e#11170#11213#0#Twig" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1371,12 +1072,340 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="45" column="35" lean-forward="false" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OIF/CoreBundle/Controller/CoreController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
           <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="e#2211#2254#0#Twig" expanded="true" />
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="false" />
+            <element signature="e#45#86#0#PHP" expanded="false" />
+            <element signature="e#502#521#1#PHP" expanded="false" />
+            <element signature="e#1280#1418#0#PHP" expanded="false" />
+            <element signature="e#1456#1598#0#PHP" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/Cinema/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="92" column="0" lean-forward="false" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="e#4208#4238#0#Twig" expanded="false" />
+            <element signature="e#5432#5456#0#Twig" expanded="false" />
+            <element signature="e#7826#7849#0#Twig" expanded="false" />
+            <element signature="e#8177#8220#0#Twig" expanded="false" />
+            <marker date="1496747780479" expanded="false" signature="8373:8415" ph="OIFCore:Core:js_datePicker" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/Commission/all_commissions.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="106" lean-forward="false" selection-start-line="25" selection-start-column="106" selection-end-line="25" selection-end-column="106" />
+          <folding>
+            <element signature="e#2330#2373#0#Twig" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Controller/CommissionController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="82" column="48" lean-forward="false" selection-start-line="82" selection-start-column="48" selection-end-line="82" selection-end-column="48" />
+          <folding>
+            <element signature="e#49#90#0#PHP" expanded="true" />
+            <element signature="e#324#1233#0#PHP" expanded="false" />
+            <element signature="e#784#814#1#PHP" expanded="true" />
+            <element signature="e#1117#1164#0#PHP" expanded="true" />
+            <element signature="e#1437#1467#1#PHP" expanded="true" />
+            <element signature="e#1662#1681#1#PHP" expanded="true" />
+            <element signature="e#2128#2173#0#PHP" expanded="true" />
+            <element signature="e#2324#2974#0#PHP" expanded="false" />
+            <element signature="e#2496#2526#1#PHP" expanded="true" />
+            <element signature="e#2721#2740#1#PHP" expanded="true" />
+            <element signature="e#2947#2966#1#PHP" expanded="true" />
+            <element signature="e#3022#3353#0#PHP" expanded="false" />
+            <element signature="e#3234#3290#0#PHP" expanded="true" />
+            <element signature="e#3561#3580#1#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Entity/CommissionDocumentaireSerie/Fichier.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="127" column="9" lean-forward="false" selection-start-line="127" selection-start-column="9" selection-end-line="127" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Entity/CommissionCinema/Projet.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="15" column="6" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Entity/CommissionCinema/Fichier.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" column="6" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="99" column="64" lean-forward="false" selection-start-line="99" selection-start-column="64" selection-end-line="99" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/Commission/view.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="596">
+          <caret line="140" column="98" lean-forward="false" selection-start-line="140" selection-start-column="98" selection-end-line="140" selection-end-column="98" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="e#5895#5934#0#Twig" expanded="false" />
+            <element signature="e#8384#8412#0#Twig" expanded="false" />
+            <element signature="e#9256#9299#0#Twig" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/DocumentaireSerie/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="109" column="112" lean-forward="false" selection-start-line="109" selection-start-column="112" selection-end-line="109" selection-end-column="130" />
+          <folding>
+            <element signature="e#12#43#0#Twig" expanded="false" />
+            <element signature="e#8531#8573#0#Twig" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Repository/CommissionDocumentaireSerie/LienRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/FiltreFichiers/ProjetFile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="4" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Repository/CommissionRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="48" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="e#48#65#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Repository/CommissionDocumentaireSerie/ProjetRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="29" lean-forward="false" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/AppBundle.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/FiltreFichiers/FichiersCinema.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="54" lean-forward="true" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/config/services.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="22" column="12" lean-forward="false" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="656">
+          <caret line="97" column="78" lean-forward="false" selection-start-line="97" selection-start-column="78" selection-end-line="97" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="6" lean-forward="false" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OIF/CoreBundle/Resources/views/layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="115" column="0" lean-forward="false" selection-start-line="113" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+          <folding>
+            <element signature="e#4740#4754#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/Cinema/view.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="166" column="53" lean-forward="false" selection-start-line="166" selection-start-column="53" selection-end-line="166" selection-end-column="53" />
+          <folding>
+            <element signature="e#12#43#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Controller/CommissionCinemaController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="352" column="46" lean-forward="false" selection-start-line="352" selection-start-column="46" selection-end-line="352" selection-end-column="46" />
+          <folding>
+            <element signature="e#49#104#0#PHP" expanded="true" />
+            <element signature="e#914#1237#0#PHP" expanded="false" />
+            <element signature="e#1042#1072#1#PHP" expanded="true" />
+            <element signature="e#1269#1525#0#PHP" expanded="false" />
+            <element signature="e#1576#1741#0#PHP" expanded="false" />
+            <element signature="e#1704#1723#1#PHP" expanded="true" />
+            <element signature="e#1774#2005#0#PHP" expanded="false" />
+            <element signature="e#1947#1966#1#PHP" expanded="true" />
+            <element signature="e#2053#2738#0#PHP" expanded="false" />
+            <element signature="e#2598#2640#0#PHP" expanded="true" />
+            <element signature="e#2774#3673#0#PHP" expanded="false" />
+            <element signature="e#3434#3460#0#PHP" expanded="true" />
+            <element signature="e#3565#3605#0#PHP" expanded="true" />
+            <element signature="e#3706#4088#0#PHP" expanded="false" />
+            <element signature="e#3914#3933#1#PHP" expanded="true" />
+            <element signature="e#3975#4016#0#PHP" expanded="true" />
+            <element signature="e#4124#5071#0#PHP" expanded="false" />
+            <element signature="e#4337#4356#1#PHP" expanded="true" />
+            <element signature="e#4821#4847#0#PHP" expanded="true" />
+            <element signature="e#4934#4975#0#PHP" expanded="true" />
+            <element signature="e#5104#5632#0#PHP" expanded="false" />
+            <element signature="e#5319#5338#1#PHP" expanded="true" />
+            <element signature="e#5603#5624#1#PHP" expanded="true" />
+            <element signature="e#5681#7254#0#PHP" expanded="false" />
+            <element signature="e#5899#5918#1#PHP" expanded="true" />
+            <element signature="e#6110#6158#1#PHP" expanded="true" />
+            <element signature="e#6650#6698#1#PHP" expanded="true" />
+            <element signature="e#6795#6846#0#PHP" expanded="true" />
+            <element signature="e#7051#7102#0#PHP" expanded="true" />
+            <element signature="e#7302#8051#0#PHP" expanded="false" />
+            <element signature="e#7521#7569#1#PHP" expanded="true" />
+            <element signature="e#7732#7751#1#PHP" expanded="true" />
+            <element signature="e#7956#7992#0#PHP" expanded="true" />
+            <element signature="e#8087#9429#0#PHP" expanded="false" />
+            <element signature="e#8298#8317#1#PHP" expanded="true" />
+            <element signature="e#8553#8594#1#PHP" expanded="true" />
+            <element signature="e#8884#8925#1#PHP" expanded="true" />
+            <element signature="e#9022#9066#0#PHP" expanded="true" />
+            <element signature="e#9252#9296#0#PHP" expanded="true" />
+            <element signature="e#9462#10117#0#PHP" expanded="false" />
+            <element signature="e#9816#9835#1#PHP" expanded="true" />
+            <element signature="e#10029#10058#0#PHP" expanded="true" />
+            <element signature="e#10370#10389#1#PHP" expanded="true" />
+            <element signature="e#11643#11690#0#PHP" expanded="true" />
+            <element signature="e#11873#11920#0#PHP" expanded="true" />
+            <element signature="e#12086#12669#0#PHP" expanded="false" />
+            <element signature="e#12455#12474#1#PHP" expanded="true" />
+            <element signature="e#12578#12610#0#PHP" expanded="true" />
+            <element signature="e#12889#12908#1#PHP" expanded="true" />
+            <element signature="e#13143#13162#1#PHP" expanded="true" />
+            <element signature="e#14292#14332#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Controller/CommissionDocumentaireSerieController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="554">
+          <caret line="360" column="14" lean-forward="false" selection-start-line="360" selection-start-column="14" selection-end-line="360" selection-end-column="14" />
+          <folding>
+            <element signature="e#49#115#0#PHP" expanded="true" />
+            <element signature="e#1082#1405#0#PHP" expanded="false" />
+            <element signature="e#1744#1909#0#PHP" expanded="false" />
+            <element signature="e#1942#2173#0#PHP" expanded="false" />
+            <element signature="e#2115#2134#1#PHP" expanded="true" />
+            <element signature="e#2981#3919#0#PHP" expanded="false" />
+            <element signature="e#3955#4351#0#PHP" expanded="false" />
+            <element signature="e#4387#5360#0#PHP" expanded="false" />
+            <element signature="e#5393#5932#0#PHP" expanded="false" />
+            <element signature="e#5984#7601#0#PHP" expanded="false" />
+            <element signature="e#7649#8413#0#PHP" expanded="false" />
+            <element signature="e#8449#9753#0#PHP" expanded="false" />
+            <element signature="e#9786#10452#0#PHP" expanded="false" />
+            <element signature="e#12453#13026#0#PHP" expanded="false" />
+            <element signature="e#13246#13265#1#PHP" expanded="true" />
+            <element signature="e#13500#13519#1#PHP" expanded="true" />
+            <element signature="e#14604#14655#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/DocumentaireSerie/view.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2533">
+          <caret line="149" column="60" lean-forward="false" selection-start-line="149" selection-start-column="60" selection-end-line="149" selection-end-column="60" />
+          <folding>
+            <element signature="e#12#43#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/DocumentaireSerie/pdf.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OIF/PlatformBundle/Resources/views/Cinema/pdf.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="21" column="51" lean-forward="true" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>

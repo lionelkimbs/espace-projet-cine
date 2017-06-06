@@ -88,13 +88,6 @@
                         {% if commission.type == 1 %}
                             {% if commission.projetsDocumentaireSeries is not empty %}
                                 <table class="table table-striped">
-                                    <thead>
-                                    <tr>
-                                        <th>Titre</th>
-                                        <th></th>
-                                        <th></th>
-                                    </tr>
-                                    </thead>
                                     <tbody>
                                     {% for projet in commission.projetsDocumentaireSeries %}
                                         <tr>
@@ -112,7 +105,7 @@
 
                                             </td>
                                             <td>
-                                                <a href="#" class="btn btn-warning">Télécharger</a>
+                                                <a href="{{ path('oif_platform_documentaireserie_download', {'id': projet.id }) }}" class="btn btn-warning">Télécharger</a>
                                             </td>
                                             <td>
                                                 <a href="#" class="btn btn-success">Accepter</a>
@@ -128,13 +121,6 @@
                         {% elseif commission.type == 2 %}
                             {% if commission.projetsCinemas is not empty %}
                                 <table class="table table-striped">
-                                    <thead>
-                                    <tr>
-                                        <th>Titre</th>
-                                        <th></th>
-                                        <th></th>
-                                    </tr>
-                                    </thead>
                                     <tbody>
                                     {% for projet in commission.projetsCinemas %}
                                         <tr>
@@ -152,7 +138,7 @@
 
                                             </td>
                                             <td>
-                                                <a href="#" class="btn btn-warning">Télécharger</a>
+                                                <a href="{{ path('oif_platform_cinema_download', {'id': projet.id }) }}" class="btn btn-warning">Télécharger</a>
                                             </td>
                                             <td>
                                                 <a href="#" class="btn btn-success">Accepter</a>

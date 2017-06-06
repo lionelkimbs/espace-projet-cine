@@ -8,6 +8,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class CoreController extends Controller {
+/////// USER NOT LOGGED ///
+    private function notConnected(){
+        if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
+            return $this->redirectToRoute('oif_core_homepage');
+        } else return;
+    }
+
     //---- -- TABELAU DE BORD
     /**
      * @Security("has_role('ROLE_USER')")
@@ -31,16 +38,22 @@ class CoreController extends Controller {
 
     //---- -- PAGE DU PROFIL
     public function profilAction(){
+        $this->notConnected();
+
         return $this->render('OIFCoreBundle:Core:profil.html.twig');
     }
 
     //---- -- PAGE DES ARCHIVES
     public function archivesAction(){
+        $this->notConnected();
+
         return $this->render('OIFCoreBundle:Core:archives.html.twig');
     }
 
     //---- -- PAGE D'ACCUEIL DE LA PLATEFORME
     public function contactAction(){
+        $this->notConnected();
+
         return $this->render('OIFCoreBundle:Core:contact.html.twig');
     }
 

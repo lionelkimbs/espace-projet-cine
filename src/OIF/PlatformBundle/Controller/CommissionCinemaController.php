@@ -14,6 +14,8 @@ use OIF\PlatformBundle\Form\CommissionCinema\ProjetType;
 use OIF\PlatformBundle\Form\CommissionType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 
 class CommissionCinemaController extends Controller{
 /////// RECUPERE LA COMMISSION ACTIVEE
@@ -42,9 +44,18 @@ class CommissionCinemaController extends Controller{
             return $this->redirectToRoute('oif_core_homepage');
         }
     }
+/////// USER NOT LOGGED ///
+    private function notConnected(){
+        if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
+            return $this->redirectToRoute('oif_core_homepage');
+        }
+        else return;
+    }
 
 /////// PAGE D'ACCUEIL COM AUDIOVISUELLE ///
 	public function indexAction(Request $request){
+        $this->notConnected();
+
         $commission = $this->getTheCommission();
         $form = $this->createForm(CommissionType::class, $commission);
         if( $request->isMethod('POST') && $form->handleRequest($request)->isValid() ) {
@@ -59,9 +70,10 @@ class CommissionCinemaController extends Controller{
         ]);
     }
 
-
 /////// AJOUTER UN PROJET ///
     public function addAction(Request $request){
+        $this->notConnected();
+
 	    $this->checkCommission();
         $projet = new Projet();
         $form = $this->createForm(ProjetType::class, $projet);
@@ -80,9 +92,10 @@ class CommissionCinemaController extends Controller{
             "form" => $form->createView()
         ));
     }
-
 /////// AFFICHER UN PROJET ///
 	public function viewAction(Request $request, $id){
+        $this->notConnected();
+
         $this->checkCommission();
         if( $this->getTheProjet($id) === null ){
             return $this->redirectToRoute('oif_core_homepage');
@@ -91,9 +104,10 @@ class CommissionCinemaController extends Controller{
             "projet" => $this->getTheProjet($id)
         ));
 	}
-
 /////// MODIFIER UN PROJET ///
     public function editFicheAction(Request $request, $id){
+        $this->notConnected();
+
         $this->checkCommission();
         if( $this->getTheProjet($id) === null ){
             return $this->redirectToRoute('oif_core_homepage');
@@ -114,9 +128,10 @@ class CommissionCinemaController extends Controller{
             'projet' => $projet
         ]);
     }
-
 /////// SUPPRIMER UN PROJET
     public function deleteFicheAction(Request $request, $id){
+        $this->notConnected();
+
         $this->checkCommission();
         if( $this->getTheProjet($id) === null ){
             return $this->redirectToRoute('oif_core_homepage');
@@ -131,6 +146,8 @@ class CommissionCinemaController extends Controller{
 
 /////// MODIFIER LE PLAN DE FINANCEMENT  ///
 	public function addFinancementAction(Request $request, $id){
+        $this->notConnected();
+
         $this->checkCommission();
         if( $this->getTheProjet($id) === null ){
             return $this->redirectToRoute('oif_core_homepage');
@@ -164,6 +181,8 @@ class CommissionCinemaController extends Controller{
     }
     /// DELETE LE PLAN DE FINANCEMENT  ///
     public function deleteFinancementAction(Request $request, $id){
+        $this->notConnected();
+
         $this->checkCommission();
 	    $em = $this->getDoctrine()->getManager();
         $financement = $em->getRepository('OIFPlatformBundle:CommissionCinema\Financement')->find($id);
@@ -181,6 +200,8 @@ class CommissionCinemaController extends Controller{
 
 /////// MODIFIER UN LIEN  ///
     public function addLienAction(Request $request, $id){
+        $this->notConnected();
+
         $this->checkCommission();
         if( $this->getTheProjet($id) === null ){
             return $this->redirectToRoute('oif_core_homepage');
@@ -213,6 +234,8 @@ class CommissionCinemaController extends Controller{
     }
     /// DELETE UN LIEN  ///
     public function deleteLienAction(Request $request, $id){
+        $this->notConnected();
+
         $this->checkCommission();
         $em = $this->getDoctrine()->getManager();
         $lien = $em->getRepository(Lien::class)->find($id);
@@ -230,6 +253,8 @@ class CommissionCinemaController extends Controller{
 
 /////// MODIFIER UN FICHIER  ///
     public function addFichierAction(Request $request, $id){
+        $this->notConnected();
+
         $this->checkCommission();
         if( $this->getTheProjet($id) === null ){
             return $this->redirectToRoute('oif_core_homepage');
@@ -273,6 +298,8 @@ class CommissionCinemaController extends Controller{
     }
     /// DELETE UN LIEN  ///
     public function deleteFichierAction($id){
+        $this->notConnected();
+
         $this->checkCommission();
         $em = $this->getDoctrine()->getManager();
         $fichier = $em->getRepository(Fichier::class)->find($id);
@@ -285,5 +312,69 @@ class CommissionCinemaController extends Controller{
         return $this->redirectToRoute('oif_platform_cinema_addFichier', [
             'id' => $projet->getId(),
         ]);
+    }
+
+/////// DOWNLOAD PROJECT ///
+    public function downloadAction(Request $request, $id){
+        if ( !$this->get('security.authorization_checker')->isGranted('ROLE_ADMIN') ) {
+            return $this->redirectToRoute('oif_core_homepage');
+        }
+        $this->checkCommission();
+        $em = $this->getDoctrine()->getManager();
+        $projet = $em->getRepository(Projet::class)->find($id);
+        if( $projet === null ){
+            return $this->redirectToRoute('oif_core_homepage');
+        }
+        $folder =  __DIR__.'/../../../../web/uploads/projets/com_cinema/projet-'. $id;
+        $fichiers = $em->getRepository(Fichier::class)->findBy([
+            'projet' => $projet
+        ]);
+
+        $zip = new \ZipArchive();
+        if($zip->open($folder . '.zip') == TRUE)
+            // On crée l’archive.
+            if( $zip->open($folder . '.zip', \ZipArchive::CREATE) == TRUE ){
+                foreach ($fichiers as $fichier){
+                    $file = $folder. '/'. $id .'-'. $fichier->getNoaide() .'.'. $fichier->getUrl();
+                    if( file_exists($file) ){
+                        if( !$zip->addFile($file, $fichier->getTitre() .'.'. $fichier->getUrl()) ){
+                            $request->getSession()->getFlashBag()->add("notice", "Une erreur est survenue pendant l'ajout de la fiche : ". $fichier->getNoaide());
+                        }
+                    }
+                }
+                $presentation = $folder .'/'. $projet->getTitre() .'.pdf';
+                $this->get('knp_snappy.pdf')->generateFromHtml(
+                    $this->renderView(
+                        'OIFPlatformBundle:Cinema:pdf.html.twig',
+                        [ 'projet' => $projet ]
+                    ),
+                    $presentation,
+                    [
+                        'margin-bottom' => 20,
+                        'margin-left' => 20,
+                        'margin-right' => 20,
+                        'margin-top' => 20,
+                        'lowquality' => false
+                    ],
+                    true
+                );
+
+                if( !$zip->addFile($presentation, $projet->getTitre() .'.pdf') ){
+                    $request->getSession()->getFlashBag()->add("notice", "Une erreur est survenue pendant de la fiche de présentation");
+                }
+                $zip->close();
+            }
+            else{
+                $request->getSession()->getFlashBag()->add("notice", "Une erreur est survenue pendant la création de l'archive !");
+            }
+
+        if($zip->open($folder . '.zip') == TRUE)
+        $response = new Response(file_get_contents($zip->filename));
+        $d = $response->headers->makeDisposition(ResponseHeaderBag::DISPOSITION_ATTACHMENT, $id .'-'. $projet->getTitre() .'.zip');
+        $response->headers->set('Content-Type', 'application/zip');
+        $response->headers->set('Content-Disposition', $d);
+        $zip->close();
+
+        return $response;
     }
 }

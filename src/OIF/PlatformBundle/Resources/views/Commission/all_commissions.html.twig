@@ -12,22 +12,19 @@
                 {% else %}
                     <div class="list-group">
                     {% for commission in commissions %}
-                        <a href="{{ path('oif_platform_view_commission', {'id': commission.id } )}}" class="list-group-item">
+                        <a href="{{ path('oif_platform_view_commission', {'id': commission.id } )}}" class="list-group-item {% if commission.etat == 0 %}list-group-item-danger{% elseif commission.etat == 1 %}list-group-item-success {% endif %}">
                             {% if commission.type == 1 %}
                                 <h4><span class="glyphicon glyphicon-inbox" aria-hidden="true"></span> Commission Documentaire / Séries : {{ commission.titre }}</h4>
-                                <h5>
-                                    <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>&nbsp; <b>{{ commission.projetsDocumentaireSeries.count }}</b> projets soumis.
-                                </h5>
+                                <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>&nbsp; <b>{{ commission.projetsDocumentaireSeries.count }}</b> projets soumis
                             {% elseif commission.type == 2 %}
                                 <h4><span class="glyphicon glyphicon-inbox" aria-hidden="true"></span> Commission Cinéma : {{ commission.titre }}</h4>
-                                <h5 class="has-success">
-                                    <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>&nbsp; <b>{{ commission.projetsCinemas.count }}</b> projets soumis.
-                                </h5>
+                                <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>&nbsp; <b>{{ commission.projetsCinemas.count }}</b> projets soumis
                             {% endif %}
-                            <div>
-                                <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                                Du {{ commission.dateDeb|date('d/m') }} au {{ commission.dateFin|date('d/m/Y') }}
-                            </div>
+                            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Du {{ commission.dateDeb|date('d/m') }} au {{ commission.dateFin|date('d/m/Y') }}
+                            <span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true"></span>
+                            {% if commission.etat == 0 %} <span class="text-danger">Commission inactive</span>
+                            {% elseif commission.etat == 1 %} <span class="text-success">Commission active</span>
+                            {% endif %}
                         </a>
                     {% endfor %}
                     </div>
