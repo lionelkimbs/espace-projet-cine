@@ -51,7 +51,7 @@ class Financement
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="OIF\PlatformBundle\Entity\CommissionDocumentaireSerie\Projet", inversedBy="finacements")
+     * @ORM\ManyToOne(targetEntity="OIF\PlatformBundle\Entity\CommissionDocumentaireSerie\Projet", inversedBy="financements")
      * @ORM\JoinColumn(nullable=false)
      */
     private $projet;

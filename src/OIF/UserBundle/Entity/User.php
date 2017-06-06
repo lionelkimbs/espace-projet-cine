@@ -52,7 +52,7 @@ class User extends BaseUser {
     /**
      * @var string
      *
-     * @ORM\Column(name="informations", type="string", length=255, nullable=true)
+     * @ORM\Column(name="informations", type="text", nullable=true)
      */
     protected $informations;
 
@@ -99,7 +99,7 @@ class User extends BaseUser {
     protected $dateInscription;
     
     /**
-     * @ORM\OneToOne(targetEntity="OIF\CoreBundle\Entity\Activite")
+     * @ORM\ManyToOne(targetEntity="OIF\CoreBundle\Entity\Activite")
      */
     private $activite;
 
@@ -120,6 +120,7 @@ class User extends BaseUser {
         parent::__construct();
         $this->dateInscription = new \DateTime();
     }
+
 
     /**
      * Set name

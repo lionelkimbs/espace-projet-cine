@@ -1,0 +1,14 @@
+<div class="list-group">
+    <a href="{{ path('oif_core_homepage')}}" class="list-group-item {% if app.request.get('_route') == 'oif_core_homepage' %}disabled{% endif %}">
+        Tableau de bord
+    </a>
+    <a href="{{ path('oif_platform_create_commission')}}" class="list-group-item {% if app.request.get('_route') == 'oif_platform_create_commission' %}disabled{% endif %}">
+        Créer une commission
+    </a>
+    <a href="{{ path('oif_platform_all_commissions')}}" class="list-group-item {% if app.request.get('_route') == 'oif_platform_all_commissions' %}disabled{% endif %}">
+        Voir toutes les commissions
+    </a>
+    <a href="{{ path('oif_platform_create_commission')}}" class="list-group-item {% if app.request.get('_route') == 'oif_platform_create_commission' %}disabled{% endif %}">
+        Diffuser un message d'urgence
+    </a>
+</div>

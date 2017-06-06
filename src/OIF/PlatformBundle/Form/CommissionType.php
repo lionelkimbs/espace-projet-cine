@@ -22,7 +22,7 @@ class CommissionType extends AbstractType
             ->add('titre', TextType::class)
             ->add('type', ChoiceType::class, [
                 'choices' => [
-                    'DocumentaireSerie' => 1,
+                    'Documentaire / Série' => 1,
                     'Cinéma' => 2
                 ],
                 'expanded' => true,

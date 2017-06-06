@@ -1,6 +1,8 @@
 <?php
 
 namespace OIF\PlatformBundle\Repository;
+use DateTimeZone;
+use function var_dump;
 
 /**
  * CommissionRepository
@@ -28,20 +30,20 @@ class CommissionRepository extends \Doctrine\ORM\EntityRepository{
     }
 
     public function disableOldCommission(){
-        $today = date('Y-m-d');
+        $today = new \DateTime();
+        $today->setTimeZone(new DateTimeZone("Europe/Paris"));
+
         $queryBuilder = $this->createQueryBuilder('c');
         $queryBuilder
-            ->where('c.dateDeb > :today')
-            ->andWhere('c.dateFin < :today')
+            ->where(':today NOT BETWEEN c.dateDeb AND c.dateFin')
                 ->setParameter('today', $today )
-            ->andWhere('c.exception = 0')
+            ->andWhere('c.activation = 1')
         ;
         $array = $queryBuilder->getQuery()->getResult();
-
         $em = $this->getEntityManager();
         if( !empty($array) ){
             foreach ($array as $commission){
-                if( $commission->getEtat() != 0 ){
+                if( $commission->getEtat() == 1){
                     $commission->setEtat(0);
                     $em->persist($commission);
                     $em->flush();
@@ -51,11 +53,12 @@ class CommissionRepository extends \Doctrine\ORM\EntityRepository{
     }
 
     public function activeCurrentCommission(){
-        $today = date('Y-m-d');
+        $today = new \DateTime();
+        $today->setTimeZone(new DateTimeZone("Europe/Paris"));
+
         $queryBuilder = $this->createQueryBuilder('c');
         $queryBuilder
-            ->where('c.dateDeb <= :today')
-            ->andWhere('c.dateFin >= :today')
+            ->where(':today BETWEEN c.dateDeb AND c.dateFin')
                 ->setParameter('today', $today )
             ->andWhere('c.activation = 1')
         ;
@@ -64,7 +67,7 @@ class CommissionRepository extends \Doctrine\ORM\EntityRepository{
         $em = $this->getEntityManager();
         if( !empty($array) ){
             foreach ($array as $commission){
-                if( $commission->getEtat() != 1 ){
+                if( $commission->getEtat() == 0 ){
                     $commission->setEtat(1);
                     $em->persist($commission);
                     $em->flush();

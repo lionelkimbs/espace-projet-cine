@@ -77,11 +77,17 @@ fos_user:
     firewall_name: main # Le nom du firewall derrière lequel on utilisera ces utilisateurs
     user_class: OIF\UserBundle\Entity\User # La classe de l'entité User que nous utilisons
     from_email:
-        address: lionelkimbs@gmail.com
-        sender_name: Pierre Barrot
+        address: ne-pas-repondre@francophonie.org
+        sender_name: Fonds Image de la Francophonie
+    service:
+        mailer: fos_user.mailer.twig_swift
+    resetting:
     registration:
         form:
             type: OIF\UserBundle\Form\UserType
+        confirmation:
+            enabled: true
+            template: FOSUserBundle:Registration:email.txt.twig
     profile:
         form:
             type: OIF\UserBundle\Form\ProfileType

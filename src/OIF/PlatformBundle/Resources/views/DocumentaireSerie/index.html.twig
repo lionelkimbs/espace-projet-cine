@@ -3,11 +3,20 @@
 {% block title %}Commission documentaire / série | {{ parent() }}{% endblock %}
 
 {% block body %}
-
-    {% if is_granted('ROLE_ADMIN') %}
+    {% if commission is empty %}
+    <h3>La commission documentaire / série n'est pas ouverte pour l'instant.</h3>
+    {% else %}
+        {% if is_granted('ROLE_ADMIN') %}
         <div class="panel panel-info">
             <div class="panel-heading">
-                <h2 class="panel-title"><b><span class="glyphicon glyphicon-file" aria-hidden="true"></span> Administration : commission documentaires/séries active</b></h2>
+                <h2 class="panel-title">
+                    <b>
+                        <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+                        {% if commission.type == 1 %} Commission documentaires / série
+                        {% elseif commission.type == 2 %} Commission cinéma
+                        {% endif %}
+                    </b>
+                </h2>
             </div>
             <div class="panel-body">
                 <div class="row">
@@ -71,76 +80,118 @@
                             {{ form_rest(form) }}
                             {{ form_end(form) }}
                         </div>
+
                         <div class="col-md-12">
                             <blockquote>
                                 <h4>Projets soumis</h4>
                             </blockquote>
                             <hr>
-                            {# Tableau des projets #}
-                            {% if commission.projetsDocumentaireSeries is not empty %}
-                            <table class="table table-striped">
-                                <thead>
-                                <tr>
-                                    <th>Titre</th>
-                                    <th></th>
-                                    <th></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {% for projet in commission.projetsDocumentaireSeries %}
-                                    <tr>
-                                        <td>
-                                            <h4>
-                                                <a href="{{ path('oif_platform_documentaireserie_view', {'id': projet.id }) }}" target="_blank">
-                                                    {{ projet.titre }}
-                                                </a>
-                                            </h4>
-                                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ projet.user.firstname }} {{ projet.user.name }} ({{ projet.user.email }})
-                                            <br>
-                                            <span class="glyphicon glyphicon-home" aria-hidden="true"></span> <b>{{ projet.nomStructure }}</b> | Responsable : <b>{{ projet.prenomResponsable }} {{ projet.nomResponsable }}</b> ({{ projet.paysRealisateur.libelle }})
-                                            <br>
-                                            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Envoyé le <b>{{ projet.dateCreation|date('d/m/Y') }}</b>
+                            {############ Commission document série #}
+                            {% if commission.type == 1 %}
+                                {% if commission.projetsDocumentaireSeries is not empty %}
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>Titre</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for projet in commission.projetsDocumentaireSeries %}
+                                            <tr>
+                                                <td>
+                                                    <h4>
+                                                        <a href="{{ path('oif_platform_documentaireserie_view', {'id': projet.id }) }}" target="_blank">
+                                                            {{ projet.titre }}
+                                                        </a>
+                                                    </h4>
+                                                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ projet.user.firstname }} {{ projet.user.name }} ({{ projet.user.email }})
+                                                    <br>
+                                                    <span class="glyphicon glyphicon-home" aria-hidden="true"></span> <b>{{ projet.nomStructure }}</b> | Responsable : <b>{{ projet.prenomResponsable }} {{ projet.nomResponsable }}</b> ({{ projet.paysRealisateur.libelle }})
+                                                    <br>
+                                                    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Envoyé le <b>{{ projet.dateCreation|date('d/m/Y') }}</b>
 
-                                        </td>
-                                        <td>
-                                            <a href="#" class="btn btn-warning">Télécharger</a>
-                                        </td>
-                                        <td>
-                                            <a href="#" class="btn btn-success">Accepter</a>
-                                        </td>
-                                    </tr>
-                                {% endfor %}
-                                </tbody>
-                            </table>
-                            {% else %}
-                                <div class="alert alert-warning">Aucun projet n'est déposé pour l'instant.</div>
+                                                </td>
+                                                <td>
+                                                    <a href="#" class="btn btn-warning">Télécharger</a>
+                                                </td>
+                                                <td>
+                                                    <a href="#" class="btn btn-success">Accepter</a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                {% else %}
+                                    <div class="alert alert-warning">Aucun projet n'est déposé pour l'instant.</div>
+                                {% endif %}
+                                {############ Commission cinéma #}
+                            {% elseif commission.type == 2 %}
+                                {% if commission.projetsCinemas is not empty %}
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>Titre</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for projet in commission.projetsCinemas %}
+                                            <tr>
+                                                <td>
+                                                    <h4>
+                                                        <a href="{{ path('oif_platform_cinema_view', {'id': projet.id }) }}" target="_blank">
+                                                            {{ projet.titre }}
+                                                        </a>
+                                                    </h4>
+                                                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ projet.user.firstname }} {{ projet.user.name }} ({{ projet.user.email }})
+                                                    <br>
+                                                    <span class="glyphicon glyphicon-home" aria-hidden="true"></span> <b>{{ projet.nomStructure }}</b> | Responsable : <b>{{ projet.prenomResponsable }} {{ projet.nomResponsable }}</b> ({{ projet.paysRealisateur.libelle }})
+                                                    <br>
+                                                    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Envoyé le <b>{{ projet.dateCreation|date('d/m/Y') }}</b>
+
+                                                </td>
+                                                <td>
+                                                    <a href="#" class="btn btn-warning">Télécharger</a>
+                                                </td>
+                                                <td>
+                                                    <a href="#" class="btn btn-success">Accepter</a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                {% else %}
+                                    <div class="alert alert-warning">Aucun projet n'est déposé pour l'instant.</div>
+                                {% endif %}
                             {% endif %}
                         </div>
                     </div>
 
-
                     <div class="col-lg-3">
-                        {% include 'OIFCoreBundle:Core:admin_menu.html.twig' %}
+                        {% include 'OIFPlatformBundle:Commission:menu.html.twig' %}
                     </div>
                 </div>
             </div>
         </div>
-    {% endif %}
 
-
-    {% if is_granted('ROLE_USER') %}
+        {% endif %}
+        {% if is_granted('ROLE_USER') %}
         <div class="row">
             <div class="col-md-12 text-center">
                 <h4>Désormais, la soumission de dossiers au Fonds Image de la Francophonie se fait par dépôt de fichiers électroniques sur ce site sécurisé.</h4>
                 {# Règlement #}
 
                 {% if commission is not empty %}
-                    <a href="{{ path('oif_platform_documentaireserie_add') }}" class="btn btn-success">Ajouter un projet</a>
+                    <a href="{{ path('oif_platform_documentaireserie_add') }}" class="btn btn-warning">Ajouter un projet</a>
                 {% else %}
                     <div class="alert alert-danger">Il n'y a pas de commission documentaire / série, ouverte présentement !</div>
                 {% endif %}
             </div>
         </div>
+        {% endif %}
     {% endif %}
 
 {% endblock %}

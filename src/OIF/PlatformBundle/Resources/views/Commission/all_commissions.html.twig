@@ -1,0 +1,42 @@
+{% extends 'OIFCoreBundle::layout.html.twig' %}
+
+{% block title %}Toutes les commissions | {{ parent() }}{% endblock %}
+
+{% block body%}
+<div class="panel panel-info">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-9">
+                {% if commissions is empty %}
+                    <h4>Aucune commission n'a été crée à ce jour.</h4>
+                {% else %}
+                    <div class="list-group">
+                    {% for commission in commissions %}
+                        <a href="{{ path('oif_platform_view_commission', {'id': commission.id } )}}" class="list-group-item">
+                            {% if commission.type == 1 %}
+                                <h4><span class="glyphicon glyphicon-inbox" aria-hidden="true"></span> Commission Documentaire / Séries : {{ commission.titre }}</h4>
+                                <h5>
+                                    <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>&nbsp; <b>{{ commission.projetsDocumentaireSeries.count }}</b> projets soumis.
+                                </h5>
+                            {% elseif commission.type == 2 %}
+                                <h4><span class="glyphicon glyphicon-inbox" aria-hidden="true"></span> Commission Cinéma : {{ commission.titre }}</h4>
+                                <h5 class="has-success">
+                                    <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>&nbsp; <b>{{ commission.projetsCinemas.count }}</b> projets soumis.
+                                </h5>
+                            {% endif %}
+                            <div>
+                                <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                                Du {{ commission.dateDeb|date('d/m') }} au {{ commission.dateFin|date('d/m/Y') }}
+                            </div>
+                        </a>
+                    {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="col-lg-3">
+                {% include 'OIFPlatformBundle:Commission:menu.html.twig' %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

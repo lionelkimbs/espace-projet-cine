@@ -9,17 +9,16 @@ oif_platform_view_commission:
     requirements:
         id: \d+
 
-oif_platform_edit_commission:
-    path:     /edit-commission-{id}
-    defaults: { _controller: OIFPlatformBundle:Commission:edit }
-    requirements:
-        id: \d+
-
 oif_platform_delete_commission:
     path:     /delete-commission-{id}
     defaults: { _controller: OIFPlatformBundle:Commission:delete }
     requirements:
         id: \d+
+
+oif_platform_all_commissions:
+    path:    /commissions
+    defaults:
+        _controller: OIFPlatformBundle:Commission:showAll
 
 
 ######### # COMMISSION CINEMA # #########

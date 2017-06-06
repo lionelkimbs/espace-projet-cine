@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class CommissionCinemaController extends Controller{
 /////// RECUPERE LA COMMISSION ACTIVEE
-    public function getTheCommission(){
+    private function getTheCommission(){
         $em = $this->getDoctrine()->getManager();
         $commission = $em->getRepository('OIFPlatformBundle:Commission')->findOneBy([
                 'type' => 2,
@@ -28,7 +28,7 @@ class CommissionCinemaController extends Controller{
         return $commission;
     }
 /////// RECUPERE LE PROJET
-    public function getTheProjet($id){
+    private function getTheProjet($id){
         $em = $this->getDoctrine()->getManager();
         $projet = $em->getRepository(Projet::class)->findOneBy([
             'id' => $id,
@@ -37,7 +37,7 @@ class CommissionCinemaController extends Controller{
         return $projet;
     }
 /////// VERIFIE QUE LA COMMISSION EST ACTIVÉE
-    public function checkCommission(){
+    private function checkCommission(){
         if( $this->getTheCommission() === null ){
             return $this->redirectToRoute('oif_core_homepage');
         }

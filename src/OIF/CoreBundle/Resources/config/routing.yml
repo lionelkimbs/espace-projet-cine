@@ -18,3 +18,8 @@ oif_core_contact:
     path:     /contact
     defaults: { _controller: OIFCoreBundle:Core:contact }
 
+
+## Partie ADMIN
+oif_core_admin:
+    path:     /admin
+    defaults: { _controller: OIFCoreBundle:Core:contact }

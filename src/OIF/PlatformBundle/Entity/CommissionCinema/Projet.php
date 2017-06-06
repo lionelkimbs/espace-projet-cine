@@ -204,7 +204,7 @@ class Projet
      */
     protected $financements;
     /**
-     * @ORM\ManyToOne(targetEntity="OIF\PlatformBundle\Entity\Commission")
+     * @ORM\ManyToOne(targetEntity="OIF\PlatformBundle\Entity\Commission", inversedBy="projetsCinemas")
      * @ORM\JoinColumn(nullable=false)
      */
     private $commission;

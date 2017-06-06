@@ -10,13 +10,14 @@ use Symfony\Component\HttpFoundation\Request;
 class CommissionController extends Controller{
 /////// PAGE D'ACCUEIL DEPOT PROJET COMMISSION ///
     public function viewAction(Request $request, $id){
+        $this->notAdmin();
+
         $em = $this->getDoctrine()->getManager();
         $commission = $em->getRepository('OIFPlatformBundle:Commission')->find($id);
         if( $commission  === null ){
             $request->getSession()->getFlashBag()->add('notice', 'Cette commission n\'existe pas !');
             return $this->redirectToRoute('oif_core_homepage');
         }
-
         $formulaire= $this->createForm(CommissionType::class, $commission);
         if( $request->isMethod('POST') && $formulaire->handleRequest($request)->isValid() ) {
             $em = $this->getDoctrine()->getManager();
@@ -32,6 +33,8 @@ class CommissionController extends Controller{
 
 /////// Créer une commission ///
         public function createAction(Request $request){
+            $this->notAdmin();
+
             $commission = new Commission();
             $formulaire = $this->createForm(CommissionType::class, $commission);
 
@@ -51,6 +54,8 @@ class CommissionController extends Controller{
 
 /////// Delete une commission ///
     public function deleteAction(Request $request, $id){
+        $this->notAdmin();
+
         $em = $this->getDoctrine()->getManager();
         $commission = $em->getRepository('OIFPlatformBundle:Commission')->find($id);
         if( $commission  === null ){
@@ -63,4 +68,21 @@ class CommissionController extends Controller{
         return $this->redirectToRoute('oif_core_homepage');
     }
 
+/////// LISTES TOUTES LES COMMISSIONS ///
+    public function showAllAction(Request $request){
+        $this->notAdmin();
+        $em = $this->getDoctrine()->getManager();
+        $commissions = $em->getRepository(Commission::class)->findAll();
+        return $this->render('OIFPlatformBundle:Commission:all_commissions.html.twig', [
+            'commissions' => $commissions
+        ]);
+    }
+
+/////// SI L'UTILISATEUR N'EST PAS ADMIN ///
+    private function notAdmin(){
+        if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
+            return $this->redirectToRoute('oif_core_homepage');
+        }
+        else return;
+    }
 }
