@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}Images francophones{% endblock %}</title>
+
+    {% block stylesheets %}
+        {# On charge le CSS de bootstrap depuis le site directement #}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    {% endblock %}
+
+    <style type="text/css">
+        .marge{
+            margin-bottom: 24px ;
+        }
+    </style>
+</head>
+
+<body>
+
+
+<div class="container">
+
+    <div class="row marge">
+        <div class="col-md-12">
+            <div class="pull-right">
+                <h4 class="media-heading">Fonds Image de la Francophonie</h4>
+                <h5>
+                    <small>Commission cinéma du {{ projet.commission.dateDeb|date('d/m') }} au {{ projet.commission.dateFin|date('d/m/Y') }}
+                    </small>
+                </h5>
+            </div>
+            <div class="pull-right">
+                <a href="{{ path('oif_core_homepage') }}" title="Tableau de bord">
+                    <img  class="media-object" src="http://www.spla.pro/gestion_oif/02_medias/01_interface/logo_bas.gif"/>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    {##### IDENTITÉ #}
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <b>CE PROJET A ÉTÉ SOUMIS PAR</b>
+        </div>
+        <div class="panel-body">
+            <table class="table table-user-information">
+                <tbody>
+                {## Nom #}
+                <tr>
+                    <td>Nom(s) :</td>
+                    <td>
+                        <b>{{ projet.user.name }}</b>
+                    </td>
+                </tr>
+                {## Prénom #}
+                <tr>
+                    <td>Prénom(s) :</td>
+                    <td>
+                        <b>{{ projet.user.firstname }}</b>
+                    </td>
+                </tr>
+                {## Téléphone #}
+                <tr>
+                    <td>Téléphone et/ou portable :</td>
+                    <td>
+                        <b>{{ projet.user.phone }} / {{ projet.user.cellular }}</b>
+                    </td>
+                </tr>
+                {## Email #}
+                <tr>
+                    <td>Adresse électronique :</td>
+                    <td>
+                        <b>{{ projet.user.email }}</b>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    {##### DÉTAILS #}
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <b>RÉCAPITULATIF DU PROJET</b>
+        </div>
+        <div class="panel-body">
+            <table class="table table-user-information">
+                <tbody>
+                {## Type d'intervention #}
+                <tr>
+                    <td>Type d'intervention</td>
+                    <td>
+                        {% if projet.typeIntervention == 1 %} <b>Aide à la production</b>
+                        {% elseif projet.typeIntervention == 2 %} <b>Aide à la finition</b>
+                        {% endif %}
+                    </td>
+                </tr>
+                {## Genre #}
+                <tr>
+                    <td>Genre :</td>
+                    <td>
+                        {% if projet.genre == 1 %} <b>Fiction</b>
+                        {% elseif projet.genre == 2 %} <b>Animation</b>
+                        {% endif %}
+                    </td>
+                </tr>
+                {## Format #}
+                <tr>
+                    <td>Format</td>
+                    <td>
+                        {% if projet.format == 1 %} <b>Court-métrage (- de 30')</b>
+                        {% elseif projet.format == 2 %} <b>Moyen-métrage (30' à 60')</b>
+                        {% elseif projet.format == 3 %} <b>Long-métrage (+ de 60')</b>
+                        {% endif %}
+                    </td>
+                </tr>
+                {## Durée #}
+                <tr>
+                    <td>Durée</td>
+                    <td>
+                        <b>{{ projet.duree }} minutes</b>
+                    </td>
+                </tr>
+                {## Titre #}
+                <tr class="active">
+                    <td>Titre</td>
+                    <td>
+                        <b>{{ projet.titre }}</b>
+                    </td>
+                </tr>
+                {## Réalisateur #}
+                <tr>
+                    <td>Réalisateur</td>
+                    <td>
+                        <b>{{ projet.realisateur }}</b>
+                    </td>
+                </tr>
+                {## Pays du réalisateur #}
+                <tr>
+                    <td>Pays du réalisateur</td>
+                    <td>
+                        <b>{{ projet.paysRealisateur.libelle }}</b>
+                    </td>
+                </tr>
+                {## Année de naissance #}
+                <tr>
+                    <td>Année de naissance</td>
+                    <td>
+                        <b>{{ projet.anneeNaissance }}</b>
+                    </td>
+                </tr>
+                {## Date de début du projet #}
+                <tr>
+                    <td>Date de début du projet :</td>
+                    <td>
+                        <b>{{ projet.dateDeb|date('d/m/Y') }}</b>
+                    </td>
+                </tr>
+                {## Date de fin du projet #}
+                <tr>
+                    <td>Date de fin du projet :</td>
+                    <td>
+                        <b>{{ projet.dateFin|date('d/m/Y') }}</b>
+                    </td>
+                </tr>
+                {## Support de tournage prévu #}
+                <tr>
+                    <td>Support de tournage prévu</td>
+                    <td>
+                        <b>{{ projet.support }}</b>
+                    </td>
+                </tr>
+                {## Standard de projection ou de diffusion prévu #}
+                <tr>
+                    <td>Standard de projection ou de diffusion prévu</td>
+                    <td>
+                        <b>{{ projet.standard }}</b>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <br>
+                    </td>
+                </tr>
+
+                {## Nom de structure #}
+                <tr>
+                    <td>Nom de la structure</td>
+                    <td>
+                        <b>{{ projet.nomStructure }}</b>
+                    </td>
+                </tr>
+                {## Type de structure #}
+                <tr>
+                    <td>Type de structure</td>
+                    <td>
+                        {% if projet.typeStructure == 0 %} <b>SA (Société anonyme)</b>
+                        {% elseif projet.typeStructure == 1 %} <b>SARL ou SPRL (société à responsabilité limitée)</b>
+                        {% elseif projet.typeStructure == 2 %} <b>EURL (Entreprise unipersonnelle à responsabilité limitée)</b>
+                        {% elseif projet.typeStructure == 3 %} <b>Organisme public gérant une chaîne de télévision</b>
+                        {% endif %}
+                    </td>
+                </tr>
+                {## Adresse de la structure #}
+                <tr>
+                    <td>Adresse de la structure :</td>
+                    <td>
+                        <b>{{ projet.adresseStructure }}</b>
+                    </td>
+                </tr>
+                {## Ville #}
+                <tr>
+                    <td>Ville :</td>
+                    <td>
+                        <b>{{ projet.villeStructure }}</b>
+                    </td>
+                </tr>
+                {## Pays #}
+                <tr>
+                    <td>Pays :</td>
+                    <td>
+                        <b>{{ projet.paysStructure.libelle }}</b>
+                    </td>
+                </tr>
+                {## Responsable #}
+                <tr>
+                    <td>Responsable :</td>
+                    <td>
+                        <b>{{ projet.prenomResponsable }} {{ projet.nomResponsable }}</b>
+                    </td>
+                </tr>
+                {## Téléphone #}
+                <tr>
+                    <td>Téléphone :</td>
+                    <td>
+                        <b>{{ projet.telResponsable }}</b>
+                    </td>
+                </tr>
+                {## Email #}
+                <tr>
+                    <td>Adresse électronique :</td>
+                    <td>
+                        <b>{{ projet.emailResponsable }}</b>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <br>
+                    </td>
+                </tr>
+
+                {## Coût total du projet #}
+                <tr>
+                    <td>Coût total du projet :</td>
+                    <td>
+                        <b>{{ projet.coutTotal }} €</b>
+                    </td>
+                </tr>
+                {## Montant demandé à l'OIF #}
+                <tr>
+                    <td>Montant demandé à l'OIF :</td>
+                    <td>
+                        <b>{{ projet.montantDemande }} €</b>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    {##### PLAN DE FINANCEMENT #}
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <b>PLAN DE FINANCEMENT</b>
+        </div>
+        <div class="panel-body">
+            {% if projet.financements is not empty %}
+            {% set acquis = 0 %}
+            <table class="table table-user-information">
+                <tbody>
+                {% for financement in projet.financements %}
+                <tr>
+                    <td> {{ financement.partenaire }} </td>
+                    <td>
+                        <b>{{ financement.montant }} €</b>
+                        {% set acquis = acquis + financement.montant %}
+                    </td>
+                    <td>
+                        {% if financement.negociation == 0 %} <b>Prévu</b>
+                        {% else %}
+                            <b>Acquis</b>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+                <tr class="active">
+                    <td colspan="3" class="text-center">
+                        <b>Pourcentage des financements acquis par rapport au budget global : {{ ( acquis * 100 ) / projet.coutTotal }} %</b>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            {% endif %}
+        </div>
+    </div>
+
+    {##### LIENS #}
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <b>LIENS</b>
+        </div>
+        <div class="panel-body">
+            {% if projet.liens is not empty %}
+            <table class="table table-user-information">
+                <tbody>
+                {% for link in projet.liens %}
+                <tr>
+                    <td> <b>{{ link.titre }}</b> </td>
+                    <td> <a href="{{ link.lien }}" target="_blank" title="Suivre le lien">{{ link.lien }}</a> </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            {% endif %}
+        </div>
+    </div>
+
+    <hr>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -93,6 +93,28 @@ oif_platform_cinema_deleteFichier:
     requirements:
         id: \d+
 
+#--- Télécharger un projet
+oif_platform_cinema_download:
+    path: /commission-cinema/download-{id}
+    defaults:
+        _controller: OIFPlatformBundle:CommissionCinema:download
+    requirements:
+        id: \d+
+
+#--- Show PDF
+oif_platform_cinema_pdf:
+    path: /commission-cinema/pdf-{id}
+    defaults:
+        _controller: OIFPlatformBundle:CommissionCinema:pdfshow
+    requirements:
+        id: \d+
+oif_platform_documentaireserie_pdf:
+    path: /commission-documentaireserie/pdf-{id}
+    defaults:
+        _controller: OIFPlatformBundle:CommissionDocumentaireSerie:pdfshow
+    requirements:
+        id: \d+
+
 
 
 ######### # COMMISSION documentaireserie # #########
@@ -104,7 +126,6 @@ oif_platform_documentaireserie:
 oif_platform_documentaireserie_add:
     path:     /commission-documentaireserie/add
     defaults: { _controller: OIFPlatformBundle:CommissionDocumentaireSerie:add }
-
 #--- Vue projet
 oif_platform_documentaireserie_view:
     path:     /commission-documentaireserie/projet-{id}
@@ -112,7 +133,6 @@ oif_platform_documentaireserie_view:
         _controller: OIFPlatformBundle:CommissionDocumentaireSerie:view
     requirements:
         id: \d+
-
 #--- Modifier projet
 oif_platform_documentaireserie_edit_fiche:
     path:     /commission-documentaireserie/edit-fiche-{id}
@@ -120,7 +140,6 @@ oif_platform_documentaireserie_edit_fiche:
         _controller: OIFPlatformBundle:CommissionDocumentaireSerie:editFiche
     requirements:
         id: \d+
-
 #--- Supprimer projet
 oif_platform_documentaireserie_delete_fiche:
     path:     /commission-documentaireserie/delete-fiche-{id}
@@ -165,5 +184,13 @@ oif_platform_documentaireserie_addFichier:
 oif_platform_documentaireserie_deleteFichier:
     path:     /commission-documentaireserie/delete-fichier-{id}
     defaults: { _controller: OIFPlatformBundle:CommissionDocumentaireSerie:deleteFichier }
+    requirements:
+        id: \d+
+
+#--- Télécharger un projet
+oif_platform_documentaireserie_download:
+    path: /commission-documentaireserie/download-{id}
+    defaults:
+        _controller: OIFPlatformBundle:CommissionDocumentaireSerie:download
     requirements:
         id: \d+

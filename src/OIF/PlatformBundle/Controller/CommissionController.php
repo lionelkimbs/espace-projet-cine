@@ -8,7 +8,28 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 class CommissionController extends Controller{
-/////// PAGE D'ACCUEIL DEPOT PROJET COMMISSION ///
+/////// Créer une commission ///
+    public function createAction(Request $request){
+        $this->notAdmin();
+
+        $commission = new Commission();
+        $formulaire = $this->createForm(CommissionType::class, $commission);
+
+        if( $request->isMethod('POST') && $formulaire->handleRequest($request)->isValid() ) {
+            //On vérifie si une commission du même type est activée et on la désactive
+            $em = $this->getDoctrine()->getManager();
+            $em->getRepository('OIFPlatformBundle:Commission')->changeCommission($commission->getType());
+            $em->persist($commission);
+            $em->flush();
+            $request->getSession()->getFlashBag()->add('notice', 'Commission créee !');
+            //return $this->redirectToRoute('oif_core_homepage');
+        }
+        return $this->render('OIFPlatformBundle:Commission:create.html.twig', [
+            'form' => $formulaire->createView()
+        ]);
+    }
+
+/////// COMMISSION View ///
     public function viewAction(Request $request, $id){
         $this->notAdmin();
 
@@ -31,27 +52,6 @@ class CommissionController extends Controller{
         ]);
     }
 
-/////// Créer une commission ///
-        public function createAction(Request $request){
-            $this->notAdmin();
-
-            $commission = new Commission();
-            $formulaire = $this->createForm(CommissionType::class, $commission);
-
-            if( $request->isMethod('POST') && $formulaire->handleRequest($request)->isValid() ) {
-                //On vérifie si une commission du même type est activée et on la désactive
-                $em = $this->getDoctrine()->getManager();
-                $em->getRepository('OIFPlatformBundle:Commission')->changeCommission($commission->getType());
-                $em->persist($commission);
-                $em->flush();
-                $request->getSession()->getFlashBag()->add('notice', 'Commission créee !');
-                //return $this->redirectToRoute('oif_core_homepage');
-            }
-            return $this->render('OIFPlatformBundle:Commission:create.html.twig', [
-                'form' => $formulaire->createView()
-            ]);
-        }
-
 /////// Delete une commission ///
     public function deleteAction(Request $request, $id){
         $this->notAdmin();
@@ -69,7 +69,7 @@ class CommissionController extends Controller{
     }
 
 /////// LISTES TOUTES LES COMMISSIONS ///
-    public function showAllAction(Request $request){
+    public function showAllAction(){
         $this->notAdmin();
         $em = $this->getDoctrine()->getManager();
         $commissions = $em->getRepository(Commission::class)->findAll();
@@ -80,7 +80,7 @@ class CommissionController extends Controller{
 
 /////// SI L'UTILISATEUR N'EST PAS ADMIN ///
     private function notAdmin(){
-        if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
+        if (!$this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
             return $this->redirectToRoute('oif_core_homepage');
         }
         else return;

@@ -3,6 +3,8 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/vendor/coresphere/console-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/knplabs/knp-snappy" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/knplabs/knp-snappy-bundle" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -24,9 +26,13 @@
       <library name="PHP" type="php">
         <CLASSES>
           <root url="file://$MODULE_DIR$/vendor/coresphere/console-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/knplabs/knp-snappy" />
+          <root url="file://$MODULE_DIR$/vendor/knplabs/knp-snappy-bundle" />
         </CLASSES>
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/coresphere/console-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/knplabs/knp-snappy" />
+          <root url="file://$MODULE_DIR$/vendor/knplabs/knp-snappy-bundle" />
         </SOURCES>
       </library>
     </orderEntry>
